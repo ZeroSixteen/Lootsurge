@@ -1,0 +1,414 @@
+{
+  "_comment": "Illagers and ravagers: raid-style loot with crossbows, emeralds and totems.",
+  "entities": [
+    "minecraft:pillager",
+    "minecraft:vindicator",
+    "minecraft:evoker",
+    "minecraft:illusioner",
+    "minecraft:ravager"
+  ],
+  "dropChance": 0.22,
+  "entries": [
+    {
+      "item": "minecraft:emerald",
+      "tiers": [
+        "common"
+      ],
+      "weight": 10,
+      "count": {
+        "min": 1,
+        "max": 4
+      }
+    },
+    {
+      "item": "minecraft:arrow",
+      "tiers": [
+        "common"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 4,
+        "max": 10
+      }
+    },
+    {
+      "item": "minecraft:wheat",
+      "tiers": [
+        "common"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 2,
+        "max": 5
+      }
+    },
+    {
+      "item": "minecraft:bread",
+      "tiers": [
+        "common"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:iron_axe",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.5
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.4
+        }
+      ],
+      "damage": {
+        "min": 0.3,
+        "max": 0.8
+      }
+    },
+    {
+      "item": "minecraft:crossbow",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:quick_charge",
+          "minLevel": 1,
+          "maxLevel": 1,
+          "chance": 0.5
+        }
+      ],
+      "damage": {
+        "min": 0.3,
+        "max": 0.8
+      }
+    },
+    {
+      "item": "minecraft:emerald",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "item": "minecraft:firework_rocket",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "item": "minecraft:crossbow",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:quick_charge",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.8
+        },
+        {
+          "id": "minecraft:piercing",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.6
+        },
+        {
+          "id": "minecraft:multishot",
+          "minLevel": 1,
+          "maxLevel": 1,
+          "chance": 0.3
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.5
+        }
+      ],
+      "maxEnchantments": 3,
+      "damage": {
+        "min": 0.1,
+        "max": 0.5
+      }
+    },
+    {
+      "item": "minecraft:iron_axe",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 2,
+          "maxLevel": 4,
+          "chance": 0.8
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.5
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.1,
+        "max": 0.5
+      }
+    },
+    {
+      "item": "minecraft:ominous_bottle",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 3
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:quick_charge",
+          "minLevel": 1,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:piercing",
+          "minLevel": 1,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:multishot",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 2,
+          "maxLevel": 4
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5
+    },
+    {
+      "item": "minecraft:emerald",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 10,
+        "max": 24
+      }
+    },
+    {
+      "item": "minecraft:diamond_axe",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "chance": 0.9
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "chance": 0.6
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.8
+        }
+      ],
+      "maxEnchantments": 3,
+      "damage": {
+        "min": 0.0,
+        "max": 0.3
+      }
+    },
+    {
+      "item": "minecraft:crossbow",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:quick_charge",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:multishot",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:piercing",
+          "minLevel": 3,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3
+        }
+      ],
+      "maxEnchantments": 4,
+      "damage": {
+        "min": 0.0,
+        "max": 0.3
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:multishot",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:piercing",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:quick_charge",
+          "minLevel": 3,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:ominous_trial_key",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3
+    },
+    {
+      "item": "minecraft:netherite_axe",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:emerald_block",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 2,
+        "max": 5
+      }
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 2,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    }
+  ]
+}

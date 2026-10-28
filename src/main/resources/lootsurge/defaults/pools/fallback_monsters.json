@@ -1,0 +1,361 @@
+{
+  "_comment": "Safe fallback for any hostile mob that has no pool of its own (mods included). Passive animals never use it unless fallbackMonstersOnly is false.",
+  "fallback": true,
+  "dropChance": 0.04,
+  "entries": [
+    {
+      "item": "minecraft:iron_nugget",
+      "tiers": [
+        "common"
+      ],
+      "weight": 8,
+      "count": {
+        "min": 2,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:bread",
+      "tiers": [
+        "common"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:coal",
+      "tiers": [
+        "common"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 2,
+        "max": 4
+      }
+    },
+    {
+      "item": "minecraft:arrow",
+      "tiers": [
+        "common"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:gold_ingot",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:experience_bottle",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:cooked_beef",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 2,
+        "max": 4
+      }
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.5
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.5
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.2,
+        "max": 0.7
+      }
+    },
+    {
+      "item": "minecraft:iron_chestplate",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.7
+        }
+      ],
+      "damage": {
+        "min": 0.2,
+        "max": 0.7
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 1,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 1,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 1,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:diamond",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:golden_apple",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 4
+    },
+    {
+      "item": "minecraft:diamond_sword",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 2,
+          "maxLevel": 4,
+          "chance": 0.7
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.7
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.0,
+        "max": 0.4
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 4,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 2,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 4
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3
+    },
+    {
+      "item": "minecraft:netherite_scrap",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:netherite_ingot",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:netherite_sword",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 2,
+      "enchantments": [
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:looting",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    }
+  ]
+}

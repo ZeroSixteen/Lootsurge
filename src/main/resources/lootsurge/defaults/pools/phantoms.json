@@ -1,0 +1,249 @@
+{
+  "_comment": "Phantom: flight themed loot including elytra at higher tiers.",
+  "entities": [
+    "minecraft:phantom"
+  ],
+  "dropChance": 0.2,
+  "entries": [
+    {
+      "item": "minecraft:phantom_membrane",
+      "tiers": [
+        "common"
+      ],
+      "weight": 10,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:feather",
+      "tiers": [
+        "common"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 2,
+        "max": 5
+      }
+    },
+    {
+      "item": "minecraft:firework_rocket",
+      "tiers": [
+        "common",
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 2,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:phantom_membrane",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 3,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:leather_helmet",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 3,
+      "damage": {
+        "min": 0.2,
+        "max": 0.7
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 2,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:diamond_boots",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 2,
+          "maxLevel": 4,
+          "chance": 0.9
+        }
+      ],
+      "damage": {
+        "min": 0.1,
+        "max": 0.5
+      }
+    },
+    {
+      "item": "minecraft:elytra",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.7
+        }
+      ],
+      "damage": {
+        "min": 0.2,
+        "max": 0.6
+      }
+    },
+    {
+      "item": "minecraft:firework_rocket",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 8,
+        "max": 16
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:elytra",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.0,
+        "max": 0.2
+      }
+    },
+    {
+      "item": "minecraft:netherite_boots",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:elytra",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 2
+    },
+    {
+      "item": "minecraft:firework_rocket",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 32,
+        "max": 64
+      }
+    }
+  ]
+}

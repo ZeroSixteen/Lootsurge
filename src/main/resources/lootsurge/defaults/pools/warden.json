@@ -1,0 +1,317 @@
+{
+  "_comment": "Warden boss pool. Always rolls, with a heavy bias toward better tiers.",
+  "entities": [
+    "minecraft:warden"
+  ],
+  "dropChance": 1.0,
+  "tierWeights": {
+    "common": 0.0,
+    "uncommon": 0.3,
+    "rare": 1.0,
+    "epic": 3.0,
+    "legendary": 6.0,
+    "mythic": 12.0
+  },
+  "entries": [
+    {
+      "item": "minecraft:echo_shard",
+      "tiers": [
+        "uncommon",
+        "rare"
+      ],
+      "weight": 8,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:sculk",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 4,
+        "max": 12
+      }
+    },
+    {
+      "item": "minecraft:experience_bottle",
+      "tiers": [
+        "uncommon",
+        "rare"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 6,
+        "max": 14
+      }
+    },
+    {
+      "item": "minecraft:sculk_catalyst",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:sculk_shrieker",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 4
+    },
+    {
+      "item": "minecraft:disc_fragment_5",
+      "tiers": [
+        "rare",
+        "epic"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:diamond_chestplate",
+      "tiers": [
+        "rare",
+        "epic"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 4,
+          "chance": 0.9
+        },
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.1
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.8
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.0,
+        "max": 0.3
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "rare",
+        "epic"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 2,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 4
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:netherite_ingot",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:echo_shard",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 3,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:netherite_leggings",
+      "tiers": [
+        "epic",
+        "legendary"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:netherite_chestplate",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:thorns",
+          "minLevel": 3,
+          "maxLevel": 3
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:netherite_ingot",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 3,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 2,
+        "max": 4
+      }
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 2,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:netherite_leggings",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    }
+  ]
+}

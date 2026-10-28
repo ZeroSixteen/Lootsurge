@@ -1,0 +1,313 @@
+{
+  "_comment": "Breeze and Creaking: wind charges, resin and maces.",
+  "entities": [
+    "minecraft:breeze",
+    "minecraft:creaking"
+  ],
+  "dropChance": 0.18,
+  "entries": [
+    {
+      "item": "minecraft:wind_charge",
+      "tiers": [
+        "common"
+      ],
+      "weight": 8,
+      "count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "item": "minecraft:breeze_rod",
+      "tiers": [
+        "common",
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:resin_clump",
+      "tiers": [
+        "common"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 2,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:stick",
+      "tiers": [
+        "common"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 2,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:resin_brick",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 2,
+        "max": 5
+      }
+    },
+    {
+      "item": "minecraft:trial_key",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 4
+    },
+    {
+      "item": "minecraft:copper_ingot",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "item": "minecraft:iron_axe",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.6
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.5
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.1,
+        "max": 0.5
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:wind_burst",
+          "minLevel": 1,
+          "maxLevel": 2
+        },
+        {
+          "id": "minecraft:density",
+          "minLevel": 1,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:breach",
+          "minLevel": 1,
+          "maxLevel": 2
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:ominous_trial_key",
+      "tiers": [
+        "rare",
+        "epic"
+      ],
+      "weight": 3
+    },
+    {
+      "item": "minecraft:mace",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:density",
+          "minLevel": 2,
+          "maxLevel": 4,
+          "chance": 0.8
+        },
+        {
+          "id": "minecraft:breach",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.6
+        },
+        {
+          "id": "minecraft:wind_burst",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.6
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.7
+        }
+      ],
+      "maxEnchantments": 3,
+      "damage": {
+        "min": 0.0,
+        "max": 0.3
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:wind_burst",
+          "minLevel": 2,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:density",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:breach",
+          "minLevel": 2,
+          "maxLevel": 4
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:mace",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:density",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:breach",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:wind_burst",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 5
+    },
+    {
+      "item": "minecraft:ominous_trial_key",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3
+    },
+    {
+      "item": "minecraft:mace",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:density",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:breach",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:wind_burst",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 6
+    },
+    {
+      "item": "minecraft:heavy_core",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 4
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3
+    }
+  ]
+}

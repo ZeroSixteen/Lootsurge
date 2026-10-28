@@ -1,0 +1,20 @@
+# One pool file name per line. Used to copy the defaults on first launch.
+zombies.json
+drowned.json
+skeletons.json
+wither_skeletons.json
+creepers.json
+spiders.json
+witches.json
+endermen.json
+blaze_ghast.json
+nether_brutes.json
+illagers.json
+guardians.json
+warden.json
+wither.json
+slimes.json
+phantoms.json
+end_dwellers.json
+trial_and_pale.json
+fallback_monsters.json

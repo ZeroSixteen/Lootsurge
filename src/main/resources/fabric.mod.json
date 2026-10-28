@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "lootsurge",
+	"version": "${version}",
+	"name": "Loot Surge",
+	"description": "Tiered bonus mob loot with rarity sounds, light pillars and jackpot effects. Vanilla drops stay untouched. Created by ZeroSixteen.",
+	"authors": [
+		"ZeroSixteen"
+	],
+	"license": "MIT",
+	"icon": "assets/lootsurge/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.zerosixteen.lootsurge.LootSurgeMod"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

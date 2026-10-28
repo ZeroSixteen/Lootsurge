@@ -1,0 +1,359 @@
+{
+  "_comment": "Spiders: string, arthropod-slaying blades and sneaky leggings.",
+  "entities": [
+    "minecraft:spider",
+    "minecraft:cave_spider"
+  ],
+  "dropChance": 0.1,
+  "entries": [
+    {
+      "item": "minecraft:string",
+      "tiers": [
+        "common"
+      ],
+      "weight": 10,
+      "count": {
+        "min": 2,
+        "max": 6
+      }
+    },
+    {
+      "item": "minecraft:spider_eye",
+      "tiers": [
+        "common"
+      ],
+      "weight": 8,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:cobweb",
+      "tiers": [
+        "common",
+        "uncommon"
+      ],
+      "weight": 5,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:slime_ball",
+      "tiers": [
+        "common"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "item": "minecraft:fermented_spider_eye",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 6,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:lead",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 4,
+      "count": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "item": "minecraft:fishing_rod",
+      "tiers": [
+        "uncommon"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:lure",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.5
+        }
+      ],
+      "damage": {
+        "min": 0.2,
+        "max": 0.7
+      }
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:bane_of_arthropods",
+          "minLevel": 2,
+          "maxLevel": 4,
+          "chance": 0.9
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.5
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.1,
+        "max": 0.5
+      }
+    },
+    {
+      "item": "minecraft:iron_leggings",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 1,
+          "maxLevel": 2,
+          "chance": 0.7
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 1,
+          "maxLevel": 3,
+          "chance": 0.5
+        }
+      ],
+      "maxEnchantments": 2,
+      "damage": {
+        "min": 0.1,
+        "max": 0.5
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "rare"
+      ],
+      "weight": 6,
+      "enchantments": [
+        {
+          "id": "minecraft:bane_of_arthropods",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 1,
+          "maxLevel": 2
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 3
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:diamond_sword",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:bane_of_arthropods",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "chance": 0.9
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.5
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.7
+        }
+      ],
+      "maxEnchantments": 3,
+      "damage": {
+        "min": 0.0,
+        "max": 0.3
+      }
+    },
+    {
+      "item": "minecraft:diamond_leggings",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.9
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 2,
+          "maxLevel": 4,
+          "chance": 0.7
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 2,
+          "maxLevel": 3,
+          "chance": 0.7
+        }
+      ],
+      "maxEnchantments": 3,
+      "damage": {
+        "min": 0.0,
+        "max": 0.3
+      }
+    },
+    {
+      "item": "minecraft:enchanted_book",
+      "tiers": [
+        "epic"
+      ],
+      "weight": 5,
+      "enchantments": [
+        {
+          "id": "minecraft:bane_of_arthropods",
+          "minLevel": 4,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 3,
+          "maxLevel": 5
+        }
+      ],
+      "pick": "one"
+    },
+    {
+      "item": "minecraft:netherite_leggings",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 4,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:netherite_sword",
+      "tiers": [
+        "legendary"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:bane_of_arthropods",
+          "minLevel": 5,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:sharpness",
+          "minLevel": 4,
+          "maxLevel": 5
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:netherite_leggings",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3,
+      "enchantments": [
+        {
+          "id": "minecraft:swift_sneak",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 4
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 3,
+          "maxLevel": 3
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "maxEnchantments": 4
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "tiers": [
+        "mythic"
+      ],
+      "weight": 3
+    }
+  ]
+}
