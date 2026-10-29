@@ -99,6 +99,24 @@ final class LootEntry {
 		return stack;
 	}
 
+	/** A display copy for the creative tab and /lootsurge give: every enchantment at its top level, no randomness. */
+	ItemStack createShowcase() {
+		ItemStack stack = new ItemStack(item, 1);
+		if (name != null) {
+			stack.set(DataComponents.CUSTOM_NAME, name.copy());
+		}
+		if (uniqueId != null) {
+			CompoundTag tag = new CompoundTag();
+			tag.putBoolean(UniquePowers.KEY_PREFIX + uniqueId, true);
+			stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+		}
+		for (EnchantSpec spec : enchants) {
+			int cap = spec.overcap() ? 255 : Math.max(1, spec.holder().value().getMaxLevel());
+			stack.enchant(spec.holder(), Math.max(1, Math.min(spec.maxLevel(), cap)));
+		}
+		return stack;
+	}
+
 	private static void apply(ItemStack stack, EnchantSpec spec, Random rnd) {
 		int cap = spec.overcap() ? 255 : Math.max(1, spec.holder().value().getMaxLevel());
 		int max = Math.max(1, Math.min(spec.maxLevel(), cap));

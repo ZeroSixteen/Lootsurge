@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
@@ -43,11 +44,19 @@ public final class LootSurgeMod implements ModInitializer {
 			uniques.clear();
 		});
 
+		// /lootsurge commands and the creative tab with every Unique.
+		LootSurgeCommands commands = new LootSurgeCommands(engine);
+		CommandRegistrationCallback.EVENT.register((dispatcher, buildContext, environment) -> commands.register(dispatcher));
+		UniqueTab.register();
+
 		// Fires once per living entity death, after vanilla has already handled its own drops.
 		ServerLivingEntityEvents.AFTER_DEATH.register(engine::onDeath);
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			effects.tick();
 			uniques.tick(server);
+			if (ConfigFile.RELOAD_REQUESTED.getAndSet(false)) {
+				engine.reload(server);
+			}
 		});
 
 		// Unique item powers: immunities, on-hit effects, and right-click fireballs.

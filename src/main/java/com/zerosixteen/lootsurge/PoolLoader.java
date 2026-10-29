@@ -127,7 +127,7 @@ final class PoolLoader {
 		return new LootPool(file.substring(0, file.length() - 5), entities, fallback, dropChance, tierWeights, entries);
 	}
 
-	private static LootEntry parseEntry(String file, int index, JsonObject o,
+	static LootEntry parseEntry(String file, int index, JsonObject o,
 			HolderLookup.RegistryLookup<Enchantment> enchantLookup, Logger log) {
 		String where = file + " entries[" + index + "]";
 		Layered c = new Layered(o, null);

@@ -54,6 +54,11 @@ final class Defaults {
 		}
 	}
 
+	/** Text of a bundled default file, e.g. "pools/_index.txt", or null. */
+	static String readBundledText(String relative) {
+		return readText(ROOT + relative, LootSurgeMod.LOGGER);
+	}
+
 	private static String readText(String resourcePath, Logger log) {
 		try (InputStream in = Defaults.class.getResourceAsStream(resourcePath)) {
 			if (in == null) {

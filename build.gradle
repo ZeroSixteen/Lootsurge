@@ -41,6 +41,9 @@ jar {
 	def projectName = project.name
 	inputs.property "projectName", projectName
 
+	// Compile-time copies of Mod Menu's API; the real Mod Menu provides these at runtime. Never ship them.
+	exclude "com/terraformersmc/**"
+
 	from("LICENSE") {
 		rename { "${it}_$projectName" }
 	}

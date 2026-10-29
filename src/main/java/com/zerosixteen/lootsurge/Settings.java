@@ -18,20 +18,20 @@ import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 
 /** The validated contents of config.json. */
-final class Settings {
+public final class Settings {
 	static final String DEFAULT_CONFIG_RESOURCE = "/lootsurge/defaults/config.json";
 
-	boolean enabled = true;
-	boolean requirePlayerKill = true;
-	boolean skipBabyMobs = true;
+	public boolean enabled = true;
+	public boolean requirePlayerKill = true;
+	public boolean skipBabyMobs = true;
 	boolean fallbackMonstersOnly = true;
-	boolean debugLogging = false;
-	double globalChanceMultiplier = 1.0;
-	int maxActivePillars = 8;
+	public boolean debugLogging = false;
+	public double globalChanceMultiplier = 1.0;
+	public int maxActivePillars = 8;
 	Set<String> excludedEntities = new HashSet<>();
 	final EnumMap<Tier, TierSettings> tiers = new EnumMap<>(Tier.class);
 
-	static Settings load(Path file, Logger log) {
+	public static Settings load(Path file, Logger log) {
 		JsonObject base = readResource(DEFAULT_CONFIG_RESOURCE, log);
 		JsonObject user = null;
 		if (Files.isRegularFile(file)) {

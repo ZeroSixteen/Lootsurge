@@ -45,6 +45,7 @@ final class LootEngine {
 	private volatile Settings settings;
 	private volatile Map<String, LootPool> byEntity = Map.of();
 	private volatile LootPool fallbackPool;
+	private volatile Map<String, LootEntry> uniqueEntries = Map.of();
 
 	/** Remembers recently handled mobs so one death can never roll twice. Only touched on the server thread. */
 	private final Set<UUID> handled = new LinkedHashSet<>();
@@ -89,6 +90,15 @@ final class LootEngine {
 				}
 			}
 			uniques.setRegistry(uniqueMap);
+			Map<String, LootEntry> entryMap = new java.util.TreeMap<>();
+			for (LootPool pool : pools) {
+				for (LootEntry entry : pool.entries) {
+					if (entry.uniqueId != null) {
+						entryMap.put(entry.uniqueId, entry);
+					}
+				}
+			}
+			this.uniqueEntries = Map.copyOf(entryMap);
 			this.settings = s;
 			this.byEntity = Map.copyOf(map);
 			this.fallbackPool = fallback;
@@ -170,6 +180,16 @@ final class LootEngine {
 		}
 
 		Tier tier = rollTier(s, pool, rnd);
+		String label = key + " killed by " + (killer == null ? "environment" : killer.getName().getString());
+		dropAt(level, entity.getX(), entity.getY(0.5), entity.getZ(), entity.getY(), pool, tier, killer, s, rnd, label);
+	}
+
+	/**
+	 * Rolls and spawns one bonus drop of the given tier (walking down to a lower tier if the pool has nothing for it),
+	 * plays the feedback and announces it. Returns false if nothing dropped.
+	 */
+	private boolean dropAt(ServerLevel level, double x, double y, double z, double feetY, LootPool pool, Tier tier,
+			ServerPlayer killer, Settings s, ThreadLocalRandom rnd, String label) {
 		List<LootEntry> eligible = List.of();
 		while (tier != null) {
 			eligible = pool.entriesFor(tier);
@@ -179,7 +199,7 @@ final class LootEngine {
 			tier = tier.lower();
 		}
 		if (tier == null || eligible.isEmpty()) {
-			return;
+			return false;
 		}
 		TierSettings ts = s.tier(tier);
 
@@ -193,12 +213,9 @@ final class LootEngine {
 			}
 		}
 		if (stacks.isEmpty()) {
-			return;
+			return false;
 		}
 
-		double x = entity.getX();
-		double y = entity.getY(0.5);
-		double z = entity.getZ();
 		List<ItemEntity> spawned = new ArrayList<>();
 		for (ItemStack stack : stacks) {
 			ItemEntity drop = new ItemEntity(level, x, y, z, stack);
@@ -206,9 +223,9 @@ final class LootEngine {
 			drop.setDeltaMovement(new Vec3((rnd.nextDouble() - 0.5) * 0.25, 0.2 + rnd.nextDouble() * 0.1,
 					(rnd.nextDouble() - 0.5) * 0.25));
 			if (ts.itemLabel) {
-				MutableComponent label = Component.literal("[" + ts.displayName + "] ").withStyle(ts.color);
-				label.append(stack.getHoverName().copy().withStyle(ts.color));
-				drop.setCustomName(label);
+				MutableComponent itemLabel = Component.literal("[" + ts.displayName + "] ").withStyle(ts.color);
+				itemLabel.append(stack.getHoverName().copy().withStyle(ts.color));
+				drop.setCustomName(itemLabel);
 				drop.setCustomNameVisible(true);
 			}
 			if (level.addFreshEntity(drop)) {
@@ -216,16 +233,50 @@ final class LootEngine {
 			}
 		}
 		if (spawned.isEmpty()) {
-			return;
+			return false;
 		}
 
-		effects.play(level, x, y, z, entity.getY(), ts, spawned, s.maxActivePillars);
+		effects.play(level, x, y, z, feetY, ts, spawned, s.maxActivePillars);
 		announce(level, killer, ts, stacks);
 
 		if (s.debugLogging) {
-			log.info("[LootSurge] {} killed by {} -> tier {} x{} (pool {}).", key,
-					killer == null ? "environment" : killer.getName().getString(), tier.key(), stacks.size(), pool.name);
+			log.info("[LootSurge] {} -> tier {} x{} (pool {}).", label, tier.key(), stacks.size(), pool.name);
 		}
+		return true;
+	}
+
+	// ------------------------------------------------------------------ used by commands, the creative tab and the options screen
+
+	/** Unique id -> the entry that creates it. */
+	Map<String, LootEntry> uniqueEntries() {
+		return uniqueEntries;
+	}
+
+	/** Spawns a test drop of a tier at the player's feet, using the first pool that has items for that tier. */
+	String testDrop(ServerPlayer player, Tier tier) {
+		Settings s = this.settings;
+		if (s == null || !(player.level() instanceof ServerLevel level)) {
+			return "Loot Surge is not ready yet.";
+		}
+		List<LootPool> candidates = new ArrayList<>();
+		if (fallbackPool != null) {
+			candidates.add(fallbackPool);
+		}
+		candidates.addAll(new LinkedHashSet<>(byEntity.values()));
+		for (LootPool pool : candidates) {
+			if (!pool.entriesFor(tier).isEmpty()) {
+				boolean ok = dropAt(level, player.getX(), player.getY(0.5), player.getZ(), player.getY(), pool, tier,
+						player, s, ThreadLocalRandom.current(), "test drop for " + player.getName().getString());
+				return ok ? null : "Nothing dropped.";
+			}
+		}
+		return "No pool has items for tier " + tier.key() + ".";
+	}
+
+	String summary() {
+		Settings s = this.settings;
+		return s == null ? "not loaded" : (s.enabled ? "enabled" : "DISABLED") + ", " + byEntity.size()
+				+ " mobs covered, " + uniqueEntries.size() + " Uniques loaded";
 	}
 
 	private static Tier rollTier(Settings s, LootPool pool, ThreadLocalRandom rnd) {

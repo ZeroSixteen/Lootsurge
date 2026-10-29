@@ -260,3 +260,28 @@ New config values: `tiers.unique` in `config.json` (same keys as other tiers). I
 - Overcapped items look normal to vanilla clients but may show roman numerals oddly; mods that clamp enchant levels (some anvil or enchant-display mods) can reduce them.
 - Anvils and grindstones may refuse to combine or may reset over-level enchants, depending on other mods. Test before relying on them.
 - A bad enchant ID or item ID is skipped with a log line, not a crash.
+
+## Commands, creative tab and Mod Menu
+
+### `/lootsurge` commands
+
+| Command | Who | What it does |
+|---|---|---|
+| `/lootsurge` or `/lootsurge help` | everyone | shows the command list |
+| `/lootsurge list` | everyone | lists every loaded Unique id and name |
+| `/lootsurge info` | everyone | shows whether the mod is on and how many mobs and Uniques are loaded |
+| `/lootsurge give <unique>` | ops | gives you the Unique with its name, enchants at top level and powers |
+| `/lootsurge test <tier>` | ops | spawns a test drop of that tier at your feet with all its sounds, particles and pillar (`common` ... `mythic`, `unique`) |
+| `/lootsurge reload` | ops | reloads `config.json` and all pool files without restarting |
+
+Press Tab after `give` or `test` to autocomplete ids and tiers. `give` works with Uniques you added yourself in your pool files, not only the defaults.
+
+### Creative tab
+
+A **Loot Surge Uniques** tab (nether star icon) in the creative inventory holds every Unique. It is built from the Uniques bundled in the mod, so custom Uniques you add to your own pool files are available through `/lootsurge give` instead. The tab only appears for players who have the mod installed.
+
+### Mod Menu options screen
+
+If you have Mod Menu installed, open Mods -> Loot Surge -> the config button. It has buttons for bonus loot on/off, require player kill, skip baby mobs, debug logging, the drop chance multiplier and the maximum number of light pillars. Each click saves `config.json` straight away and, in single player, reloads it. Tier odds, sounds and pools are still edited in `config/lootsurge/`.
+
+Mod Menu is optional and is not bundled. The screen only exists on the client and never loads on a dedicated server. If a future Mod Menu release changes its API, only that button is affected; the rest of the mod keeps working.
