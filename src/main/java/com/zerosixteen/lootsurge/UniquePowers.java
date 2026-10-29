@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -166,9 +167,9 @@ final class UniquePowers {
 		if (reg.isEmpty()) {
 			return null;
 		}
-		CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+		CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
 		for (Map.Entry<String, Powers> e : reg.entrySet()) {
-			if (data.contains(KEY_PREFIX + e.getKey())) {
+			if (tag.get(KEY_PREFIX + e.getKey()) != null) {
 				return e.getValue();
 			}
 		}
