@@ -167,9 +167,14 @@ final class UniquePowers {
 		if (reg.isEmpty()) {
 			return null;
 		}
-		CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
+		CustomData data = stack.get(DataComponents.CUSTOM_DATA);
+		if (data == null) {
+			return null;
+		}
 		for (Map.Entry<String, Powers> e : reg.entrySet()) {
-			if (tag.get(KEY_PREFIX + e.getKey()) != null) {
+			CompoundTag probe = new CompoundTag();
+			probe.putBoolean(KEY_PREFIX + e.getKey(), true);
+			if (data.matchedBy(probe)) {
 				return e.getValue();
 			}
 		}
