@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -27,7 +28,8 @@ public final class LootSurgeMod implements ModInitializer {
 		Defaults.install(configDir, LOGGER);
 
 		Effects effects = new Effects();
-		LootEngine engine = new LootEngine(LOGGER, configDir, effects);
+		UniquePowers uniques = new UniquePowers();
+		LootEngine engine = new LootEngine(LOGGER, configDir, effects, uniques);
 
 		// Pools need the server's registries (enchantments), so everything is (re)loaded once a server exists.
 		ServerLifecycleEvents.SERVER_STARTED.register(engine::reload);
@@ -36,11 +38,22 @@ public final class LootSurgeMod implements ModInitializer {
 				engine.reload(server);
 			}
 		});
-		ServerLifecycleEvents.SERVER_STOPPING.register(server -> effects.clear());
+		ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
+			effects.clear();
+			uniques.clear();
+		});
 
 		// Fires once per living entity death, after vanilla has already handled its own drops.
 		ServerLivingEntityEvents.AFTER_DEATH.register(engine::onDeath);
-		ServerTickEvents.END_SERVER_TICK.register(server -> effects.tick());
+		ServerTickEvents.END_SERVER_TICK.register(server -> {
+			effects.tick();
+			uniques.tick(server);
+		});
+
+		// Unique item powers: immunities, on-hit effects, and right-click fireballs.
+		ServerLivingEntityEvents.ALLOW_DAMAGE.register(uniques::allowDamage);
+		ServerLivingEntityEvents.AFTER_DAMAGE.register(uniques::afterDamage);
+		UseItemCallback.EVENT.register(uniques::onUse);
 
 		LOGGER.info("Loot Surge by {} loaded. Config folder: {}", CREATOR, configDir);
 	}

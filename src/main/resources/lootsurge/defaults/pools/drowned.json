@@ -1,324 +1,367 @@
 {
-  "_comment": "Drowned: ocean treasures and tridents.",
-  "entities": [
-    "minecraft:drowned",
-    "minecraft:zombie_nautilus"
-  ],
-  "dropChance": 0.12,
-  "entries": [
-    {
-      "item": "minecraft:prismarine_shard",
-      "tiers": [
-        "common"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:kelp",
-      "tiers": [
-        "common"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 3,
-        "max": 8
-      }
-    },
-    {
-      "item": "minecraft:cod",
-      "tiers": [
-        "common"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:salmon",
-      "tiers": [
-        "common"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:nautilus_shell",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6
-    },
-    {
-      "item": "minecraft:prismarine_crystals",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:turtle_helmet",
-      "tiers": [
-        "uncommon",
-        "rare"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:respiration",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.6
-        },
-        {
-          "id": "minecraft:aqua_affinity",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.2,
-        "max": 0.7
-      }
-    },
-    {
-      "item": "minecraft:trident",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:loyalty",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.3,
-        "max": 0.8
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:respiration",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:depth_strider",
-          "minLevel": 1,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:aqua_affinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 1,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:trident",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:loyalty",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 3,
-          "maxLevel": 5,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:channeling",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.4
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:riptide",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:channeling",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:loyalty",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 4,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:frost_walker",
-          "minLevel": 1,
-          "maxLevel": 2
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:heart_of_the_sea",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 5
-    },
-    {
-      "item": "minecraft:trident",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:loyalty",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:channeling",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 5
-    },
-    {
-      "item": "minecraft:heart_of_the_sea",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 1,
-        "max": 2
-      }
-    },
-    {
-      "item": "minecraft:trident",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:riptide",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 4
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 2
-    }
-  ]
+	"_comment": "Drowned: ocean treasures and tridents.",
+	"entities": [
+		"minecraft:drowned",
+		"minecraft:zombie_nautilus"
+	],
+	"dropChance": 0.12,
+	"entries": [
+		{
+			"item": "minecraft:prismarine_shard",
+			"tiers": [
+				"common"
+			],
+			"weight": 8,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:kelp",
+			"tiers": [
+				"common"
+			],
+			"weight": 6,
+			"count": {
+				"min": 3,
+				"max": 8
+			}
+		},
+		{
+			"item": "minecraft:cod",
+			"tiers": [
+				"common"
+			],
+			"weight": 6,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:salmon",
+			"tiers": [
+				"common"
+			],
+			"weight": 5,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:nautilus_shell",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6
+		},
+		{
+			"item": "minecraft:prismarine_crystals",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:turtle_helmet",
+			"tiers": [
+				"uncommon",
+				"rare"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.6
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.2,
+				"max": 0.7
+			}
+		},
+		{
+			"item": "minecraft:trident",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.3,
+				"max": 0.8
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:depth_strider",
+					"minLevel": 1,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 1,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:trident",
+			"tiers": [
+				"epic"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 3,
+					"maxLevel": 5,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:channeling",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.4
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"epic"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:riptide",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:channeling",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 4,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:frost_walker",
+					"minLevel": 1,
+					"maxLevel": 2
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:heart_of_the_sea",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 5
+		},
+		{
+			"item": "minecraft:trident",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:channeling",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 5
+		},
+		{
+			"item": "minecraft:heart_of_the_sea",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"count": {
+				"min": 1,
+				"max": 2
+			}
+		},
+		{
+			"item": "minecraft:trident",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:riptide",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 4
+		},
+		{
+			"item": "minecraft:enchanted_golden_apple",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 2
+		},
+		{
+			"unique": "stormcaller",
+			"item": "minecraft:trident",
+			"name": "Stormcaller",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 9,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"onHit": {
+					"lightningChance": 0.6
+				},
+				"immune": [
+					"lightning"
+				]
+			}
+		}
+	]
 }

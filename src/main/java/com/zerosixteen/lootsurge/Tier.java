@@ -2,14 +2,16 @@ package com.zerosixteen.lootsurge;
 
 import java.util.Locale;
 
-/** The six drop tiers, lowest to highest. The config keys are the lower-case names. */
+/** The seven drop tiers, lowest to highest. The config keys are the lower-case names. */
 enum Tier {
 	COMMON,
 	UNCOMMON,
 	RARE,
 	EPIC,
 	LEGENDARY,
-	MYTHIC;
+	MYTHIC,
+	/** Named items with real powers. Only drops from pool entries that have a "unique" id. */
+	UNIQUE;
 
 	String key() {
 		return name().toLowerCase(Locale.ROOT);

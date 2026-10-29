@@ -1,316 +1,363 @@
 {
-  "_comment": "Witch: brewing leftovers, XP, and the best chance of enchanted books.",
-  "entities": [
-    "minecraft:witch"
-  ],
-  "dropChance": 0.25,
-  "entries": [
-    {
-      "item": "minecraft:glass_bottle",
-      "tiers": [
-        "common"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:redstone",
-      "tiers": [
-        "common"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 3,
-        "max": 8
-      }
-    },
-    {
-      "item": "minecraft:glowstone_dust",
-      "tiers": [
-        "common"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:sugar",
-      "tiers": [
-        "common"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:stick",
-      "tiers": [
-        "common"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 2,
-        "max": 6
-      }
-    },
-    {
-      "item": "minecraft:blaze_powder",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:golden_carrot",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:experience_bottle",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:ender_pearl",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 1,
-        "max": 2
-      }
-    },
-    {
-      "item": "minecraft:brewing_stand",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 4
-    },
-    {
-      "item": "minecraft:glistering_melon_slice",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:golden_apple",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 4
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 7,
-      "enchantments": [
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 1,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:fire_protection",
-          "minLevel": 1,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:experience_bottle",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 8,
-        "max": 16
-      }
-    },
-    {
-      "item": "minecraft:golden_apple",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 7,
-      "enchantments": [
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 2,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 3,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 3,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:silk_touch",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4
-    },
-    {
-      "item": "minecraft:totem_of_undying",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 3
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 3,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 1,
-        "max": 2
-      }
-    },
-    {
-      "item": "minecraft:experience_bottle",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 24,
-        "max": 48
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 4,
-          "maxLevel": 4
-        }
-      ],
-      "pick": "one"
-    }
-  ]
+	"_comment": "Witch: brewing leftovers, XP, and the best chance of enchanted books.",
+	"entities": [
+		"minecraft:witch"
+	],
+	"dropChance": 0.25,
+	"entries": [
+		{
+			"item": "minecraft:glass_bottle",
+			"tiers": [
+				"common"
+			],
+			"weight": 8,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:redstone",
+			"tiers": [
+				"common"
+			],
+			"weight": 8,
+			"count": {
+				"min": 3,
+				"max": 8
+			}
+		},
+		{
+			"item": "minecraft:glowstone_dust",
+			"tiers": [
+				"common"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:sugar",
+			"tiers": [
+				"common"
+			],
+			"weight": 5,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:stick",
+			"tiers": [
+				"common"
+			],
+			"weight": 3,
+			"count": {
+				"min": 2,
+				"max": 6
+			}
+		},
+		{
+			"item": "minecraft:blaze_powder",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 5,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:golden_carrot",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 5,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:experience_bottle",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:ender_pearl",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 4,
+			"count": {
+				"min": 1,
+				"max": 2
+			}
+		},
+		{
+			"item": "minecraft:brewing_stand",
+			"tiers": [
+				"rare"
+			],
+			"weight": 4
+		},
+		{
+			"item": "minecraft:glistering_melon_slice",
+			"tiers": [
+				"rare"
+			],
+			"weight": 4,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:golden_apple",
+			"tiers": [
+				"rare"
+			],
+			"weight": 4
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"rare"
+			],
+			"weight": 7,
+			"enchantments": [
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 1,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:fire_protection",
+					"minLevel": 1,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:experience_bottle",
+			"tiers": [
+				"epic"
+			],
+			"weight": 6,
+			"count": {
+				"min": 8,
+				"max": 16
+			}
+		},
+		{
+			"item": "minecraft:golden_apple",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"epic"
+			],
+			"weight": 7,
+			"enchantments": [
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 2,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 3,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 3,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:silk_touch",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:enchanted_golden_apple",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4
+		},
+		{
+			"item": "minecraft:totem_of_undying",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 3
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 3,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:enchanted_golden_apple",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"count": {
+				"min": 1,
+				"max": 2
+			}
+		},
+		{
+			"item": "minecraft:experience_bottle",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 4,
+			"count": {
+				"min": 24,
+				"max": 48
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 4,
+					"maxLevel": 4
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"unique": "hexweave_hat",
+			"item": "minecraft:netherite_helmet",
+			"name": "Hexweave Hat",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 8,
+					"maxLevel": 9,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"cure": [
+					"minecraft:hunger",
+					"minecraft:poison",
+					"minecraft:wither",
+					"minecraft:weakness",
+					"minecraft:slowness",
+					"minecraft:nausea",
+					"minecraft:blindness",
+					"minecraft:mining_fatigue"
+				],
+				"effects": [
+					{
+						"id": "minecraft:regeneration",
+						"amplifier": 1
+					}
+				]
+			}
+		}
+	]
 }

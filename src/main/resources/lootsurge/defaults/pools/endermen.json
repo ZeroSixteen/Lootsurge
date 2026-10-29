@@ -1,398 +1,479 @@
 {
-  "_comment": "Enderman: mining tools, pearls and utility books.",
-  "entities": [
-    "minecraft:enderman"
-  ],
-  "dropChance": 0.15,
-  "entries": [
-    {
-      "item": "minecraft:ender_pearl",
-      "tiers": [
-        "common"
-      ],
-      "weight": 10,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:chorus_fruit",
-      "tiers": [
-        "common"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:popped_chorus_fruit",
-      "tiers": [
-        "common"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:ender_eye",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 5
-    },
-    {
-      "item": "minecraft:experience_bottle",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:end_rod",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:purpur_block",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 4,
-        "max": 8
-      }
-    },
-    {
-      "item": "minecraft:iron_pickaxe",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.6
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.4
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.1,
-        "max": 0.5
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 2,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 1,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:silk_touch",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:shulker_shell",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 3
-    },
-    {
-      "item": "minecraft:diamond_pickaxe",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 3,
-          "maxLevel": 5,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.3
-      }
-    },
-    {
-      "item": "minecraft:diamond_shovel",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 3,
-          "maxLevel": 5,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:silk_touch",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.3
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 4,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:silk_touch",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:ender_pearl",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 4,
-        "max": 8
-      }
-    },
-    {
-      "item": "minecraft:netherite_pickaxe",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 4
-    },
-    {
-      "item": "minecraft:elytra",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.0,
-        "max": 0.4
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 3,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:netherite_pickaxe",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:efficiency",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:fortune",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 4
-    },
-    {
-      "item": "minecraft:elytra",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 2
-    },
-    {
-      "item": "minecraft:shulker_shell",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    }
-  ]
+	"_comment": "Enderman: mining tools, pearls and utility books.",
+	"entities": [
+		"minecraft:enderman"
+	],
+	"dropChance": 0.15,
+	"entries": [
+		{
+			"item": "minecraft:ender_pearl",
+			"tiers": [
+				"common"
+			],
+			"weight": 10,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:chorus_fruit",
+			"tiers": [
+				"common"
+			],
+			"weight": 6,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:popped_chorus_fruit",
+			"tiers": [
+				"common"
+			],
+			"weight": 4,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:ender_eye",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 5
+		},
+		{
+			"item": "minecraft:experience_bottle",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:end_rod",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 4,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:purpur_block",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 3,
+			"count": {
+				"min": 4,
+				"max": 8
+			}
+		},
+		{
+			"item": "minecraft:iron_pickaxe",
+			"tiers": [
+				"rare"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.6
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.4
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.1,
+				"max": 0.5
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 2,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 1,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:silk_touch",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:shulker_shell",
+			"tiers": [
+				"rare"
+			],
+			"weight": 3
+		},
+		{
+			"item": "minecraft:diamond_pickaxe",
+			"tiers": [
+				"epic"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 3,
+					"maxLevel": 5,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.3
+			}
+		},
+		{
+			"item": "minecraft:diamond_shovel",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 3,
+					"maxLevel": 5,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:silk_touch",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.3
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"epic"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 4,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:silk_touch",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:ender_pearl",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"count": {
+				"min": 4,
+				"max": 8
+			}
+		},
+		{
+			"item": "minecraft:netherite_pickaxe",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 4
+		},
+		{
+			"item": "minecraft:elytra",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.0,
+				"max": 0.4
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 3,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:netherite_pickaxe",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 4
+		},
+		{
+			"item": "minecraft:elytra",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 2
+		},
+		{
+			"item": "minecraft:shulker_shell",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:netherite_pickaxe",
+			"name": "Worldbreaker",
+			"nameColor": "light_purple",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 1.5,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 10,
+					"maxLevel": 12,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 5,
+					"maxLevel": 6,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			]
+		},
+		{
+			"unique": "voidpick",
+			"item": "minecraft:netherite_pickaxe",
+			"name": "Voidpick",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:efficiency",
+					"minLevel": 10,
+					"maxLevel": 12,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:fortune",
+					"minLevel": 5,
+					"maxLevel": 6,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"effects": [
+					{
+						"id": "minecraft:haste",
+						"amplifier": 4
+					},
+					{
+						"id": "minecraft:night_vision",
+						"amplifier": 0
+					}
+				]
+			}
+		}
+	]
 }

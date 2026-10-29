@@ -1,493 +1,631 @@
 {
-  "_comment": "Skeleton family: archery gear and bow/crossbow books.",
-  "entities": [
-    "minecraft:skeleton",
-    "minecraft:stray",
-    "minecraft:bogged",
-    "minecraft:parched"
-  ],
-  "dropChance": 0.1,
-  "entries": [
-    {
-      "item": "minecraft:arrow",
-      "tiers": [
-        "common"
-      ],
-      "weight": 10,
-      "count": {
-        "min": 4,
-        "max": 12
-      }
-    },
-    {
-      "item": "minecraft:bone",
-      "tiers": [
-        "common"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:string",
-      "tiers": [
-        "common"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:flint",
-      "tiers": [
-        "common"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:spectral_arrow",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 4,
-        "max": 10
-      }
-    },
-    {
-      "item": "minecraft:bow",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.4
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.3,
-        "max": 0.8
-      }
-    },
-    {
-      "item": "minecraft:crossbow",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:quick_charge",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        }
-      ],
-      "damage": {
-        "min": 0.3,
-        "max": 0.8
-      }
-    },
-    {
-      "item": "minecraft:leather_helmet",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 2,
-      "damage": {
-        "min": 0.2,
-        "max": 0.7
-      }
-    },
-    {
-      "item": "minecraft:bow",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 7,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 2,
-          "maxLevel": 4,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:punch",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.6
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.1,
-        "max": 0.5
-      }
-    },
-    {
-      "item": "minecraft:crossbow",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:quick_charge",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:piercing",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.1,
-        "max": 0.5
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 1,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:punch",
-          "minLevel": 1,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:flame",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:quick_charge",
-          "minLevel": 1,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:piercing",
-          "minLevel": 1,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:experience_bottle",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 3,
-        "max": 7
-      }
-    },
-    {
-      "item": "minecraft:bow",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 4,
-          "maxLevel": 5,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:flame",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:punch",
-          "minLevel": 2,
-          "maxLevel": 2,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.3
-      }
-    },
-    {
-      "item": "minecraft:crossbow",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:quick_charge",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:multishot",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:piercing",
-          "minLevel": 2,
-          "maxLevel": 4,
-          "chance": 0.6
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.3
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 4,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:infinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:multishot",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:piercing",
-          "minLevel": 3,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:quick_charge",
-          "minLevel": 3,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:bow",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:infinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:flame",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:punch",
-          "minLevel": 2,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        }
-      ],
-      "maxEnchantments": 5
-    },
-    {
-      "item": "minecraft:crossbow",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:quick_charge",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:multishot",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:piercing",
-          "minLevel": 4,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 5
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:infinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:power",
-          "minLevel": 5,
-          "maxLevel": 5
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:bow",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:power",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:infinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:flame",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:punch",
-          "minLevel": 2,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 6
-    },
-    {
-      "item": "minecraft:totem_of_undying",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 2
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 2
-    }
-  ]
+	"_comment": "Skeleton family: archery gear and bow/crossbow books.",
+	"entities": [
+		"minecraft:skeleton",
+		"minecraft:stray",
+		"minecraft:bogged",
+		"minecraft:parched"
+	],
+	"dropChance": 0.1,
+	"entries": [
+		{
+			"item": "minecraft:arrow",
+			"tiers": [
+				"common"
+			],
+			"weight": 10,
+			"count": {
+				"min": 4,
+				"max": 12
+			}
+		},
+		{
+			"item": "minecraft:bone",
+			"tiers": [
+				"common"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:string",
+			"tiers": [
+				"common"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:flint",
+			"tiers": [
+				"common"
+			],
+			"weight": 5,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:spectral_arrow",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6,
+			"count": {
+				"min": 4,
+				"max": 10
+			}
+		},
+		{
+			"item": "minecraft:bow",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.4
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.3,
+				"max": 0.8
+			}
+		},
+		{
+			"item": "minecraft:crossbow",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:quick_charge",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				}
+			],
+			"damage": {
+				"min": 0.3,
+				"max": 0.8
+			}
+		},
+		{
+			"item": "minecraft:leather_helmet",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 2,
+			"damage": {
+				"min": 0.2,
+				"max": 0.7
+			}
+		},
+		{
+			"item": "minecraft:bow",
+			"tiers": [
+				"rare"
+			],
+			"weight": 7,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 2,
+					"maxLevel": 4,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.6
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.1,
+				"max": 0.5
+			}
+		},
+		{
+			"item": "minecraft:crossbow",
+			"tiers": [
+				"rare"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:quick_charge",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:piercing",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.1,
+				"max": 0.5
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 1,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 1,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:flame",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:quick_charge",
+					"minLevel": 1,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:piercing",
+					"minLevel": 1,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:experience_bottle",
+			"tiers": [
+				"rare"
+			],
+			"weight": 5,
+			"count": {
+				"min": 3,
+				"max": 7
+			}
+		},
+		{
+			"item": "minecraft:bow",
+			"tiers": [
+				"epic"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:flame",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 2,
+					"maxLevel": 2,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.3
+			}
+		},
+		{
+			"item": "minecraft:crossbow",
+			"tiers": [
+				"epic"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:quick_charge",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:multishot",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:piercing",
+					"minLevel": 2,
+					"maxLevel": 4,
+					"chance": 0.6
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.3
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"epic"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 4,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:infinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:multishot",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:piercing",
+					"minLevel": 3,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:quick_charge",
+					"minLevel": 3,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:bow",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:infinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:flame",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 2,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				}
+			],
+			"maxEnchantments": 5
+		},
+		{
+			"item": "minecraft:crossbow",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:quick_charge",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:multishot",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:piercing",
+					"minLevel": 4,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 5
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:infinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:power",
+					"minLevel": 5,
+					"maxLevel": 5
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:bow",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:infinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:flame",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 2,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 6
+		},
+		{
+			"item": "minecraft:totem_of_undying",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 2
+		},
+		{
+			"item": "minecraft:enchanted_golden_apple",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 2
+		},
+		{
+			"item": "minecraft:bow",
+			"name": "Stormpiercer",
+			"nameColor": "aqua",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 1.5,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 9,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 3,
+					"maxLevel": 4,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:flame",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			]
+		},
+		{
+			"unique": "hellstorm_bow",
+			"item": "minecraft:bow",
+			"name": "Boneshot Hellbow",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:power",
+					"minLevel": 9,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:punch",
+					"minLevel": 3,
+					"maxLevel": 4,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:flame",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"onUse": {
+					"shoot": "small",
+					"cooldownTicks": 8
+				},
+				"onHit": {
+					"igniteSeconds": 8
+				}
+			}
+		},
+		{
+			"unique": "marrowsprings",
+			"item": "minecraft:netherite_boots",
+			"name": "Marrowsprings",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 7,
+					"maxLevel": 8,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:feather_falling",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"effects": [
+					{
+						"id": "minecraft:jump_boost",
+						"amplifier": 3
+					},
+					{
+						"id": "minecraft:speed",
+						"amplifier": 1
+					}
+				],
+				"immune": [
+					"fall"
+				]
+			}
+		}
+	]
 }

@@ -1,549 +1,703 @@
 {
-  "_comment": "Zombie family: iron gear and food early, diamond and netherite gear at the top.",
-  "entities": [
-    "minecraft:zombie",
-    "minecraft:husk",
-    "minecraft:zombie_villager",
-    "minecraft:camel_husk"
-  ],
-  "dropChance": 0.1,
-  "entries": [
-    {
-      "item": "minecraft:iron_nugget",
-      "tiers": [
-        "common"
-      ],
-      "weight": 10,
-      "count": {
-        "min": 2,
-        "max": 6
-      }
-    },
-    {
-      "item": "minecraft:bread",
-      "tiers": [
-        "common"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:coal",
-      "tiers": [
-        "common"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:carrot",
-      "tiers": [
-        "common"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:potato",
-      "tiers": [
-        "common"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:iron_ingot",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:iron_sword",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.4
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.3,
-        "max": 0.8
-      }
-    },
-    {
-      "item": "minecraft:iron_helmet",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:protection",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        }
-      ],
-      "damage": {
-        "min": 0.3,
-        "max": 0.8
-      }
-    },
-    {
-      "item": "minecraft:iron_boots",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:feather_falling",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        }
-      ],
-      "damage": {
-        "min": 0.3,
-        "max": 0.8
-      }
-    },
-    {
-      "item": "minecraft:shield",
-      "tiers": [
-        "uncommon",
-        "rare"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.6
-        }
-      ],
-      "damage": {
-        "min": 0.2,
-        "max": 0.7
-      }
-    },
-    {
-      "item": "minecraft:iron_chestplate",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:protection",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.1,
-        "max": 0.5
-      }
-    },
-    {
-      "item": "minecraft:iron_leggings",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:protection",
-          "minLevel": 1,
-          "maxLevel": 3,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.5
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.1,
-        "max": 0.5
-      }
-    },
-    {
-      "item": "minecraft:golden_apple",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 4
-    },
-    {
-      "item": "minecraft:experience_bottle",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 6
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:protection",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:smite",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 1,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 1,
-          "maxLevel": 2
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:diamond_sword",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:smite",
-          "minLevel": 2,
-          "maxLevel": 4,
-          "chance": 0.6
-        },
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 2,
-          "maxLevel": 4,
-          "chance": 0.5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:looting",
-          "minLevel": 1,
-          "maxLevel": 2,
-          "chance": 0.4
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.4
-      }
-    },
-    {
-      "item": "minecraft:diamond_chestplate",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:protection",
-          "minLevel": 2,
-          "maxLevel": 4,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.0,
-        "max": 0.4
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:smite",
-          "minLevel": 3,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 3,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 3,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:looting",
-          "minLevel": 2,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:diamond",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:netherite_sword",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:smite",
-          "minLevel": 4,
-          "maxLevel": 5,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 4,
-          "maxLevel": 5,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:looting",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.8
-        }
-      ],
-      "maxEnchantments": 4
-    },
-    {
-      "item": "minecraft:totem_of_undying",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 3
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 3
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:smite",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 4,
-          "maxLevel": 4
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:netherite_chestplate",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:protection",
-          "minLevel": 4,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:thorns",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.6
-        }
-      ],
-      "maxEnchantments": 4
-    },
-    {
-      "item": "minecraft:netherite_sword",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:sharpness",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:looting",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:fire_aspect",
-          "minLevel": 2,
-          "maxLevel": 2
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:sweeping_edge",
-          "minLevel": 3,
-          "maxLevel": 3
-        }
-      ],
-      "maxEnchantments": 6
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 2,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:totem_of_undying",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 2,
-      "count": {
-        "min": 1,
-        "max": 2
-      }
-    }
-  ]
+	"_comment": "Zombie family: iron gear and food early, diamond and netherite gear at the top.",
+	"entities": [
+		"minecraft:zombie",
+		"minecraft:husk",
+		"minecraft:zombie_villager",
+		"minecraft:camel_husk"
+	],
+	"dropChance": 0.1,
+	"entries": [
+		{
+			"item": "minecraft:iron_nugget",
+			"tiers": [
+				"common"
+			],
+			"weight": 10,
+			"count": {
+				"min": 2,
+				"max": 6
+			}
+		},
+		{
+			"item": "minecraft:bread",
+			"tiers": [
+				"common"
+			],
+			"weight": 8,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:coal",
+			"tiers": [
+				"common"
+			],
+			"weight": 8,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:carrot",
+			"tiers": [
+				"common"
+			],
+			"weight": 5,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:potato",
+			"tiers": [
+				"common"
+			],
+			"weight": 5,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:iron_ingot",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 8,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:iron_sword",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.4
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.3,
+				"max": 0.8
+			}
+		},
+		{
+			"item": "minecraft:iron_helmet",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				}
+			],
+			"damage": {
+				"min": 0.3,
+				"max": 0.8
+			}
+		},
+		{
+			"item": "minecraft:iron_boots",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:feather_falling",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				}
+			],
+			"damage": {
+				"min": 0.3,
+				"max": 0.8
+			}
+		},
+		{
+			"item": "minecraft:shield",
+			"tiers": [
+				"uncommon",
+				"rare"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.6
+				}
+			],
+			"damage": {
+				"min": 0.2,
+				"max": 0.7
+			}
+		},
+		{
+			"item": "minecraft:iron_chestplate",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.1,
+				"max": 0.5
+			}
+		},
+		{
+			"item": "minecraft:iron_leggings",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 1,
+					"maxLevel": 3,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.5
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.1,
+				"max": 0.5
+			}
+		},
+		{
+			"item": "minecraft:golden_apple",
+			"tiers": [
+				"rare"
+			],
+			"weight": 4
+		},
+		{
+			"item": "minecraft:experience_bottle",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 6
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"rare"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:smite",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 1,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 1,
+					"maxLevel": 2
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:diamond_sword",
+			"tiers": [
+				"epic"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:smite",
+					"minLevel": 2,
+					"maxLevel": 4,
+					"chance": 0.6
+				},
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 2,
+					"maxLevel": 4,
+					"chance": 0.5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:looting",
+					"minLevel": 1,
+					"maxLevel": 2,
+					"chance": 0.4
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.4
+			}
+		},
+		{
+			"item": "minecraft:diamond_chestplate",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 2,
+					"maxLevel": 4,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.0,
+				"max": 0.4
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"epic"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:smite",
+					"minLevel": 3,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 3,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 3,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:looting",
+					"minLevel": 2,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:diamond",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:netherite_sword",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:smite",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:looting",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.8
+				}
+			],
+			"maxEnchantments": 4
+		},
+		{
+			"item": "minecraft:totem_of_undying",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 3
+		},
+		{
+			"item": "minecraft:enchanted_golden_apple",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 3
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:smite",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 4,
+					"maxLevel": 4
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:netherite_chestplate",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 4,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:thorns",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.6
+				}
+			],
+			"maxEnchantments": 4
+		},
+		{
+			"item": "minecraft:netherite_sword",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:looting",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:fire_aspect",
+					"minLevel": 2,
+					"maxLevel": 2
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:sweeping_edge",
+					"minLevel": 3,
+					"maxLevel": 3
+				}
+			],
+			"maxEnchantments": 6
+		},
+		{
+			"item": "minecraft:enchanted_golden_apple",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"count": {
+				"min": 2,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:totem_of_undying",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 2,
+			"count": {
+				"min": 1,
+				"max": 2
+			}
+		},
+		{
+			"item": "minecraft:netherite_sword",
+			"name": "Deadbane",
+			"nameColor": "dark_red",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 1.5,
+			"enchantments": [
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 9,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:looting",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:fire_aspect",
+					"minLevel": 3,
+					"maxLevel": 4,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			]
+		},
+		{
+			"unique": "rotbound_plate",
+			"item": "minecraft:netherite_chestplate",
+			"name": "Rotbound Plate",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 9,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:thorns",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"cure": [
+					"minecraft:hunger",
+					"minecraft:nausea",
+					"minecraft:poison"
+				],
+				"effects": [
+					{
+						"id": "minecraft:regeneration",
+						"amplifier": 1
+					},
+					{
+						"id": "minecraft:resistance",
+						"amplifier": 1
+					},
+					{
+						"id": "minecraft:absorption",
+						"amplifier": 2
+					}
+				]
+			}
+		},
+		{
+			"unique": "ghoulcleaver",
+			"item": "minecraft:netherite_axe",
+			"name": "Ghoulcleaver",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:sharpness",
+					"minLevel": 10,
+					"maxLevel": 12,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:looting",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"effects": [
+					{
+						"id": "minecraft:strength",
+						"amplifier": 1
+					}
+				],
+				"onHit": {
+					"lifesteal": 0.5,
+					"effects": [
+						{
+							"id": "minecraft:weakness",
+							"amplifier": 2,
+							"seconds": 8
+						},
+						{
+							"id": "minecraft:hunger",
+							"amplifier": 3,
+							"seconds": 8
+						}
+					]
+				}
+			}
+		}
+	]
 }

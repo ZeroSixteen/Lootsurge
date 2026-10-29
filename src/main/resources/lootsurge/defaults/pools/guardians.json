@@ -1,364 +1,427 @@
 {
-  "_comment": "Guardians: ocean monument treasures and aquatic enchantments.",
-  "entities": [
-    "minecraft:guardian",
-    "minecraft:elder_guardian"
-  ],
-  "dropChance": 0.2,
-  "entries": [
-    {
-      "item": "minecraft:prismarine_shard",
-      "tiers": [
-        "common"
-      ],
-      "weight": 8,
-      "count": {
-        "min": 2,
-        "max": 6
-      }
-    },
-    {
-      "item": "minecraft:prismarine_crystals",
-      "tiers": [
-        "common",
-        "uncommon"
-      ],
-      "weight": 6,
-      "count": {
-        "min": 2,
-        "max": 5
-      }
-    },
-    {
-      "item": "minecraft:cod",
-      "tiers": [
-        "common"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 2,
-        "max": 4
-      }
-    },
-    {
-      "item": "minecraft:sea_lantern",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 5,
-      "count": {
-        "min": 1,
-        "max": 3
-      }
-    },
-    {
-      "item": "minecraft:nautilus_shell",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 4
-    },
-    {
-      "item": "minecraft:sponge",
-      "tiers": [
-        "uncommon"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 1,
-        "max": 2
-      }
-    },
-    {
-      "item": "minecraft:turtle_helmet",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:respiration",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:aqua_affinity",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.6
-        }
-      ],
-      "maxEnchantments": 2,
-      "damage": {
-        "min": 0.1,
-        "max": 0.5
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "rare"
-      ],
-      "weight": 6,
-      "enchantments": [
-        {
-          "id": "minecraft:respiration",
-          "minLevel": 2,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:depth_strider",
-          "minLevel": 1,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:aqua_affinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 2,
-          "maxLevel": 4
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:heart_of_the_sea",
-      "tiers": [
-        "rare",
-        "epic"
-      ],
-      "weight": 4
-    },
-    {
-      "item": "minecraft:diamond_helmet",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:respiration",
-          "minLevel": 3,
-          "maxLevel": 3,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:aqua_affinity",
-          "minLevel": 1,
-          "maxLevel": 1,
-          "chance": 0.8
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 3,
-          "maxLevel": 4,
-          "chance": 0.7
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.3
-      }
-    },
-    {
-      "item": "minecraft:diamond_boots",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:depth_strider",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.9
-        },
-        {
-          "id": "minecraft:feather_falling",
-          "minLevel": 3,
-          "maxLevel": 4,
-          "chance": 0.6
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 2,
-          "maxLevel": 3,
-          "chance": 0.7
-        }
-      ],
-      "maxEnchantments": 3,
-      "damage": {
-        "min": 0.0,
-        "max": 0.3
-      }
-    },
-    {
-      "item": "minecraft:enchanted_book",
-      "tiers": [
-        "epic"
-      ],
-      "weight": 5,
-      "enchantments": [
-        {
-          "id": "minecraft:depth_strider",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:riptide",
-          "minLevel": 2,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:channeling",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:loyalty",
-          "minLevel": 2,
-          "maxLevel": 3
-        }
-      ],
-      "pick": "one"
-    },
-    {
-      "item": "minecraft:trident",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "enchantments": [
-        {
-          "id": "minecraft:riptide",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 4
-    },
-    {
-      "item": "minecraft:heart_of_the_sea",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 4,
-      "count": {
-        "min": 1,
-        "max": 2
-      }
-    },
-    {
-      "item": "minecraft:sponge",
-      "tiers": [
-        "legendary"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 4,
-        "max": 8
-      }
-    },
-    {
-      "item": "minecraft:netherite_helmet",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:respiration",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:aqua_affinity",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:protection",
-          "minLevel": 4,
-          "maxLevel": 4
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 5
-    },
-    {
-      "item": "minecraft:trident",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "enchantments": [
-        {
-          "id": "minecraft:loyalty",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:impaling",
-          "minLevel": 5,
-          "maxLevel": 5
-        },
-        {
-          "id": "minecraft:channeling",
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": "minecraft:unbreaking",
-          "minLevel": 3,
-          "maxLevel": 3
-        },
-        {
-          "id": "minecraft:mending",
-          "minLevel": 1,
-          "maxLevel": 1
-        }
-      ],
-      "maxEnchantments": 5
-    },
-    {
-      "item": "minecraft:heart_of_the_sea",
-      "tiers": [
-        "mythic"
-      ],
-      "weight": 3,
-      "count": {
-        "min": 2,
-        "max": 3
-      }
-    }
-  ]
+	"_comment": "Guardians: ocean monument treasures and aquatic enchantments.",
+	"entities": [
+		"minecraft:guardian",
+		"minecraft:elder_guardian"
+	],
+	"dropChance": 0.2,
+	"entries": [
+		{
+			"item": "minecraft:prismarine_shard",
+			"tiers": [
+				"common"
+			],
+			"weight": 8,
+			"count": {
+				"min": 2,
+				"max": 6
+			}
+		},
+		{
+			"item": "minecraft:prismarine_crystals",
+			"tiers": [
+				"common",
+				"uncommon"
+			],
+			"weight": 6,
+			"count": {
+				"min": 2,
+				"max": 5
+			}
+		},
+		{
+			"item": "minecraft:cod",
+			"tiers": [
+				"common"
+			],
+			"weight": 4,
+			"count": {
+				"min": 2,
+				"max": 4
+			}
+		},
+		{
+			"item": "minecraft:sea_lantern",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 5,
+			"count": {
+				"min": 1,
+				"max": 3
+			}
+		},
+		{
+			"item": "minecraft:nautilus_shell",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 4
+		},
+		{
+			"item": "minecraft:sponge",
+			"tiers": [
+				"uncommon"
+			],
+			"weight": 3,
+			"count": {
+				"min": 1,
+				"max": 2
+			}
+		},
+		{
+			"item": "minecraft:turtle_helmet",
+			"tiers": [
+				"rare"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.6
+				}
+			],
+			"maxEnchantments": 2,
+			"damage": {
+				"min": 0.1,
+				"max": 0.5
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"rare"
+			],
+			"weight": 6,
+			"enchantments": [
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 2,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:depth_strider",
+					"minLevel": 1,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 2,
+					"maxLevel": 4
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:heart_of_the_sea",
+			"tiers": [
+				"rare",
+				"epic"
+			],
+			"weight": 4
+		},
+		{
+			"item": "minecraft:diamond_helmet",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 3,
+					"maxLevel": 3,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1,
+					"chance": 0.8
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 3,
+					"maxLevel": 4,
+					"chance": 0.7
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.3
+			}
+		},
+		{
+			"item": "minecraft:diamond_boots",
+			"tiers": [
+				"epic"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:depth_strider",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.9
+				},
+				{
+					"id": "minecraft:feather_falling",
+					"minLevel": 3,
+					"maxLevel": 4,
+					"chance": 0.6
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 2,
+					"maxLevel": 3,
+					"chance": 0.7
+				}
+			],
+			"maxEnchantments": 3,
+			"damage": {
+				"min": 0.0,
+				"max": 0.3
+			}
+		},
+		{
+			"item": "minecraft:enchanted_book",
+			"tiers": [
+				"epic"
+			],
+			"weight": 5,
+			"enchantments": [
+				{
+					"id": "minecraft:depth_strider",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:riptide",
+					"minLevel": 2,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:channeling",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 2,
+					"maxLevel": 3
+				}
+			],
+			"pick": "one"
+		},
+		{
+			"item": "minecraft:trident",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"enchantments": [
+				{
+					"id": "minecraft:riptide",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 4
+		},
+		{
+			"item": "minecraft:heart_of_the_sea",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 4,
+			"count": {
+				"min": 1,
+				"max": 2
+			}
+		},
+		{
+			"item": "minecraft:sponge",
+			"tiers": [
+				"legendary"
+			],
+			"weight": 3,
+			"count": {
+				"min": 4,
+				"max": 8
+			}
+		},
+		{
+			"item": "minecraft:netherite_helmet",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:protection",
+					"minLevel": 4,
+					"maxLevel": 4
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 5
+		},
+		{
+			"item": "minecraft:trident",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"enchantments": [
+				{
+					"id": "minecraft:loyalty",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:impaling",
+					"minLevel": 5,
+					"maxLevel": 5
+				},
+				{
+					"id": "minecraft:channeling",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 3,
+					"maxLevel": 3
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"maxEnchantments": 5
+		},
+		{
+			"item": "minecraft:heart_of_the_sea",
+			"tiers": [
+				"mythic"
+			],
+			"weight": 3,
+			"count": {
+				"min": 2,
+				"max": 3
+			}
+		},
+		{
+			"unique": "eye_of_the_deep",
+			"item": "minecraft:netherite_helmet",
+			"name": "Eye of the Deep",
+			"nameColor": "orange",
+			"tiers": [
+				"unique"
+			],
+			"weight": 1,
+			"enchantments": [
+				{
+					"id": "minecraft:protection",
+					"minLevel": 8,
+					"maxLevel": 9,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:respiration",
+					"minLevel": 4,
+					"maxLevel": 5,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:aqua_affinity",
+					"minLevel": 1,
+					"maxLevel": 1
+				},
+				{
+					"id": "minecraft:unbreaking",
+					"minLevel": 8,
+					"maxLevel": 10,
+					"overcap": true
+				},
+				{
+					"id": "minecraft:mending",
+					"minLevel": 1,
+					"maxLevel": 1
+				}
+			],
+			"powers": {
+				"effects": [
+					{
+						"id": "minecraft:water_breathing",
+						"amplifier": 0
+					},
+					{
+						"id": "minecraft:dolphins_grace",
+						"amplifier": 2
+					},
+					{
+						"id": "minecraft:conduit_power",
+						"amplifier": 1
+					},
+					{
+						"id": "minecraft:night_vision",
+						"amplifier": 0
+					}
+				],
+				"immune": [
+					"drowning"
+				]
+			}
+		}
+	]
 }

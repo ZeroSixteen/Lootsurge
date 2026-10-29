@@ -257,6 +257,75 @@
         "intervalTicks": 4,
         "maxSeconds": 90
       }
+    },
+    "unique": {
+      "displayName": "Unique",
+      "color": "orange",
+      "weight": 0.25,
+      "minItems": 1,
+      "maxItems": 1,
+      "itemLabel": true,
+      "announce": "broadcast",
+      "sound": {
+        "id": "minecraft:entity.wither.spawn",
+        "volume": 0.7,
+        "pitch": 1.2
+      },
+      "extraSounds": [
+        {
+          "id": "minecraft:entity.lightning_bolt.thunder",
+          "volume": 1.0,
+          "pitch": 0.8,
+          "delayTicks": 5
+        },
+        {
+          "id": "minecraft:entity.ender_dragon.growl",
+          "volume": 0.8,
+          "pitch": 1.0,
+          "delayTicks": 12
+        },
+        {
+          "id": "minecraft:ui.toast.challenge_complete",
+          "volume": 1.0,
+          "pitch": 0.6,
+          "delayTicks": 20
+        },
+        {
+          "id": "minecraft:entity.firework_rocket.blast",
+          "volume": 1.0,
+          "pitch": 0.8,
+          "delayTicks": 30
+        },
+        {
+          "id": "minecraft:block.end_portal.spawn",
+          "volume": 0.6,
+          "pitch": 1.4,
+          "delayTicks": 40
+        }
+      ],
+      "burst": {
+        "particle": "minecraft:totem_of_undying",
+        "count": 220,
+        "spread": 0.8,
+        "speed": 0.55
+      },
+      "ring": {
+        "particle": "minecraft:flame",
+        "count": 48,
+        "radius": 2.5
+      },
+      "pillar": {
+        "enabled": true,
+        "particle": "minecraft:end_rod",
+        "accentParticle": "minecraft:flame",
+        "height": 64,
+        "segmentLength": 3,
+        "particlesPerSegment": 5,
+        "accentParticlesPerSegment": 4,
+        "spread": 0.15,
+        "intervalTicks": 3,
+        "maxSeconds": 180
+      }
     }
   }
 }

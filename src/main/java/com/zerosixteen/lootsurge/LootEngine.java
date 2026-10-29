@@ -40,6 +40,7 @@ final class LootEngine {
 	private final Logger log;
 	private final Path configDir;
 	private final Effects effects;
+	private final UniquePowers uniques;
 
 	private volatile Settings settings;
 	private volatile Map<String, LootPool> byEntity = Map.of();
@@ -48,10 +49,11 @@ final class LootEngine {
 	/** Remembers recently handled mobs so one death can never roll twice. Only touched on the server thread. */
 	private final Set<UUID> handled = new LinkedHashSet<>();
 
-	LootEngine(Logger log, Path configDir, Effects effects) {
+	LootEngine(Logger log, Path configDir, Effects effects, UniquePowers uniques) {
 		this.log = log;
 		this.configDir = configDir;
 		this.effects = effects;
+		this.uniques = uniques;
 	}
 
 	/** (Re)reads config.json and pools/*.json. Needs a running server because enchantments live in its registries. */
@@ -78,6 +80,15 @@ final class LootEngine {
 					}
 				}
 			}
+			Map<String, UniquePowers.Powers> uniqueMap = new HashMap<>();
+			for (LootPool pool : pools) {
+				for (LootEntry entry : pool.entries) {
+					if (entry.uniqueId != null && entry.powers != null) {
+						uniqueMap.put(entry.uniqueId, entry.powers);
+					}
+				}
+			}
+			uniques.setRegistry(uniqueMap);
 			this.settings = s;
 			this.byEntity = Map.copyOf(map);
 			this.fallbackPool = fallback;
@@ -223,6 +234,9 @@ final class LootEngine {
 		double total = 0.0;
 		for (int i = 0; i < all.length; i++) {
 			weights[i] = s.tier(all[i]).weight * pool.tierMultiplier(all[i]);
+			if (all[i] == Tier.UNIQUE && pool.entriesFor(Tier.UNIQUE).isEmpty()) {
+				weights[i] = 0.0;
+			}
 			total += weights[i];
 		}
 		if (total <= 0.0) {

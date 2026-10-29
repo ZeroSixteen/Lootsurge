@@ -26,6 +26,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
@@ -201,7 +202,26 @@ final class PoolLoader {
 		boolean pickOne = c.string("pick", "all").equalsIgnoreCase("one");
 		int maxEnchants = Layered.clamp(c.integer("maxEnchantments", 99), 1, 99);
 
-		return new LootEntry(item, tiers, weight, minCount, maxCount, specs, pickOne, maxEnchants, minDamage, maxDamage);
+		String uniqueId = c.string("unique", "").trim().toLowerCase(Locale.ROOT);
+		UniquePowers.Powers powers = null;
+		if (uniqueId.isEmpty()) {
+			uniqueId = null;
+		} else if (!uniqueId.matches("[a-z0-9_]{1,40}")) {
+			log.warn("[LootSurge] {}: unique id '{}' may only use a-z, 0-9 and _ (max 40). Entry skipped.", where, uniqueId);
+			return null;
+		} else {
+			powers = UniquePowers.parse(c.child("powers"), log, where);
+		}
+
+		Component name = null;
+		String rawName = c.string("name", "");
+		if (!rawName.isBlank()) {
+			name = Component.literal(rawName)
+					.withStyle(Ids.color(c.string("nameColor", uniqueId != null ? "orange" : "white")));
+		}
+
+		return new LootEntry(item, tiers, weight, minCount, maxCount, specs, pickOne, maxEnchants, minDamage, maxDamage,
+				name, uniqueId, powers);
 	}
 
 	private static LootEntry.EnchantSpec parseEnchant(String where, JsonElement e,
@@ -231,7 +251,8 @@ final class PoolLoader {
 		int min = Layered.clamp(c.integer("minLevel", 1), 1, 255);
 		int max = Layered.clamp(c.integer("maxLevel", min), min, 255);
 		double chance = Layered.clamp(c.number("chance", 1.0), 0.0, 1.0);
-		return new LootEntry.EnchantSpec(holder, min, max, chance);
+		boolean overcap = c.bool("overcap", false);
+		return new LootEntry.EnchantSpec(holder, min, max, chance, overcap);
 	}
 
 	/** Used by the engine for debug output. */

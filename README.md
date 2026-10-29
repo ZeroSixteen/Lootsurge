@@ -20,6 +20,7 @@ Everything is decided on the server and sent as normal particle and sound packet
 | Epic | 2 % | firework burst, challenge-complete jingle + beacon hum, action-bar message, taller pillar |
 | Legendary | 0.45 % | totem burst, thunder + jingle, flame pillar, chat message |
 | Mythic | 0.05 % | dragon growl + thunder + portal sound, soul-fire pillar, 2–3 items, **server-wide broadcast** |
+| Unique | 0.025 % | orange name, wither + thunder + dragon + portal sounds, 64-block flame pillar, broadcast; named items with powers (see below) |
 
 Each mob also has its own `dropChance` (for example 15 % for an enderman), so a Mythic drop is a real jackpot. All numbers are editable.
 
@@ -143,3 +144,119 @@ Loot Surge adds items after the fact and does not replace any loot table, so it 
 ## Credits
 
 Created by **ZeroSixteen**. MIT license, see `LICENSE`.
+
+## Over-the-top items (past vanilla limits)
+
+Normally enchant levels are capped at the game's maximum. Two optional entry settings lift that for chosen items:
+
+| Key | Where | Meaning |
+|---|---|---|
+| `overcap` | on an enchantment object | `true` lets `maxLevel` go past vanilla, up to 255. Default `false`. |
+| `name` | on an entry | Custom item name. Makes the item unmistakable and impossible to get from vanilla loot. |
+| `nameColor` | on an entry | Color of that name. `orange` shows as Minecraft's gold/orange. |
+
+```json
+{
+  "item": "minecraft:netherite_sword",
+  "name": "Deadbane",
+  "nameColor": "orange",
+  "tiers": ["mythic"],
+  "weight": 1.5,
+  "enchantments": [
+    { "id": "minecraft:sharpness", "minLevel": 9, "maxLevel": 10, "overcap": true },
+    { "id": "minecraft:looting", "minLevel": 4, "maxLevel": 5, "overcap": true },
+    { "id": "minecraft:mending", "minLevel": 1, "maxLevel": 1 }
+  ]
+}
+```
+
+Eight ready-made examples ship in the default pools (zombies, skeletons, endermen, wither skeletons, Warden, Wither, illagers and the fallback pool): Deadbane, Stormpiercer, Worldbreaker, Reaper, Titan's Bulwark, Colossus Greaves, Gale Cannon and Windstep. They are Mythic-only with a low weight, so they are very rare.
+
+**Already have a config folder?** Defaults are only copied the first time. To get the new items, delete `config/lootsurge/pools/` (your `config.json` is kept) and restart.
+
+## Unique tier (named items with real powers)
+
+**Unique** is a seventh tier above Mythic: orange name, the biggest sound and light show (64-block pillar, server-wide broadcast), and items that exist **only** in Loot Surge pools. Default weight is `0.25` (half of Mythic). A pool only rolls Unique if it has at least one `unique` entry. Each Unique is tagged with a hidden marker, and its powers are read from your pool files, so players cannot copy powers onto other items.
+
+### Defining one
+
+Add `"unique"` (a-z, 0-9, `_`) and a `powers` block to a pool entry, with `"tiers": ["unique"]`. Every power is optional.
+
+```json
+{
+  "unique": "ghastcaller",
+  "item": "minecraft:netherite_sword",
+  "name": "Ghastcaller",
+  "nameColor": "orange",
+  "tiers": ["unique"],
+  "weight": 1,
+  "enchantments": [
+    { "id": "minecraft:sharpness", "minLevel": 8, "maxLevel": 10, "overcap": true },
+    { "id": "minecraft:mending" }
+  ],
+  "powers": {
+    "effects": [ { "id": "minecraft:fire_resistance", "amplifier": 0 } ],
+    "cure": [ "minecraft:hunger" ],
+    "immune": [ "fire", "explosion" ],
+    "onHit": {
+      "igniteSeconds": 10, "lightningChance": 0.2,
+      "explosionChance": 0.3, "explosionPower": 2.5,
+      "lifesteal": 0.3,
+      "effects": [ { "id": "minecraft:wither", "amplifier": 2, "seconds": 8 } ]
+    },
+    "onUse": { "shoot": "large", "power": 4, "cooldownTicks": 30 }
+  }
+}
+```
+
+| Power | Works when | What it does |
+|---|---|---|
+| `effects` | item is worn (helmet, chestplate, leggings, boots) or held in the main hand | keeps those potion effects on you, refreshed every half second, no particles |
+| `cure` | same | removes those effects (for example `hunger` makes rotten flesh harmless) |
+| `immune` | same | cancels damage: `fire`, `explosion`, `fall`, `drowning`, `projectile`, `lightning` |
+| `onHit.igniteSeconds` | held, on any hit you land (arrows from a held bow count) | sets the target on fire |
+| `onHit.lightningChance` | same | chance (0-1) to strike the target with real lightning |
+| `onHit.explosionChance` / `explosionPower` | same | chance of a blast that hurts mobs but breaks no blocks |
+| `onHit.lifesteal` | same | heals you for this fraction of the damage dealt |
+| `onHit.effects` | same | potion effects on the target (`seconds` required) |
+| `onUse` | right-click while holding it | shoots a fireball: `shoot` is `large` (ghast, explodes) or `small` (blaze); `power` is the large blast size; `cooldownTicks` is the delay. |
+
+After using a blast, lightning or fireball power you are immune to explosions, lightning and fire for 3 seconds, so your own power does not hurt you. Fireballs follow the `mobGriefing` game rule for block damage.
+
+### Default Uniques (all found in the matching mob's pool)
+
+| Mob | Unique | Power in one line |
+|---|---|---|
+| Zombie | Rotbound Plate | chestplate: eat rotten flesh with no downsides, regen, resistance, absorption |
+| Zombie | Ghoulcleaver | axe: 50% lifesteal, strength, weakens and starves targets |
+| Skeleton | Boneshot Hellbow | bow: right-click fires rapid small fireballs, arrows ignite |
+| Skeleton | Marrowsprings | boots: no fall damage, jump boost, speed |
+| Creeper | Fusebreaker | sword: explosions and occasional lightning on hit |
+| Creeper | Blastproof Greaves | leggings: immune to explosions and lightning |
+| Spider | Venomfang | sword: heavy poison and slow on hit, lifesteal, speed |
+| Enderman | Voidpick | pickaxe: Haste V while held, night vision |
+| Blaze / Ghast | Ghastcaller | sword: right-click launches ghast fireballs, burns, fire and blast immune |
+| Blaze / Ghast | Tearsplitter | bow: right-click launches ghast fireballs |
+| Blaze / Ghast | Blazeheart Mantle | chestplate: fire immune, strength |
+| Wither skeleton | Witherbane | axe: Wither III on hit, 50% lifesteal |
+| Wither | Crown of the Nether Star | helmet: strength, resistance, regen, absorption, immune to blasts and arrows |
+| Warden | Heart of the Deep Dark | chestplate: resistance IV, strength, haste, night vision |
+| Drowned | Stormcaller | trident: 60% lightning on hit |
+| Guardian | Eye of the Deep | helmet: water breathing, dolphin's grace, conduit power, no drowning |
+| Phantom | Phantom Wings | elytra: slow falling, speed, night vision, no fall damage |
+| Illager | Raidbreaker | axe: blasts and lifesteal on hit, Hero of the Village |
+| Witch | Hexweave Hat | helmet: cleanses every bad effect, regen |
+| Slime | Gelsprings | boots: Jump Boost VII, no fall damage |
+| Piglin brute and friends | Gilded Brutebreaker | axe: fire, blasts, lifesteal |
+| Breeze / Trial | Galebreaker | mace: jump boost, speed, no fall damage |
+| Shulker and end mobs | Shulker Bulwark | chestplate: resistance, immune to arrows and falls |
+
+New config values: `tiers.unique` in `config.json` (same keys as other tiers). If your config does not have it, the built-in default is used.
+
+### Balancing and compatibility notes
+
+- Levels above vanilla scale hard. Sharpness 10 deals roughly 7 extra damage and Efficiency 12 mines almost instantly. Keep these Mythic-only and low weight.
+- Some enchantments behave oddly or break at very high levels (Protection past about 20 stacks to full damage immunity; huge Thorns, Unbreaking or Quick Charge values can cause odd results). Stay in single digits to low teens.
+- Overcapped items look normal to vanilla clients but may show roman numerals oddly; mods that clamp enchant levels (some anvil or enchant-display mods) can reduce them.
+- Anvils and grindstones may refuse to combine or may reset over-level enchants, depending on other mods. Test before relying on them.
+- A bad enchant ID or item ID is skipped with a log line, not a crash.
