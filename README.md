@@ -272,6 +272,8 @@ New config values: `tiers.unique` in `config.json` (same keys as other tiers). I
 | `/lootsurge info` | everyone | shows whether the mod is on and how many mobs and Uniques are loaded |
 | `/lootsurge give <unique>` | ops | gives you the Unique with its name, enchants at top level and powers |
 | `/lootsurge test <tier>` | ops | spawns a test drop of that tier at your feet with all its sounds, particles and pillar (`common` ... `mythic`, `unique`) |
+| `/lootsurge activityroll <activity> <material>` | ops | forces an activity Unique roll (ignores chances) for testing |
+| `/lootsurge pity` | everyone | shows your dry-streak counters (needs pity enabled) |
 | `/lootsurge reload` | ops | reloads `config.json` and all pool files without restarting |
 
 Press Tab after `give` or `test` to autocomplete ids and tiers. `give` works with Uniques you added yourself in your pool files, not only the defaults.
@@ -285,3 +287,63 @@ A **Loot Surge Uniques** tab (nether star icon) in the creative inventory holds 
 If you have Mod Menu installed, open Mods -> Loot Surge -> the config button. It has buttons for bonus loot on/off, require player kill, skip baby mobs, debug logging, the drop chance multiplier and the maximum number of light pillars. Each click saves `config.json` straight away and, in single player, reloads it. Tier odds, sounds and pools are still edited in `config/lootsurge/`.
 
 Mod Menu is optional and is not bundled. The screen only exists on the client and never loads on a dedicated server. If a future Mod Menu release changes its API, only that button is affected; the rest of the mod keeps working.
+
+## Expansion: activity Uniques, armor, Hiro's Spirit and pity
+
+Added on top of everything above; no existing tier, weight, chance, pool or item was changed.
+
+### Rarity visuals now survive pickup and re-drop (bug fix)
+
+The floating name and light pillar used to exist only on the item entity that was first spawned. A drop of tier Rare or higher now also carries its tier inside the item stack (custom data key `lootsurge_tier`). Whenever any item entity appears (thrown by a player, dropped from a broken chest, loaded with a chunk after a restart), the server reads the tier and puts the label and pillar back. The tag lives in the stack, so it works the same in single player, multiplayer, chests and hoppers. Tiers whose label and pillar are both off are never tagged, so Common stacks still merge with vanilla items.
+
+### Activity drops
+
+Doing everyday things can roll one tiny chance at a Unique from a pool that depends on the **material**:
+
+| Activity | Counts | Material keys |
+|---|---|---|
+| `woodcutting` | breaking logs, stripped logs, wood, stems, hyphae, bamboo | `oak spruce birch jungle acacia dark_oak mangrove cherry pale_oak bamboo crimson warped` |
+| `mining` | stone types and ores | `stone deepslate granite diorite andesite tuff calcite netherrack basalt blackstone end_stone obsidian ...`, ores by short name (`coal iron gold copper diamond emerald redstone lapis nether_gold nether_quartz ancient_debris`) |
+| `excavation` | dirt, grass, coarse/rooted dirt, mud, sand, red sand, gravel, clay, snow, powder snow, soul sand/soil | the block name, or the group `dirt sand gravel clay mud snow moss` |
+| `nature` | flowers, leaves, saplings, vines, mushrooms, moss, nether plants, grass and ferns | the block name, or `flower leaves sapling vine mushroom nether plant` |
+| `farming` | fully grown crops (wheat, carrots, potatoes, beetroots, nether wart, melons, pumpkins, cane, cocoa, berries, cave vines) | the block name |
+| `shear`, `milk`, `honey`, `egg`, `breed`, `tame`, `horse` | shearing, milking (cow, goat, mooshroom), honey from a full hive, egg laying near you, breeding, taming, horse taming | the animal (`sheep`, `cow`, `wolf`, `cat`, ...) or `animal` |
+| `fishing`, `archaeology`, `brewing`, `water`, `lava` | catching a fish, brushing suspicious sand/gravel, finishing a potion, scooping water or lava with a bucket | `fish`, `sand`/`gravel`, `potion`, `water`, `lava` |
+
+Each Unique lists `"sources": ["woodcutting:oak@3", "mining:diamond@2", "tame:*@1"]` (`activity:material@weight`, `*` = any). On a roll the game collects every Unique that matches the exact material, the material group and `activity:*`, then picks by weight. A drop is a normal Unique drop: orange name, sounds, pillar, announcement.
+
+Defaults live in `config/lootsurge/uniques/activities.json`: chance per activity (for example 0.15 % per log, 0.1 % per stone, 1 % per fish), `cooldownTicks`, `materialMultipliers` (for example `"mining:ancient_debris": 4.0`) and `pity`. Every Unique file in `uniques/*.json` uses the same entry format as pool files.
+
+Anti-abuse: one roll per player per activity per cooldown (a tree-feller or vein-miner swing rolls once, not once per block); a block position cannot roll again for 5 minutes (place-and-break loops give nothing); crops count only when fully grown; creative and spectator players never roll; everything runs on the server. Test with `/lootsurge activityroll <activity> <material>`.
+
+### New Uniques (activity tools and armor)
+
+Powers are data-driven **triggers**: a Unique worn or held reacts to an activity (`woodcutting`, `mining`, `fishing`, ... or `hurt`, `hit`, `sprint_burst`, `last_stand`) with a chance, a cooldown and a list of actions: `drop`, `duplicate`, `xp`, `effect`, `effect_nearby`, `sound`, `particles`, `ring`, `column`, `lightning`, `shockwave`, `grow`, `spawn`, `reveal`, `pull`, `heal`, `teleport`, `repair`. Flags add `lava_walk`, `magnet`, `glow_hostiles`, `hunger_saver`, `sprint_burst`, `last_stand`. See the files in `uniques/` for examples; copy one and edit it.
+
+Not duplicated from Vein Miner, TreeFeller or auto-replant: none of them break extra blocks or replant. "Special materials" such as Ancient Timber or Frost Wool are stand-ins made from vanilla items (coloured wool, ice, charcoal, amethyst, and so on), because the mod adds no new items.
+
+**Woodcutting (9):** Worldbreaker, The Green Reaper, Timber Tyrant, Stormchopper, Yggdrasil's Branch, Panda King's Cleaver, Stemsplitter, Sakura Storm, Ashen Hatchet
+
+**Mining (9):** Fortune's Favor, Magmaheart, Deepdelver, The Void Digger, King's Ransom, Starfall, The World Eater, Geode Heart, Cinderfang
+
+**Excavation (7):** King's Excavator, Grave Robber, Fossil Finder, Soul Digger, Yeti's Spade, Swamp King's Shovel, Pharaoh's Spade
+
+**Nature and farming (12):** Harvest Moon, The Reaper's Bounty, Golden Harvest, Chronos' Hourglass, Glowvine Crook, Blightbloom, Eden's Promise, The Florist's Folly, The Leaf Blower, Shroom Boom, Warpbloom Sickle, Farmer's Overalls
+
+**Livestock, bees and taming (10):** King's Shears, Frostbite, Phoenix's Shears, Golden Udder, Beastmaster's Bounty, Queen's Decree, Shepherd's Chain, Cluckmaster's Hoe, Centaur's Saddle, Hiro's Spirit
+
+**Fishing and other activities (12):** Leviathan's Call, Gilded Hook, Davy Jones' Debt, Rainbow's End, Abyssal Hook, Prometheus, Fortune's Compass, Tidal Crown, Alchemist's Fortune, Hell's Crucible, Relic Seeker's Brush, Lamplighter's Lens
+
+**Armor (21):** Boots of the Beanstalk, Crown of the Deep, Nomad's Mantle, Magma Walker, Phantom Treads, Greedy Greaves, Warden's Visage, Scarecrow's Crown, Ender's Embrace, The Last Stand, Gravewalkers, Merchant's Gloves, Yeti's Snowshoes, Leviathan's Fins, Lumberjack's Flannel, Stonecutter's Apron, Beekeeper's Veil, Parrot's Perch, Nine Lives, Cinder Sandals, Thunderhide
+
+### Hiro's Spirit
+
+A very rare reward for taming a wolf, in honour of Hiro the husky. Right-click the bone to call **Hiro**: a glowing, named, tamed wolf with speed, strength and resistance, snow and end-rod sparkles, a low howl-like call over a bell chime, and vanilla wolf AI so he follows and fights beside you. Every few seconds he points out the nearest ore (or a dropped item) with an action-bar message and a trail of snowflakes. He stays for 3 minutes (cooldown 1 minute), only one Hiro per player exists, and leftovers after a restart are removed. He is a normal wolf entity with effects, not a custom model, so no client mod is needed.
+
+### Pity system (off by default)
+
+In `uniques/activities.json`: `"pity": { "enabled": false, "perActivity": true, "startAfter": 300, "bonusPerRoll": 0.01, "maxMultiplier": 8.0 }`. When on, each eligible activity roll that gives nothing adds 1 to the player's counter; after `startAfter` misses the activity chance is multiplied by `1 + (misses - startAfter) * bonusPerRoll`, capped at `maxMultiplier`. A Unique drop resets that counter. Counters are saved in `config/lootsurge/pity.json`, and `/lootsurge pity` shows yours. No other tier is touched.
+
+### Updating an existing install
+
+Your `pools/` folder is never modified. The new `uniques/` folder is created only if it does not exist; to get future default changes, delete or rename it and restart. The jar needs no new dependencies.

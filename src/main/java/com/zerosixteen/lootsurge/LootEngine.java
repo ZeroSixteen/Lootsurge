@@ -46,6 +46,9 @@ final class LootEngine {
 	private volatile Map<String, LootPool> byEntity = Map.of();
 	private volatile LootPool fallbackPool;
 	private volatile Map<String, LootEntry> uniqueEntries = Map.of();
+	private volatile Activities activities;
+	/** True while spawn() adds its own items, so the ENTITY_LOAD restore does not add a second pillar for them. */
+	private boolean spawning;
 
 	/** Remembers recently handled mobs so one death can never roll twice. Only touched on the server thread. */
 	private final Set<UUID> handled = new LinkedHashSet<>();
@@ -55,6 +58,10 @@ final class LootEngine {
 		this.configDir = configDir;
 		this.effects = effects;
 		this.uniques = uniques;
+	}
+
+	void setActivities(Activities activities) {
+		this.activities = activities;
 	}
 
 	/** (Re)reads config.json and pools/*.json. Needs a running server because enchantments live in its registries. */
@@ -81,22 +88,30 @@ final class LootEngine {
 					}
 				}
 			}
-			Map<String, UniquePowers.Powers> uniqueMap = new HashMap<>();
-			for (LootPool pool : pools) {
-				for (LootEntry entry : pool.entries) {
-					if (entry.uniqueId != null && entry.powers != null) {
-						uniqueMap.put(entry.uniqueId, entry.powers);
-					}
-				}
-			}
-			uniques.setRegistry(uniqueMap);
-			Map<String, LootEntry> entryMap = new java.util.TreeMap<>();
+			// Uniques come from the mob pools and from uniques/*.json (activity drops, tools, armor).
+			List<LootEntry> allUniques = new ArrayList<>();
 			for (LootPool pool : pools) {
 				for (LootEntry entry : pool.entries) {
 					if (entry.uniqueId != null) {
-						entryMap.put(entry.uniqueId, entry);
+						allUniques.add(entry);
 					}
 				}
+			}
+			for (LootEntry entry : PoolLoader.loadUniques(configDir.resolve("uniques"), server.registryAccess(), log)) {
+				allUniques.add(entry);
+			}
+			Map<String, UniquePowers.Powers> uniqueMap = new HashMap<>();
+			Map<String, LootEntry> entryMap = new java.util.TreeMap<>();
+			for (LootEntry entry : allUniques) {
+				if (entry.powers != null) {
+					uniqueMap.put(entry.uniqueId, entry.powers);
+				}
+				entryMap.put(entry.uniqueId, entry);
+			}
+			uniques.setRegistry(uniqueMap);
+			Activities act = this.activities;
+			if (act != null) {
+				act.reload(entryMap.values());
 			}
 			this.uniqueEntries = Map.copyOf(entryMap);
 			this.settings = s;
@@ -212,25 +227,28 @@ final class LootEngine {
 				stacks.add(stack);
 			}
 		}
+		boolean ok = spawn(level, x, y, z, feetY, tier, stacks, killer, s, rnd);
+		if (ok && s.debugLogging) {
+			log.info("[LootSurge] {} -> tier {} x{} (pool {}).", label, tier.key(), stacks.size(), pool.name);
+		}
+		return ok;
+	}
+
+	/** Drops the stacks with the tier's label, sounds, particles, pillar and announcement. Shared by mob and activity drops. */
+	boolean spawn(ServerLevel level, double x, double y, double z, double feetY, Tier tier, List<ItemStack> stacks,
+			ServerPlayer killer, Settings s, ThreadLocalRandom rnd) {
 		if (stacks.isEmpty()) {
 			return false;
 		}
+		TierSettings ts = s.tier(tier);
+		boolean visual = ts.itemLabel || ts.pillar.enabled();
 
 		List<ItemEntity> spawned = new ArrayList<>();
-		for (ItemStack stack : stacks) {
-			ItemEntity drop = new ItemEntity(level, x, y, z, stack);
-			drop.setDefaultPickUpDelay();
-			drop.setDeltaMovement(new Vec3((rnd.nextDouble() - 0.5) * 0.25, 0.2 + rnd.nextDouble() * 0.1,
-					(rnd.nextDouble() - 0.5) * 0.25));
-			if (ts.itemLabel) {
-				MutableComponent itemLabel = Component.literal("[" + ts.displayName + "] ").withStyle(ts.color);
-				itemLabel.append(stack.getHoverName().copy().withStyle(ts.color));
-				drop.setCustomName(itemLabel);
-				drop.setCustomNameVisible(true);
-			}
-			if (level.addFreshEntity(drop)) {
-				spawned.add(drop);
-			}
+		spawning = true;
+		try {
+			addAll(level, x, y, z, tier, stacks, visual, ts, rnd, spawned);
+		} finally {
+			spawning = false;
 		}
 		if (spawned.isEmpty()) {
 			return false;
@@ -238,11 +256,59 @@ final class LootEngine {
 
 		effects.play(level, x, y, z, feetY, ts, spawned, s.maxActivePillars);
 		announce(level, killer, ts, stacks);
-
-		if (s.debugLogging) {
-			log.info("[LootSurge] {} -> tier {} x{} (pool {}).", label, tier.key(), stacks.size(), pool.name);
-		}
 		return true;
+	}
+
+	private void addAll(ServerLevel level, double x, double y, double z, Tier tier, List<ItemStack> stacks, boolean visual,
+			TierSettings ts, ThreadLocalRandom rnd, List<ItemEntity> spawned) {
+		for (ItemStack stack : stacks) {
+			if (visual) {
+				Rarity.tag(stack, tier);
+			}
+			ItemEntity drop = new ItemEntity(level, x, y, z, stack);
+			drop.setDefaultPickUpDelay();
+			drop.setDeltaMovement(new Vec3((rnd.nextDouble() - 0.5) * 0.25, 0.2 + rnd.nextDouble() * 0.1,
+					(rnd.nextDouble() - 0.5) * 0.25));
+			applyLabel(drop, ts);
+			if (level.addFreshEntity(drop)) {
+				spawned.add(drop);
+			}
+		}
+	}
+
+	private static void applyLabel(ItemEntity drop, TierSettings ts) {
+		if (ts.itemLabel) {
+			MutableComponent itemLabel = Component.literal("[" + ts.displayName + "] ").withStyle(ts.color);
+			itemLabel.append(drop.getItem().getHoverName().copy().withStyle(ts.color));
+			drop.setCustomName(itemLabel);
+			drop.setCustomNameVisible(true);
+		}
+	}
+
+	/**
+	 * Fabric ENTITY_LOAD for every item entity: fires for fresh drops, items thrown by players, items from broken
+	 * containers and items loaded with a chunk. If the stack remembers a tier, its label and pillar are restored.
+	 */
+	void onEntityLoad(Entity entity, ServerLevel level) {
+		try {
+			Settings s = this.settings;
+			if (spawning || s == null || !s.enabled || !(entity instanceof ItemEntity drop)) {
+				return;
+			}
+			Tier tier = Rarity.read(drop.getItem());
+			if (tier == null) {
+				return;
+			}
+			TierSettings ts = s.tier(tier);
+			applyLabel(drop, ts);
+			effects.addPillar(level, drop, ts.pillar, drop.getX(), drop.getY(), drop.getZ(), s.maxActivePillars);
+		} catch (RuntimeException e) {
+			log.error("[LootSurge] Could not restore rarity visuals (item is unaffected).", e);
+		}
+	}
+
+	Settings settings() {
+		return settings;
 	}
 
 	// ------------------------------------------------------------------ used by commands, the creative tab and the options screen
@@ -271,6 +337,20 @@ final class LootEngine {
 			}
 		}
 		return "No pool has items for tier " + tier.key() + ".";
+	}
+
+	String forceActivityRoll(ServerPlayer player, String activity, String material) {
+		Activities act = this.activities;
+		return act == null ? "Activity drops are not loaded." : act.forceRoll(player, activity, material);
+	}
+
+	String pityText(ServerPlayer player) {
+		Activities act = this.activities;
+		if (act == null || !act.pityEnabled()) {
+			return "The pity system is disabled (set pity.enabled in uniques/activities.json).";
+		}
+		Map<String, Integer> m = act.pityOf(player.getUUID());
+		return m.isEmpty() ? "No dry streaks yet." : "Dry streaks (eligible rolls since your last Unique): " + new java.util.TreeMap<>(m);
 	}
 
 	String summary() {

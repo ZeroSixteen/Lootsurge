@@ -43,6 +43,11 @@ final class LootSurgeCommands {
 								.suggests((ctx, builder) -> SharedSuggestionProvider
 										.suggest(engine.uniqueEntries().keySet().stream(), builder))
 								.executes(this::give)))
+				.then(Commands.literal("activityroll").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+						.then(Commands.argument("activity", StringArgumentType.word())
+								.then(Commands.argument("material", StringArgumentType.word())
+										.executes(this::activityRoll))))
+				.then(Commands.literal("pity").executes(this::pity))
 				.then(Commands.literal("test").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 						.then(Commands.argument("tier", StringArgumentType.word())
 								.suggests((ctx, builder) -> SharedSuggestionProvider
@@ -56,6 +61,8 @@ final class LootSurgeCommands {
 				"/lootsurge list - show every Unique item",
 				"/lootsurge give <unique> - give yourself a Unique (op)",
 				"/lootsurge test <tier> - spawn a test drop of a tier at your feet (op)",
+				"/lootsurge activityroll <activity> <material> - force an activity Unique drop, e.g. woodcutting oak (op)",
+				"/lootsurge pity - show your dry-streak counters (when pity is enabled)",
 				"/lootsurge reload - reload config and pools (op)",
 				"/lootsurge info - status" };
 		for (String line : lines) {
@@ -116,6 +123,36 @@ final class LootSurgeCommands {
 			player.drop(stack, false);
 		}
 		ctx.getSource().sendSuccess(() -> Component.literal("Gave you ").append(given), true);
+		return 1;
+	}
+
+	private int activityRoll(CommandContext<CommandSourceStack> ctx) {
+		ServerPlayer player;
+		try {
+			player = ctx.getSource().getPlayerOrException();
+		} catch (com.mojang.brigadier.exceptions.CommandSyntaxException e) {
+			ctx.getSource().sendFailure(Component.literal("Run this as a player."));
+			return 0;
+		}
+		String error = engine.forceActivityRoll(player, StringArgumentType.getString(ctx, "activity").toLowerCase(),
+				StringArgumentType.getString(ctx, "material").toLowerCase());
+		if (error != null) {
+			ctx.getSource().sendFailure(Component.literal(error));
+			return 0;
+		}
+		return 1;
+	}
+
+	private int pity(CommandContext<CommandSourceStack> ctx) {
+		ServerPlayer player;
+		try {
+			player = ctx.getSource().getPlayerOrException();
+		} catch (com.mojang.brigadier.exceptions.CommandSyntaxException e) {
+			ctx.getSource().sendFailure(Component.literal("Run this as a player."));
+			return 0;
+		}
+		String text = engine.pityText(player);
+		ctx.getSource().sendSuccess(() -> Component.literal(text).withStyle(ChatFormatting.GOLD), false);
 		return 1;
 	}
 

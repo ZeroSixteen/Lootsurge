@@ -1,0 +1,1339 @@
+{
+  "_comment": "Loot Surge activity Uniques. 'sources' = activity:material@weight. Edit freely; delete this folder to restore defaults.",
+  "entries": [
+    {
+      "unique": "harvest_moon",
+      "item": "minecraft:netherite_hoe",
+      "name": "Harvest Moon",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:wheat@2",
+        "farming:carrots@2",
+        "farming:potatoes@2",
+        "farming:beetroots@2",
+        "farming:nether_wart@2",
+        "farming:melon@2",
+        "farming:torchflower_crop@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "farming"
+            ],
+            "chance": 0.15,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "ring",
+                "particle": "minecraft:end_rod",
+                "radius": 5.0,
+                "count": 4
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:glow",
+                "count": 40,
+                "radius": 1.5,
+                "amount": 1.5
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.amethyst_block.chime",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "grow",
+                "radius": 6,
+                "count": 8
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:bone_meal",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:golden_carrot",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 1,
+                "chance": 0.7,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "reapers_bounty",
+      "item": "minecraft:netherite_hoe",
+      "name": "The Reaper's Bounty",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:wheat@3",
+        "farming:sugar_cane@2",
+        "farming:sweet_berry_bush@2",
+        "farming:cocoa@2",
+        "farming:beetroots@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "farming"
+            ],
+            "chance": 0.18,
+            "cooldown": 160,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:soul",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.vex.ambient",
+                "volume": 0.8,
+                "pitch": 0.6
+              },
+              {
+                "type": "pull",
+                "radius": 10,
+                "seconds": 6
+              },
+              {
+                "type": "duplicate",
+                "chance": 0.6,
+                "give": true
+              },
+              {
+                "type": "xp",
+                "amount": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "golden_harvest",
+      "item": "minecraft:netherite_hoe",
+      "name": "Golden Harvest",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:carrots@3",
+        "farming:beetroots@2",
+        "farming:melon@2",
+        "farming:pumpkin@1",
+        "farming:wheat@1",
+        "farming:potatoes@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "farming"
+            ],
+            "chance": 0.2,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:happy_villager",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.player.levelup",
+                "volume": 0.6,
+                "pitch": 1.8
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:golden_carrot",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:glistering_melon_slice",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:gold_nugget",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:enchanted_golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.03
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "chronos_hourglass",
+      "item": "minecraft:netherite_hoe",
+      "name": "Chronos' Hourglass",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:wheat@2",
+        "farming:nether_wart@2",
+        "farming:potatoes@2",
+        "farming:carrots@2",
+        "nature:sapling@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "farming",
+              "nature"
+            ],
+            "chance": 0.15,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "column",
+                "particle": "minecraft:enchant",
+                "count": 10,
+                "radius": 0.6
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.beacon.ambient",
+                "volume": 0.8,
+                "pitch": 1.6
+              },
+              {
+                "type": "grow",
+                "radius": 7,
+                "count": 10
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:haste",
+                "seconds": 20,
+                "amplifier": 1,
+                "chance": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "glowvine_crook",
+      "item": "minecraft:netherite_hoe",
+      "name": "Glowvine Crook",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:cave_vines@4",
+        "farming:cave_vines_plant@4",
+        "farming:sweet_berry_bush@2",
+        "nature:vine@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:night_vision",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "farming",
+              "nature"
+            ],
+            "chance": 0.25,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:glow",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.sweet_berry_bush.pick_berries",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:glow_berries",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 6
+                  },
+                  {
+                    "item": "minecraft:sweet_berries",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:glow_lichen",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:spore_blossom",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.5
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:jump_boost",
+                "seconds": 10,
+                "amplifier": 1,
+                "chance": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "blightbloom",
+      "item": "minecraft:netherite_hoe",
+      "name": "Blightbloom",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:flower@2",
+        "nature:wither_rose@5",
+        "nature:poppy@2",
+        "nature:cornflower@1",
+        "nature:lily_of_the_valley@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "immune": [
+          "fire"
+        ],
+        "triggers": [
+          {
+            "on": [
+              "nature"
+            ],
+            "chance": 0.3,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:sneeze",
+                "count": 20,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:witch",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.witch.ambient",
+                "volume": 1.0,
+                "pitch": 0.7
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:wither_rose",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:poisonous_potato",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:spider_eye",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:fermented_spider_eye",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:nether_wart",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:glow_ink_sac",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 1
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "effect_nearby",
+                "effect": "minecraft:wither",
+                "radius": 5,
+                "seconds": 4,
+                "amplifier": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "edens_promise",
+      "item": "minecraft:netherite_hoe",
+      "name": "Eden's Promise",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:flower@3",
+        "nature:leaves@2",
+        "nature:sapling@3",
+        "nature:plant@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:regeneration",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "nature"
+            ],
+            "chance": 0.2,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "column",
+                "particle": "minecraft:happy_villager",
+                "count": 10,
+                "radius": 0.7
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.amethyst_block.chime",
+                "volume": 1.0,
+                "pitch": 1.2
+              },
+              {
+                "type": "grow",
+                "radius": 6,
+                "count": 8
+              },
+              {
+                "type": "heal",
+                "amount": 4
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:apple",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:melon_slice",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:sweet_berries",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:honeycomb",
+                    "min": 2,
+                    "max": 4,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:moss_block",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:flowering_azalea",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 1
+                  }
+                ],
+                "count": 3,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "florists_folly",
+      "item": "minecraft:shears",
+      "name": "The Florist's Folly",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:flower@6",
+        "nature:plant@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "nature"
+            ],
+            "chance": 0.14,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:cherry_leaves",
+                "count": 150,
+                "radius": 2.5,
+                "amount": 1.5
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.bee.loop_aggressive",
+                "volume": 0.8,
+                "pitch": 1.2
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.firework_rocket.twinkle",
+                "volume": 0.8,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:dandelion",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:poppy",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:pink_petals",
+                    "min": 6,
+                    "max": 16,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:torchflower",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:sunflower",
+                    "min": 1,
+                    "max": 4,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:oxeye_daisy",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:blue_orchid",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:peony",
+                    "min": 1,
+                    "max": 4,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:rose_bush",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 4,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:bee",
+                "count": 3,
+                "seconds": 25,
+                "chance": 0.8,
+                "effect": "minecraft:glowing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "leaf_blower",
+      "item": "minecraft:shears",
+      "name": "The Leaf Blower",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:leaves@6",
+        "nature:sapling@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "nature"
+            ],
+            "chance": 0.2,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.wind_charge.wind_burst",
+                "volume": 1.0,
+                "pitch": 1.2
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:cloud",
+                "count": 40,
+                "radius": 1.5,
+                "amount": 1.0
+              },
+              {
+                "type": "shockwave",
+                "radius": 7,
+                "amount": 1.4
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:apple",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:stick",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:oak_sapling",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:azalea_leaves",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "shroom_boom",
+      "item": "minecraft:netherite_hoe",
+      "name": "Shroom Boom",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:mushroom@6"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "nature"
+            ],
+            "chance": 0.25,
+            "cooldown": 120,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:sneeze",
+                "count": 40,
+                "radius": 1.5,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.mooshroom.convert",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:mushroom_stew",
+                    "min": 1,
+                    "max": 4,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:red_mushroom",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:brown_mushroom",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:suspicious_stew",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:red_mushroom_block",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:mooshroom",
+                "count": 1,
+                "seconds": 25,
+                "chance": 0.4,
+                "effect": "minecraft:glowing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "warpbloom_sickle",
+      "item": "minecraft:netherite_hoe",
+      "name": "Warpbloom Sickle",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:nether@5",
+        "nature:crimson_fungus@2",
+        "nature:warped_fungus@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:fortune",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:fire_resistance",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "nature"
+            ],
+            "chance": 0.25,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:warped_spore",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:crimson_spore",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.nether_wart.break",
+                "volume": 1.0,
+                "pitch": 0.8
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:shroomlight",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:nether_sprouts",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:weeping_vines",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:twisting_vines",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:crimson_roots",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:warped_roots",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:glowstone",
+                    "min": 2,
+                    "max": 4,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "farmers_overalls",
+      "item": "minecraft:leather_chestplate",
+      "name": "Farmer's Overalls",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:wheat@2",
+        "farming:carrots@2",
+        "farming:potatoes@2",
+        "breed:animal@3",
+        "egg:chicken@3",
+        "milk:cow@2",
+        "shear:sheep@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "farming"
+            ],
+            "chance": 0.3,
+            "cooldown": 40,
+            "actions": [
+              {
+                "type": "duplicate",
+                "chance": 0.5,
+                "give": true
+              },
+              {
+                "type": "xp",
+                "amount": 5
+              }
+            ]
+          },
+          {
+            "on": [
+              "breed",
+              "egg",
+              "milk",
+              "shear"
+            ],
+            "chance": 0.5,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "xp",
+                "amount": 18
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:bread",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:golden_carrot",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:hay_block",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:cake",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.5
+                  }
+                ],
+                "count": 1,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:happy_villager",
+                "count": 20,
+                "radius": 0.8,
+                "amount": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

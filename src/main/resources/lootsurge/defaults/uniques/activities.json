@@ -1,0 +1,60 @@
+{
+  "_comment": "Activity Unique drops. chances = chance per eligible activity roll (0-1). cooldownTicks = minimum ticks between rolls per player per activity (tree-feller/vein-miner swings roll once). materialMultipliers scale one activity or material, e.g. \"woodcutting:oak\": 2.0. pity is OFF by default.",
+  "enabled": true,
+  "placedBlockMemoryTicks": 6000,
+  "chances": {
+    "woodcutting": 0.0015,
+    "mining": 0.0012,
+    "excavation": 0.001,
+    "nature": 0.0008,
+    "farming": 0.002,
+    "shear": 0.01,
+    "milk": 0.01,
+    "honey": 0.02,
+    "breed": 0.02,
+    "egg": 0.002,
+    "tame": 0.02,
+    "horse": 0.04,
+    "fishing": 0.01,
+    "archaeology": 0.04,
+    "brewing": 0.015,
+    "water": 0.004,
+    "lava": 0.008
+  },
+  "cooldownTicks": {
+    "woodcutting": 40,
+    "mining": 40,
+    "excavation": 40,
+    "nature": 40,
+    "farming": 40,
+    "egg": 1200,
+    "brewing": 400,
+    "fishing": 100,
+    "shear": 100,
+    "milk": 100,
+    "honey": 100,
+    "breed": 100,
+    "tame": 100,
+    "horse": 100,
+    "water": 200,
+    "lava": 100
+  },
+  "materialMultipliers": {
+    "mining:ancient_debris": 4.0,
+    "mining:diamond": 2.0,
+    "mining:emerald": 2.0,
+    "excavation:dirt": 0.5,
+    "excavation:grass_block": 0.5,
+    "mining:stone": 0.5,
+    "mining:deepslate": 0.5,
+    "nature:short_grass": 0.25,
+    "nature:tall_grass": 0.25
+  },
+  "pity": {
+    "enabled": false,
+    "perActivity": true,
+    "startAfter": 300,
+    "bonusPerRoll": 0.01,
+    "maxMultiplier": 8.0
+  }
+}

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
@@ -31,6 +32,9 @@ public final class LootSurgeMod implements ModInitializer {
 		Effects effects = new Effects();
 		UniquePowers uniques = new UniquePowers();
 		LootEngine engine = new LootEngine(LOGGER, configDir, effects, uniques);
+		Activities activities = new Activities(LOGGER, configDir, engine, uniques);
+		engine.setActivities(activities);
+		activities.register();
 
 		// Pools need the server's registries (enchantments), so everything is (re)loaded once a server exists.
 		ServerLifecycleEvents.SERVER_STARTED.register(engine::reload);
@@ -42,6 +46,14 @@ public final class LootSurgeMod implements ModInitializer {
 		ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
 			effects.clear();
 			uniques.clear();
+			activities.onStop();
+		});
+		// Item entities: restore rarity labels/pillars on re-dropped items; eggs count as an activity; Hiro cleanup.
+		ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {
+			engine.onEntityLoad(entity, level);
+			activities.onEntityLoad(entity, level);
+			uniques.companion().onEntityLoad(entity);
+			uniques.onEntityLoad(entity);
 		});
 
 		// /lootsurge commands and the creative tab with every Unique.
@@ -54,6 +66,7 @@ public final class LootSurgeMod implements ModInitializer {
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			effects.tick();
 			uniques.tick(server);
+			activities.tick(server);
 			if (ConfigFile.RELOAD_REQUESTED.getAndSet(false)) {
 				engine.reload(server);
 			}
@@ -61,6 +74,7 @@ public final class LootSurgeMod implements ModInitializer {
 
 		// Unique item powers: immunities, on-hit effects, and right-click fireballs.
 		ServerLivingEntityEvents.ALLOW_DAMAGE.register(uniques::allowDamage);
+		ServerLivingEntityEvents.ALLOW_DEATH.register(uniques::allowDeath);
 		ServerLivingEntityEvents.AFTER_DAMAGE.register(uniques::afterDamage);
 		UseItemCallback.EVENT.register(uniques::onUse);
 

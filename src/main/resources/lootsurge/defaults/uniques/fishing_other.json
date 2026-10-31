@@ -1,0 +1,1493 @@
+{
+  "_comment": "Loot Surge activity Uniques. 'sources' = activity:material@weight. Edit freely; delete this folder to restore defaults.",
+  "entries": [
+    {
+      "unique": "leviathans_call",
+      "item": "minecraft:fishing_rod",
+      "name": "Leviathan's Call",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "fishing:fish@4"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:luck_of_the_sea",
+          "minLevel": 5,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:lure",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:water_breathing",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "fishing"
+            ],
+            "chance": 0.3,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:bubble_pop",
+                "count": 60,
+                "radius": 1.5,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.dolphin.play",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.guardian.ambient",
+                "volume": 0.8,
+                "pitch": 0.6
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:dolphin",
+                "count": 1,
+                "seconds": 40,
+                "chance": 0.6,
+                "effect": "minecraft:glowing"
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:prismarine_shard",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:prismarine_crystals",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:nautilus_shell",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1.5
+                  },
+                  {
+                    "item": "minecraft:heart_of_the_sea",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.1
+                  },
+                  {
+                    "item": "minecraft:sea_lantern",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:trident",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.05
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "gilded_hook",
+      "item": "minecraft:fishing_rod",
+      "name": "Gilded Hook",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "fishing:fish@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:luck_of_the_sea",
+          "minLevel": 5,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:lure",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "fishing"
+            ],
+            "chance": 0.5,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:end_rod",
+                "count": 30,
+                "radius": 0.8,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.experience_orb.pickup",
+                "volume": 1.0,
+                "pitch": 1.6
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:cod",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:salmon",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:tropical_fish",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:pufferfish",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:gold_nugget",
+                    "min": 5,
+                    "max": 12,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:gold_block",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  }
+                ],
+                "count": 3,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "davy_jones_debt",
+      "item": "minecraft:fishing_rod",
+      "name": "Davy Jones' Debt",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "fishing:fish@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:luck_of_the_sea",
+          "minLevel": 5,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:lure",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:water_breathing",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "fishing"
+            ],
+            "chance": 0.18,
+            "cooldown": 400,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:soul",
+                "count": 50,
+                "radius": 1.5,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.drowned.ambient",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.bell.use",
+                "volume": 1.0,
+                "pitch": 0.5
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:drowned",
+                "count": 2,
+                "seconds": 40,
+                "chance": 0.7,
+                "effect": "minecraft:glowing"
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:emerald",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:name_tag",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:saddle",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:heart_of_the_sea",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  },
+                  {
+                    "item": "minecraft:trident",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.1
+                  },
+                  {
+                    "item": "minecraft:map",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  }
+                ],
+                "count": 3,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "rainbows_end",
+      "item": "minecraft:fishing_rod",
+      "name": "Rainbow's End",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "fishing:fish@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:luck_of_the_sea",
+          "minLevel": 5,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:lure",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:luck",
+            "amplifier": 4
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "fishing"
+            ],
+            "chance": 0.3,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "ring",
+                "particle": "minecraft:happy_villager",
+                "radius": 3.0,
+                "count": 3
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:firework",
+                "count": 60,
+                "radius": 1.5,
+                "amount": 1.5
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.firework_rocket.blast",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:luck",
+                "seconds": 120,
+                "amplifier": 5,
+                "chance": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:red_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:orange_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:yellow_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:lime_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:light_blue_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:purple_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:pink_dye",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:enchanted_book",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:nautilus_shell",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  }
+                ],
+                "count": 3,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "abyssal_hook",
+      "item": "minecraft:fishing_rod",
+      "name": "Abyssal Hook",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "fishing:fish@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:luck_of_the_sea",
+          "minLevel": 5,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:lure",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:night_vision",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "fishing"
+            ],
+            "chance": 0.25,
+            "cooldown": 300,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:reverse_portal",
+                "count": 60,
+                "radius": 1.2,
+                "amount": 0.5
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:glow",
+                "count": 30,
+                "radius": 1.2,
+                "amount": 0.5
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.elder_guardian.ambient",
+                "volume": 0.6,
+                "pitch": 0.8
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:guardian",
+                "count": 1,
+                "seconds": 40,
+                "chance": 0.3,
+                "effect": "minecraft:glowing"
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:prismarine_crystals",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:ink_sac",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:glow_ink_sac",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:sponge",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:echo_shard",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.5
+                  },
+                  {
+                    "item": "minecraft:heart_of_the_sea",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 1
+                  }
+                ],
+                "count": 3,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "prometheus",
+      "item": "minecraft:flint_and_steel",
+      "name": "Prometheus",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "lava:lava@2",
+        "brewing:potion@3",
+        "mining:netherrack@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 9,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "immune": [
+          "fire"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:fire_resistance",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "lava",
+              "brewing",
+              "mining"
+            ],
+            "chance": 0.2,
+            "cooldown": 120,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:flame",
+                "count": 50,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:white_ash",
+                "count": 40,
+                "radius": 1.2,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:item.firecharge.use",
+                "volume": 1.0,
+                "pitch": 0.7
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:charcoal",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:blaze_powder",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:fire_charge",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:bone_meal",
+                    "min": 6,
+                    "max": 14,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:gunpowder",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:lava_bucket",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.1
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "fortunes_compass",
+      "item": "minecraft:compass",
+      "name": "Fortune's Compass",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "archaeology:sand@3",
+        "archaeology:gravel@3",
+        "excavation:gravel@1",
+        "mining:stone@1"
+      ],
+      "powers": {
+        "onUse": {
+          "cooldownTicks": 200,
+          "actions": [
+            {
+              "type": "reveal",
+              "radius": 8,
+              "particle": "minecraft:end_rod"
+            },
+            {
+              "type": "sound",
+              "sound": "minecraft:block.amethyst_cluster.hit",
+              "volume": 1.0,
+              "pitch": 1.0
+            }
+          ]
+        },
+        "triggers": [
+          {
+            "on": [
+              "archaeology",
+              "excavation",
+              "mining"
+            ],
+            "chance": 0.1,
+            "cooldown": 300,
+            "actions": [
+              {
+                "type": "reveal",
+                "radius": 8,
+                "particle": "minecraft:happy_villager"
+              },
+              {
+                "type": "xp",
+                "amount": 5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "tidal_crown",
+      "item": "minecraft:golden_helmet",
+      "name": "Tidal Crown",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "water:water@4",
+        "lava:lava@1",
+        "fishing:fish@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:respiration",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:aqua_affinity",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:water_breathing",
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:conduit_power",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "water"
+            ],
+            "chance": 0.5,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:bubble_pop",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.conduit.activate",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:prismarine_shard",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:sea_pickle",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:kelp",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:nautilus_shell",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:heart_of_the_sea",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.1
+                  },
+                  {
+                    "item": "minecraft:sponge",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 1
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          },
+          {
+            "on": [
+              "lava"
+            ],
+            "chance": 0.5,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:lava",
+                "count": 30,
+                "radius": 0.8,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.lava.pop",
+                "volume": 1.0,
+                "pitch": 0.8
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:magma_cream",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:obsidian",
+                    "min": 1,
+                    "max": 4,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:blaze_rod",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:netherite_scrap",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.15
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "alchemists_fortune",
+      "item": "minecraft:blaze_rod",
+      "name": "Alchemist's Fortune",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "brewing:potion@6"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:luck",
+            "amplifier": 1
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "brewing"
+            ],
+            "chance": 0.4,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:witch",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.brewing_stand.brew",
+                "volume": 1.0,
+                "pitch": 1.2
+              },
+              {
+                "type": "xp",
+                "amount": 12
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:luck",
+                "seconds": 60,
+                "amplifier": 1,
+                "chance": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:nether_wart",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:glistering_melon_slice",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:ghast_tear",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1.5
+                  },
+                  {
+                    "item": "minecraft:phantom_membrane",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:blaze_powder",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:dragon_breath",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  },
+                  {
+                    "item": "minecraft:turtle_helmet",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.1
+                  },
+                  {
+                    "item": "minecraft:experience_bottle",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "hells_crucible",
+      "item": "minecraft:bucket",
+      "name": "Hell's Crucible",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "lava:lava@5",
+        "mining:magma_block@2"
+      ],
+      "powers": {
+        "immune": [
+          "fire",
+          "explosion"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:fire_resistance",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "lava",
+              "mining"
+            ],
+            "chance": 0.35,
+            "cooldown": 150,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:lava",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:flame",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.lava.extinguish",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "shockwave",
+                "radius": 4,
+                "amount": 0.7
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:obsidian",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:magma_block",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:magma_cream",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:blaze_rod",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:nether_bricks",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:netherite_scrap",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "relic_seekers_brush",
+      "item": "minecraft:brush",
+      "name": "Relic Seeker's Brush",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "archaeology:sand@4",
+        "archaeology:gravel@4"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "archaeology"
+            ],
+            "chance": 0.7,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:end_rod",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.amethyst_block.chime",
+                "volume": 1.0,
+                "pitch": 0.9
+              },
+              {
+                "type": "xp",
+                "amount": 25
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:angler_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:archer_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:arms_up_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:blade_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:brewer_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:burn_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:danger_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:explorer_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:friend_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:heart_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:heartbreak_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:howl_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:miner_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:mourner_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:plenty_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:prize_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:sheaf_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:shelter_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:skull_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:snort_pottery_sherd",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:emerald",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.6
+                  },
+                  {
+                    "item": "minecraft:netherite_upgrade_smithing_template",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.15
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "lamplighters_lens",
+      "item": "minecraft:spyglass",
+      "name": "Lamplighter's Lens",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:coal@2",
+        "mining:deepslate@1",
+        "excavation:gravel@1"
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:night_vision",
+            "amplifier": 0
+          }
+        ],
+        "onUse": {
+          "cooldownTicks": 300,
+          "actions": [
+            {
+              "type": "reveal",
+              "radius": 8,
+              "particle": "minecraft:glow"
+            },
+            {
+              "type": "sound",
+              "sound": "minecraft:block.amethyst_block.chime",
+              "volume": 0.8,
+              "pitch": 1.4
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

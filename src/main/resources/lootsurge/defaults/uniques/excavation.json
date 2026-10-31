@@ -1,0 +1,796 @@
+{
+  "_comment": "Loot Surge activity Uniques. 'sources' = activity:material@weight. Edit freely; delete this folder to restore defaults.",
+  "entries": [
+    {
+      "unique": "kings_excavator",
+      "item": "minecraft:netherite_shovel",
+      "name": "King's Excavator",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:dirt@3",
+        "excavation:grass_block@3",
+        "excavation:coarse_dirt@2",
+        "excavation:rooted_dirt@2",
+        "excavation:podzol@2",
+        "excavation:mycelium@2",
+        "excavation:gravel@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.2,
+            "cooldown": 80,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:happy_villager",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 0.8
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.gravel.break",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.experience_orb.pickup",
+                "volume": 0.8,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:gold_nugget",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 6
+                  },
+                  {
+                    "item": "minecraft:iron_nugget",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:emerald",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.6
+                  },
+                  {
+                    "item": "minecraft:clay_ball",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 3
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "grave_robber",
+      "item": "minecraft:netherite_shovel",
+      "name": "Grave Robber",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:coarse_dirt@3",
+        "excavation:podzol@2",
+        "excavation:rooted_dirt@2",
+        "excavation:mud@2",
+        "excavation:gravel@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.15,
+            "cooldown": 200,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:soul",
+                "count": 30,
+                "radius": 0.8,
+                "amount": 0.8
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.skeleton.ambient",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:bone",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 6
+                  },
+                  {
+                    "item": "minecraft:rotten_flesh",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:skeleton_skull",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.4
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.4
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:skeleton",
+                "count": 1,
+                "seconds": 30,
+                "chance": 0.3,
+                "effect": "minecraft:glowing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "fossil_finder",
+      "item": "minecraft:netherite_shovel",
+      "name": "Fossil Finder",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:sand@2",
+        "excavation:red_sand@3",
+        "excavation:gravel@2",
+        "excavation:clay@3",
+        "excavation:suspicious_sand@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.22,
+            "cooldown": 80,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:poof",
+                "count": 20,
+                "radius": 0.6,
+                "amount": 0.8
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.bone_block.break",
+                "volume": 1.0,
+                "pitch": 0.8
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:bone",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 6
+                  },
+                  {
+                    "item": "minecraft:bone_block",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:nautilus_shell",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:prismarine_shard",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:sponge",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.7
+                  },
+                  {
+                    "item": "minecraft:spyglass",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "soul_digger",
+      "item": "minecraft:netherite_shovel",
+      "name": "Soul Digger",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:soul_sand@4",
+        "excavation:soul_soil@4"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:soul_speed",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:speed",
+            "amplifier": 1
+          }
+        ],
+        "immune": [
+          "fire"
+        ],
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.25,
+            "cooldown": 80,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:soul",
+                "count": 30,
+                "radius": 0.8,
+                "amount": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:soul_fire_flame",
+                "count": 20,
+                "radius": 0.6,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:particle.soul_escape",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:soul_torch",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:soul_lantern",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:soul_campfire",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:echo_shard",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  },
+                  {
+                    "item": "minecraft:wither_skeleton_skull",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.1
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "xp",
+                "amount": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "yetis_spade",
+      "item": "minecraft:netherite_shovel",
+      "name": "Yeti's Spade",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:snow@3",
+        "excavation:snow_block@3",
+        "excavation:powder_snow@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.28,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:snowflake",
+                "count": 60,
+                "radius": 1.2,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.snow.break",
+                "volume": 1.0,
+                "pitch": 0.7
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:snowball",
+                    "min": 8,
+                    "max": 16,
+                    "weight": 6
+                  },
+                  {
+                    "item": "minecraft:ice",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:packed_ice",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:blue_ice",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "effect_nearby",
+                "effect": "minecraft:slowness",
+                "radius": 5,
+                "seconds": 4,
+                "amplifier": 1
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:snow_golem",
+                "count": 1,
+                "seconds": 30,
+                "chance": 0.25,
+                "effect": "minecraft:glowing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "swamp_kings_shovel",
+      "item": "minecraft:netherite_shovel",
+      "name": "Swamp King's Shovel",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:mud@6",
+        "excavation:clay@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.28,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:happy_villager",
+                "count": 20,
+                "radius": 0.8,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.frog.ambient",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:clay_ball",
+                    "min": 6,
+                    "max": 14,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:slime_ball",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:lily_pad",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:frogspawn",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:mud_bricks",
+                    "min": 4,
+                    "max": 12,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:mangrove_propagule",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:frog",
+                "count": 2,
+                "seconds": 25,
+                "chance": 0.5,
+                "effect": "minecraft:glowing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "pharaohs_spade",
+      "item": "minecraft:netherite_shovel",
+      "name": "Pharaoh's Spade",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:sand@3",
+        "excavation:red_sand@3",
+        "excavation:gravel@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "excavation"
+            ],
+            "chance": 0.25,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:end_rod",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.sand.break",
+                "volume": 1.0,
+                "pitch": 0.6
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:gold_nugget",
+                    "min": 5,
+                    "max": 12,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:cactus",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:chiseled_sandstone",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:sponge",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.6
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.5
+                  },
+                  {
+                    "item": "minecraft:emerald",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 1
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

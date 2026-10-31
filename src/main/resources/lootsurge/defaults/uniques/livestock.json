@@ -1,0 +1,973 @@
+{
+  "_comment": "Loot Surge activity Uniques. 'sources' = activity:material@weight. Edit freely; delete this folder to restore defaults.",
+  "entries": [
+    {
+      "unique": "kings_shears",
+      "item": "minecraft:shears",
+      "name": "King's Shears",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "shear:sheep@4",
+        "shear:animal@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "shear"
+            ],
+            "chance": 0.5,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:end_rod",
+                "count": 30,
+                "radius": 0.8,
+                "amount": 1.2
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.player.levelup",
+                "volume": 0.7,
+                "pitch": 1.4
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:purple_wool",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:yellow_wool",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:gold_nugget",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:string",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:gold_ingot",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:white_carpet",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "frostbite",
+      "item": "minecraft:shears",
+      "name": "Frostbite",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "shear:sheep@2",
+        "shear:snow_golem@4"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "shear"
+            ],
+            "chance": 0.5,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:snowflake",
+                "count": 60,
+                "radius": 1.2,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.glass.break",
+                "volume": 1.0,
+                "pitch": 1.4
+              },
+              {
+                "type": "effect_nearby",
+                "effect": "minecraft:slowness",
+                "radius": 7,
+                "seconds": 6,
+                "amplifier": 2
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:light_blue_wool",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:packed_ice",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:blue_ice",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:snowball",
+                    "min": 8,
+                    "max": 16,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:powder_snow_bucket",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "phoenix_shears",
+      "item": "minecraft:shears",
+      "name": "Phoenix's Shears",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "shear:sheep@2",
+        "shear:mooshroom@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "immune": [
+          "fire"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:fire_resistance",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "shear"
+            ],
+            "chance": 0.5,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:flame",
+                "count": 50,
+                "radius": 1.0,
+                "amount": 1.2
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:item.firecharge.use",
+                "volume": 1.0,
+                "pitch": 0.8
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:orange_wool",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:red_wool",
+                    "min": 2,
+                    "max": 6,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:blaze_powder",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:fire_charge",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:magma_cream",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "golden_udder",
+      "item": "minecraft:bucket",
+      "name": "Golden Udder",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "milk:cow@3",
+        "milk:goat@3",
+        "milk:mooshroom@2"
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "milk"
+            ],
+            "chance": 0.4,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:happy_villager",
+                "count": 30,
+                "radius": 0.8,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.cow.milk",
+                "volume": 1.0,
+                "pitch": 1.4
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:absorption",
+                "seconds": 40,
+                "amplifier": 2,
+                "chance": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:regeneration",
+                "seconds": 15,
+                "amplifier": 1,
+                "chance": 1.0
+              },
+              {
+                "type": "heal",
+                "amount": 4
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:cake",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:golden_carrot",
+                    "min": 2,
+                    "max": 4,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:honey_bottle",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:experience_bottle",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 1,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "beastmasters_bounty",
+      "item": "minecraft:lead",
+      "name": "Beastmaster's Bounty",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "breed:animal@4",
+        "tame:*@1"
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:luck",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "breed",
+              "tame"
+            ],
+            "chance": 0.4,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:heart",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.player.levelup",
+                "volume": 0.6,
+                "pitch": 1.2
+              },
+              {
+                "type": "xp",
+                "amount": 25
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:saddle",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:name_tag",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:turtle_egg",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:sniffer_egg",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.15
+                  },
+                  {
+                    "item": "minecraft:frogspawn",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:honey_bottle",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:golden_horse_armor",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.7
+                  },
+                  {
+                    "item": "minecraft:diamond_horse_armor",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.2
+                  },
+                  {
+                    "item": "minecraft:armadillo_scute",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "queens_decree",
+      "item": "minecraft:shears",
+      "name": "Queen's Decree",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "honey:beehive@3",
+        "honey:bee_nest@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "immune": [
+          "fire"
+        ],
+        "triggers": [
+          {
+            "on": [
+              "honey"
+            ],
+            "chance": 0.6,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:falling_honey",
+                "count": 40,
+                "radius": 0.8,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:block.honey_block.slide",
+                "volume": 1.0,
+                "pitch": 0.8
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:resistance",
+                "seconds": 20,
+                "amplifier": 1,
+                "chance": 1.0
+              },
+              {
+                "type": "spawn",
+                "id": "minecraft:bee",
+                "count": 4,
+                "seconds": 25,
+                "chance": 0.8,
+                "effect": "minecraft:glowing"
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:honeycomb",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 6
+                  },
+                  {
+                    "item": "minecraft:honey_bottle",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:honey_block",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.5
+                  },
+                  {
+                    "item": "minecraft:beehive",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.5
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "shepherds_chain",
+      "item": "minecraft:lead",
+      "name": "Shepherd's Chain",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "shear:sheep@2",
+        "breed:animal@2",
+        "horse:*@2",
+        "tame:*@1"
+      ],
+      "powers": {
+        "onUse": {
+          "cooldownTicks": 2400,
+          "actions": [
+            {
+              "type": "particles",
+              "particle": "minecraft:heart",
+              "count": 40,
+              "radius": 1.5,
+              "amount": 1.0
+            },
+            {
+              "type": "sound",
+              "sound": "minecraft:entity.allay.ambient_with_item",
+              "volume": 1.0,
+              "pitch": 1.0
+            },
+            {
+              "type": "spawn",
+              "id": "minecraft:allay",
+              "count": 1,
+              "seconds": 90,
+              "chance": 1.0,
+              "effect": "minecraft:glowing"
+            },
+            {
+              "type": "pull",
+              "radius": 12,
+              "seconds": 8
+            }
+          ]
+        },
+        "triggers": [
+          {
+            "on": [
+              "shear",
+              "breed",
+              "horse"
+            ],
+            "chance": 0.4,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "xp",
+                "amount": 15
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:lead",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:name_tag",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 2
+                  },
+                  {
+                    "item": "minecraft:wheat",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:hay_block",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  }
+                ],
+                "count": 1,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "cluckmasters_hoe",
+      "item": "minecraft:wooden_hoe",
+      "name": "Cluckmaster's Hoe",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "egg:chicken@6"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 8,
+          "maxLevel": 10,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:efficiency",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "egg"
+            ],
+            "chance": 0.6,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:poof",
+                "count": 20,
+                "radius": 0.5,
+                "amount": 0.5
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.chicken.egg",
+                "volume": 1.0,
+                "pitch": 0.7
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:gold_nugget",
+                    "min": 3,
+                    "max": 9,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:feather",
+                    "min": 4,
+                    "max": 10,
+                    "weight": 5
+                  },
+                  {
+                    "item": "minecraft:golden_carrot",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:cake",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:enchanted_golden_apple",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.03
+                  },
+                  {
+                    "item": "minecraft:diamond",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 0.3
+                  }
+                ],
+                "count": 1,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "centaurs_saddle",
+      "item": "minecraft:saddle",
+      "name": "Centaur's Saddle",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "horse:*@3"
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:speed",
+            "amplifier": 1
+          },
+          {
+            "id": "minecraft:jump_boost",
+            "amplifier": 1
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "horse"
+            ],
+            "chance": 0.7,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "particles",
+                "particle": "minecraft:happy_villager",
+                "count": 30,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.horse.gallop",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:speed",
+                "seconds": 60,
+                "amplifier": 2,
+                "chance": 1.0
+              },
+              {
+                "type": "xp",
+                "amount": 20
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:golden_horse_armor",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:diamond_horse_armor",
+                    "min": 1,
+                    "max": 1,
+                    "weight": 1
+                  },
+                  {
+                    "item": "minecraft:golden_carrot",
+                    "min": 3,
+                    "max": 8,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:hay_block",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:lead",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 2
+                  }
+                ],
+                "count": 2,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "hiros_spirit",
+      "item": "minecraft:bone",
+      "name": "Hiro's Spirit",
+      "nameColor": "aqua",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "tame:wolf@6"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:speed",
+            "amplifier": 0
+          }
+        ],
+        "onUse": {
+          "cooldownTicks": 1200,
+          "actions": [
+            {
+              "type": "summon_hiro",
+              "seconds": 180
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

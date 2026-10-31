@@ -1,0 +1,9 @@
+# One file per line. Copied on first launch when config/lootsurge/uniques/ does not exist.
+activities.json
+woodcutting.json
+mining.json
+excavation.json
+nature.json
+livestock.json
+fishing_other.json
+armor.json

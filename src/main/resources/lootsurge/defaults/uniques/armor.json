@@ -1,0 +1,1310 @@
+{
+  "_comment": "Loot Surge activity Uniques. 'sources' = activity:material@weight. Edit freely; delete this folder to restore defaults.",
+  "entries": [
+    {
+      "unique": "beanstalk_boots",
+      "item": "minecraft:netherite_boots",
+      "name": "Boots of the Beanstalk",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "nature:sapling@3",
+        "woodcutting:jungle@2",
+        "woodcutting:oak@1",
+        "farming:wheat@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 5,
+          "maxLevel": 8,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:jump_boost",
+            "amplifier": 4
+          }
+        ],
+        "immune": [
+          "fall"
+        ]
+      }
+    },
+    {
+      "unique": "crown_of_the_deep",
+      "item": "minecraft:netherite_helmet",
+      "name": "Crown of the Deep",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "water:water@3",
+        "fishing:fish@2",
+        "mining:prismarine@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:respiration",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:aqua_affinity",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:water_breathing",
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:conduit_power",
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:night_vision",
+            "amplifier": 0
+          }
+        ]
+      }
+    },
+    {
+      "unique": "nomads_mantle",
+      "item": "minecraft:netherite_chestplate",
+      "name": "Nomad's Mantle",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:sand@3",
+        "excavation:red_sand@3",
+        "horse:*@2",
+        "archaeology:sand@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:speed",
+            "amplifier": 1
+          }
+        ],
+        "flags": [
+          "hunger_saver"
+        ],
+        "params": {
+          "hungerSeconds": 6
+        }
+      }
+    },
+    {
+      "unique": "magma_walker",
+      "item": "minecraft:netherite_boots",
+      "name": "Magma Walker",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "lava:lava@3",
+        "mining:magma_block@3",
+        "mining:netherrack@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "immune": [
+          "fire"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:fire_resistance",
+            "amplifier": 0
+          }
+        ],
+        "flags": [
+          "lava_walk"
+        ],
+        "params": {
+          "lavaSeconds": 4
+        }
+      }
+    },
+    {
+      "unique": "phantom_treads",
+      "item": "minecraft:leather_boots",
+      "name": "Phantom Treads",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "tame:cat@3",
+        "mining:calcite@1",
+        "excavation:soul_sand@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:speed",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "hurt"
+            ],
+            "chance": 1.0,
+            "cooldown": 240,
+            "actions": [
+              {
+                "type": "effect",
+                "effect": "minecraft:invisibility",
+                "seconds": 5,
+                "amplifier": 0,
+                "chance": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:speed",
+                "seconds": 5,
+                "amplifier": 2,
+                "chance": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:poof",
+                "count": 30,
+                "radius": 0.6,
+                "amount": 1.0
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.phantom.flap",
+                "volume": 1.0,
+                "pitch": 0.7
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "greedy_greaves",
+      "item": "minecraft:golden_leggings",
+      "name": "Greedy Greaves",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:gold@3",
+        "excavation:gravel@2",
+        "mining:emerald@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "flags": [
+          "magnet"
+        ],
+        "params": {
+          "magnetRadius": 8
+        }
+      }
+    },
+    {
+      "unique": "wardens_visage",
+      "item": "minecraft:netherite_helmet",
+      "name": "Warden's Visage",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:deepslate@3",
+        "excavation:soul_soil@2",
+        "mining:tuff@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:night_vision",
+            "amplifier": 0
+          }
+        ],
+        "cure": [
+          "minecraft:darkness"
+        ],
+        "flags": [
+          "glow_hostiles"
+        ],
+        "params": {
+          "glowRadius": 24
+        }
+      }
+    },
+    {
+      "unique": "farmers_hat",
+      "item": "minecraft:leather_helmet",
+      "name": "Scarecrow's Crown",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "farming:pumpkin@3",
+        "farming:melon@2",
+        "farming:wheat@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 5,
+          "maxLevel": 7,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:saturation",
+            "amplifier": 0
+          }
+        ]
+      }
+    },
+    {
+      "unique": "enders_embrace",
+      "item": "minecraft:netherite_chestplate",
+      "name": "Ender's Embrace",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:end_stone@3",
+        "mining:obsidian@2",
+        "mining:crying_obsidian@2"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "hurt"
+            ],
+            "chance": 0.3,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "teleport",
+                "radius": 10
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:portal",
+                "count": 50,
+                "radius": 0.8,
+                "amount": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "last_stand",
+      "item": "minecraft:netherite_chestplate",
+      "name": "The Last Stand",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:ancient_debris@3",
+        "mining:obsidian@1",
+        "fishing:fish@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "flags": [
+          "last_stand"
+        ],
+        "params": {
+          "lastStandCooldownTicks": 9000,
+          "lastStandHealth": 8
+        },
+        "triggers": [
+          {
+            "on": [
+              "last_stand"
+            ],
+            "chance": 1.0,
+            "cooldown": 0,
+            "actions": [
+              {
+                "type": "sound",
+                "sound": "minecraft:item.totem.use",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:totem_of_undying",
+                "count": 60,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "shockwave",
+                "radius": 6,
+                "amount": 1.4
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:resistance",
+                "seconds": 10,
+                "amplifier": 3,
+                "chance": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:absorption",
+                "seconds": 20,
+                "amplifier": 3,
+                "chance": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "gravewalkers",
+      "item": "minecraft:netherite_leggings",
+      "name": "Gravewalkers",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:gravel@3",
+        "excavation:coarse_dirt@2",
+        "excavation:soul_sand@2",
+        "mining:basalt@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "flags": [
+          "sprint_burst"
+        ],
+        "params": {
+          "chargeTicks": 80
+        },
+        "triggers": [
+          {
+            "on": [
+              "sprint_burst"
+            ],
+            "chance": 1.0,
+            "cooldown": 0,
+            "actions": [
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.wither.shoot",
+                "volume": 0.7,
+                "pitch": 0.8
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:soul_fire_flame",
+                "count": 40,
+                "radius": 0.8,
+                "amount": 0.5
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:speed",
+                "seconds": 6,
+                "amplifier": 5,
+                "chance": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:jump_boost",
+                "seconds": 6,
+                "amplifier": 2,
+                "chance": 1.0
+              },
+              {
+                "type": "shockwave",
+                "radius": 3,
+                "amount": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "merchants_gloves",
+      "item": "minecraft:golden_chestplate",
+      "name": "Merchant's Gloves",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:gold@2",
+        "mining:emerald@3",
+        "farming:wheat@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:hero_of_the_village",
+            "amplifier": 2
+          },
+          {
+            "id": "minecraft:luck",
+            "amplifier": 0
+          }
+        ]
+      }
+    },
+    {
+      "unique": "yetis_snowshoes",
+      "item": "minecraft:leather_boots",
+      "name": "Yeti's Snowshoes",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "excavation:snow@3",
+        "excavation:snow_block@3",
+        "excavation:powder_snow@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:frost_walker",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:speed",
+            "amplifier": 1
+          }
+        ]
+      }
+    },
+    {
+      "unique": "leviathans_fins",
+      "item": "minecraft:netherite_boots",
+      "name": "Leviathan's Fins",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "fishing:fish@3",
+        "water:water@3"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:depth_strider",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:dolphins_grace",
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:water_breathing",
+            "amplifier": 0
+          }
+        ]
+      }
+    },
+    {
+      "unique": "lumberjacks_flannel",
+      "item": "minecraft:leather_chestplate",
+      "name": "Lumberjack's Flannel",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "woodcutting:oak@2",
+        "woodcutting:spruce@2",
+        "woodcutting:birch@2",
+        "woodcutting:dark_oak@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "woodcutting"
+            ],
+            "chance": 0.3,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "effect",
+                "effect": "minecraft:haste",
+                "seconds": 20,
+                "amplifier": 2,
+                "chance": 1.0
+              },
+              {
+                "type": "heal",
+                "amount": 2
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:apple",
+                    "min": 1,
+                    "max": 2,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:stick",
+                    "min": 4,
+                    "max": 8,
+                    "weight": 3
+                  },
+                  {
+                    "item": "minecraft:cooked_beef",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 2
+                  }
+                ],
+                "count": 1,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "stonecutters_apron",
+      "item": "minecraft:iron_leggings",
+      "name": "Stonecutter's Apron",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:stone@3",
+        "mining:andesite@2",
+        "mining:granite@2",
+        "mining:diorite@2",
+        "mining:deepslate@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "triggers": [
+          {
+            "on": [
+              "mining"
+            ],
+            "chance": 0.2,
+            "cooldown": 60,
+            "actions": [
+              {
+                "type": "repair",
+                "amount": 6
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:haste",
+                "seconds": 10,
+                "amplifier": 1,
+                "chance": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "beekeepers_veil",
+      "item": "minecraft:leather_helmet",
+      "name": "Beekeeper's Veil",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "honey:beehive@3",
+        "honey:bee_nest@3",
+        "nature:flower@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "cure": [
+          "minecraft:poison"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:regeneration",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "honey"
+            ],
+            "chance": 0.6,
+            "cooldown": 100,
+            "actions": [
+              {
+                "type": "xp",
+                "amount": 15
+              },
+              {
+                "type": "heal",
+                "amount": 4
+              },
+              {
+                "type": "drop",
+                "items": [
+                  {
+                    "item": "minecraft:honeycomb",
+                    "min": 2,
+                    "max": 5,
+                    "weight": 4
+                  },
+                  {
+                    "item": "minecraft:honey_bottle",
+                    "min": 1,
+                    "max": 3,
+                    "weight": 3
+                  }
+                ],
+                "count": 1,
+                "chance": 1.0,
+                "give": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "parrots_perch",
+      "item": "minecraft:leather_helmet",
+      "name": "Parrot's Perch",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "tame:parrot@4",
+        "tame:cat@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:feather_falling",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "effects": [
+          {
+            "id": "minecraft:slow_falling",
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:jump_boost",
+            "amplifier": 1
+          }
+        ],
+        "immune": [
+          "fall"
+        ]
+      }
+    },
+    {
+      "unique": "nine_lives",
+      "item": "minecraft:netherite_chestplate",
+      "name": "Nine Lives",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "tame:cat@4"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        }
+      ],
+      "powers": {
+        "flags": [
+          "last_stand"
+        ],
+        "params": {
+          "lastStandCooldownTicks": 4800,
+          "lastStandHealth": 6
+        },
+        "triggers": [
+          {
+            "on": [
+              "last_stand"
+            ],
+            "chance": 1.0,
+            "cooldown": 0,
+            "actions": [
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.cat.purreow",
+                "volume": 1.0,
+                "pitch": 1.0
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:heart",
+                "count": 20,
+                "radius": 1.0,
+                "amount": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:speed",
+                "seconds": 6,
+                "amplifier": 2,
+                "chance": 1.0
+              },
+              {
+                "type": "effect",
+                "effect": "minecraft:invisibility",
+                "seconds": 4,
+                "amplifier": 0,
+                "chance": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique": "cinder_sandals",
+      "item": "minecraft:netherite_boots",
+      "name": "Cinder Sandals",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "mining:blackstone@2",
+        "mining:basalt@2",
+        "mining:netherrack@1",
+        "lava:lava@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:soul_speed",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "immune": [
+          "fire",
+          "explosion"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:fire_resistance",
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:speed",
+            "amplifier": 0
+          }
+        ]
+      }
+    },
+    {
+      "unique": "thunderhide",
+      "item": "minecraft:netherite_chestplate",
+      "name": "Thunderhide",
+      "nameColor": "orange",
+      "tiers": [
+        "unique"
+      ],
+      "weight": 1,
+      "sources": [
+        "woodcutting:acacia@2",
+        "mining:copper@3",
+        "mining:redstone@1"
+      ],
+      "enchantments": [
+        {
+          "id": "minecraft:protection",
+          "minLevel": 4,
+          "maxLevel": 6,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:unbreaking",
+          "minLevel": 6,
+          "maxLevel": 8,
+          "overcap": true
+        },
+        {
+          "id": "minecraft:mending",
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": "minecraft:thorns",
+          "minLevel": 3,
+          "maxLevel": 5,
+          "overcap": true
+        }
+      ],
+      "powers": {
+        "immune": [
+          "lightning"
+        ],
+        "effects": [
+          {
+            "id": "minecraft:haste",
+            "amplifier": 0
+          }
+        ],
+        "triggers": [
+          {
+            "on": [
+              "hurt"
+            ],
+            "chance": 0.25,
+            "cooldown": 160,
+            "actions": [
+              {
+                "type": "lightning"
+              },
+              {
+                "type": "sound",
+                "sound": "minecraft:entity.lightning_bolt.thunder",
+                "volume": 0.6,
+                "pitch": 1.4
+              },
+              {
+                "type": "shockwave",
+                "radius": 4,
+                "amount": 1.2
+              },
+              {
+                "type": "particles",
+                "particle": "minecraft:electric_spark",
+                "count": 40,
+                "radius": 1.0,
+                "amount": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

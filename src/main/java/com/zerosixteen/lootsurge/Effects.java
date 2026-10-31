@@ -133,14 +133,29 @@ final class Effects {
 			}
 		}
 
-		if (t.pillar.enabled() && maxActivePillars > 0) {
-			while (pillars.size() >= maxActivePillars) {
-				pillars.remove(0);
-			}
-			ItemEntity anchor = items.isEmpty() ? null : items.get(0);
-			ActivePillar p = new ActivePillar(level, anchor, t.pillar, x, feetY, z, tick + t.pillar.maxTicks(), tick + 1);
-			pillars.add(p);
+		addPillar(level, items.isEmpty() ? null : items.get(0), t.pillar, x, feetY, z, maxActivePillars);
+	}
+
+	/**
+	 * Starts a light pillar over a dropped item. Safe to call again for the same item (it is ignored), which is how
+	 * a re-dropped or reloaded item gets its pillar back.
+	 */
+	void addPillar(ServerLevel level, ItemEntity anchor, TierSettings.Pillar pillar, double x, double y, double z,
+			int maxActivePillars) {
+		if (!pillar.enabled() || maxActivePillars <= 0) {
+			return;
 		}
+		if (anchor != null) {
+			for (ActivePillar existing : pillars) {
+				if (existing.anchor == anchor) {
+					return;
+				}
+			}
+		}
+		while (pillars.size() >= maxActivePillars) {
+			pillars.remove(0);
+		}
+		pillars.add(new ActivePillar(level, anchor, pillar, x, y, z, tick + pillar.maxTicks(), tick + 1));
 	}
 
 	private static void playCue(ServerLevel level, double x, double y, double z, TierSettings.SoundCue cue) {

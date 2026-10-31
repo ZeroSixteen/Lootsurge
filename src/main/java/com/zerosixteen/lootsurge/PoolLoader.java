@@ -220,8 +220,32 @@ final class PoolLoader {
 					.withStyle(Ids.color(c.string("nameColor", uniqueId != null ? "orange" : "white")));
 		}
 
+		List<LootEntry.Source> sources = new ArrayList<>();
+		JsonArray srcArray = c.array("sources");
+		if (srcArray != null && uniqueId != null) {
+			for (JsonElement e : srcArray) {
+				if (!e.isJsonPrimitive()) {
+					continue;
+				}
+				String[] parts = e.getAsString().trim().toLowerCase(Locale.ROOT).split("@", 2);
+				double w = 1.0;
+				if (parts.length == 2) {
+					try {
+						w = Layered.clamp(Double.parseDouble(parts[1]), 0.0001, 1_000_000.0);
+					} catch (NumberFormatException ex) {
+						log.warn("[LootSurge] {}: bad source weight '{}', using 1.", where, e);
+					}
+				}
+				if (parts[0].matches("[a-z_]+:[a-z0-9_*]+")) {
+					sources.add(new LootEntry.Source(parts[0], w));
+				} else {
+					log.warn("[LootSurge] {}: source '{}' should look like activity:material, ignored.", where, e);
+				}
+			}
+		}
+
 		return new LootEntry(item, tiers, weight, minCount, maxCount, specs, pickOne, maxEnchants, minDamage, maxDamage,
-				name, uniqueId, powers);
+				name, uniqueId, powers, sources);
 	}
 
 	private static LootEntry.EnchantSpec parseEnchant(String where, JsonElement e,
@@ -256,6 +280,46 @@ final class PoolLoader {
 	}
 
 	/** Used by the engine for debug output. */
+	/** Loads uniques/*.json: files with an "entries" array of Unique entries that are not tied to any mob. */
+	static List<LootEntry> loadUniques(Path dir, RegistryAccess registries, Logger log) {
+		List<LootEntry> out = new ArrayList<>();
+		if (!Files.isDirectory(dir)) {
+			return out;
+		}
+		HolderLookup.RegistryLookup<Enchantment> enchants = registries.lookupOrThrow(Registries.ENCHANTMENT);
+		try (java.util.stream.Stream<Path> files = Files.list(dir)) {
+			for (Path file : files.sorted().toList()) {
+				String name = file.getFileName().toString();
+				if (!name.endsWith(".json") || name.startsWith("_") || name.equals("activities.json")) {
+					continue;
+				}
+				try (java.io.Reader reader = Files.newBufferedReader(file, java.nio.charset.StandardCharsets.UTF_8)) {
+					JsonElement root = com.google.gson.JsonParser.parseReader(reader);
+					if (!root.isJsonObject() || !root.getAsJsonObject().has("entries")
+							|| !root.getAsJsonObject().get("entries").isJsonArray()) {
+						log.warn("[LootSurge] uniques/{} needs an \"entries\" array, skipped.", name);
+						continue;
+					}
+					int i = 0;
+					for (JsonElement e : root.getAsJsonObject().getAsJsonArray("entries")) {
+						if (e.isJsonObject()) {
+							LootEntry entry = parseEntry("uniques/" + name, i, e.getAsJsonObject(), enchants, log);
+							if (entry != null && entry.uniqueId != null) {
+								out.add(entry);
+							}
+						}
+						i++;
+					}
+				} catch (java.io.IOException | RuntimeException ex) {
+					log.error("[LootSurge] Could not read uniques/{}: {}", name, ex.getMessage());
+				}
+			}
+		} catch (java.io.IOException ex) {
+			log.error("[LootSurge] Could not list {}: {}", dir, ex.getMessage());
+		}
+		return out;
+	}
+
 	static Map<String, Integer> summarize(List<LootPool> pools) {
 		Map<String, Integer> m = new java.util.TreeMap<>();
 		for (LootPool p : pools) {

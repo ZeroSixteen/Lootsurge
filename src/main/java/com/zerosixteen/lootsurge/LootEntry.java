@@ -36,10 +36,15 @@ final class LootEntry {
 	/** Id of the Unique this entry creates (null for normal entries) and its powers. */
 	final String uniqueId;
 	final UniquePowers.Powers powers;
+	/** Activity pools this Unique can drop from, e.g. "woodcutting:oak". Empty for ordinary entries. */
+	final List<Source> sources;
+
+	record Source(String key, double weight) {
+	}
 
 	LootEntry(Item item, Set<Tier> tiers, double weight, int minCount, int maxCount, List<EnchantSpec> enchants,
 			boolean pickOne, int maxEnchants, double minDamage, double maxDamage, Component name, String uniqueId,
-			UniquePowers.Powers powers) {
+			UniquePowers.Powers powers, List<Source> sources) {
 		this.item = item;
 		this.tiers = EnumSet.copyOf(tiers);
 		this.weight = weight;
@@ -53,6 +58,7 @@ final class LootEntry {
 		this.name = name;
 		this.uniqueId = uniqueId;
 		this.powers = powers;
+		this.sources = sources == null ? List.of() : List.copyOf(sources);
 	}
 
 	/** Builds a fresh item stack. Enchantment levels are clamped to the enchantment's real maximum unless the spec has overcap enabled. */
@@ -109,6 +115,7 @@ final class LootEntry {
 			CompoundTag tag = new CompoundTag();
 			tag.putBoolean(UniquePowers.KEY_PREFIX + uniqueId, true);
 			stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+			Rarity.tag(stack, Tier.UNIQUE);
 		}
 		for (EnchantSpec spec : enchants) {
 			int cap = spec.overcap() ? 255 : Math.max(1, spec.holder().value().getMaxLevel());

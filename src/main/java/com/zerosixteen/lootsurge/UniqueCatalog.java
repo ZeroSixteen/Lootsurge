@@ -21,16 +21,17 @@ public final class UniqueCatalog {
 		List<ItemStack> out = new ArrayList<>();
 		try {
 			HolderLookup.RegistryLookup<Enchantment> enchants = registries.lookupOrThrow(Registries.ENCHANTMENT);
-			String index = Defaults.readBundledText("pools/_index.txt");
+			for (String dir : new String[] { "pools", "uniques" }) {
+			String index = Defaults.readBundledText(dir + "/_index.txt");
 			if (index == null) {
-				return out;
+				continue;
 			}
 			for (String line : index.split("\\R")) {
 				String file = line.trim();
-				if (file.isEmpty() || file.startsWith("#")) {
+				if (file.isEmpty() || file.startsWith("#") || file.equals("activities.json")) {
 					continue;
 				}
-				JsonObject root = Settings.readResource("/lootsurge/defaults/pools/" + file, LootSurgeMod.LOGGER);
+				JsonObject root = Settings.readResource("/lootsurge/defaults/" + dir + "/" + file, LootSurgeMod.LOGGER);
 				if (root == null || !root.has("entries") || !root.get("entries").isJsonArray()) {
 					continue;
 				}
@@ -46,6 +47,7 @@ public final class UniqueCatalog {
 					}
 					i++;
 				}
+			}
 			}
 		} catch (RuntimeException e) {
 			LootSurgeMod.LOGGER.error("[LootSurge] Could not build the creative tab items.", e);

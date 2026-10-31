@@ -37,6 +37,21 @@ final class Defaults {
 					}
 				}
 			}
+
+			// New in the expansion: activity Uniques. Only installed when the folder is missing, never overwritten.
+			Path uniquesDir = configDir.resolve("uniques");
+			if (!Files.exists(uniquesDir)) {
+				Files.createDirectories(uniquesDir);
+				String index = readText(ROOT + "uniques/_index.txt", log);
+				if (index != null) {
+					for (String line : index.split("\\R")) {
+						String name = line.trim();
+						if (!name.isEmpty() && !name.startsWith("#")) {
+							copy("uniques/" + name, uniquesDir.resolve(name), log);
+						}
+					}
+				}
+			}
 		} catch (IOException e) {
 			log.error("[LootSurge] Could not create default config files in {}: {}", configDir, e.getMessage());
 		}
