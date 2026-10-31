@@ -76,6 +76,7 @@ final class LootEntry {
 			tag.putBoolean(UniquePowers.KEY_PREFIX + uniqueId, true);
 			stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
 			Visuals.apply(stack, uniqueId);
+			Tooltips.apply(stack, uniqueId, powers);
 		}
 
 		int durability = stack.getMaxDamage();
@@ -118,6 +119,7 @@ final class LootEntry {
 			stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
 			Rarity.tag(stack, Tier.UNIQUE);
 			Visuals.apply(stack, uniqueId);
+			Tooltips.apply(stack, uniqueId, powers);
 		}
 		for (EnchantSpec spec : enchants) {
 			int cap = spec.overcap() ? 255 : Math.max(1, spec.holder().value().getMaxLevel());

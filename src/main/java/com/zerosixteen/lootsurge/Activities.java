@@ -194,6 +194,8 @@ final class Activities {
 		multipliers = root.child("materialMultipliers");
 		memoryTicks = Layered.clamp(root.integer("placedBlockMemoryTicks", 6000), 0, 1_000_000);
 		Visuals.enabled = root.child("visuals").bool("customItemModels", true);
+		Tooltips.enabled = root.child("visuals").bool("tooltips", true);
+		Tooltips.loadFlavor(log);
 		Layered pc = root.child("pity");
 		pityOn = pc.bool("enabled", false);
 		pityPerActivity = pc.bool("perActivity", true);

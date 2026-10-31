@@ -430,6 +430,7 @@ final class UniquePowers {
 				Powers p = reg.get(id);
 				if (p != null) {
 					Visuals.apply(stack, id);
+					Tooltips.apply(stack, id, p);
 					return new Held(id, p);
 				}
 			}

@@ -58,6 +58,7 @@
     "maxMultiplier": 8.0
   },
   "visuals": {
-    "customItemModels": true
+    "customItemModels": true,
+    "tooltips": true
   }
 }
