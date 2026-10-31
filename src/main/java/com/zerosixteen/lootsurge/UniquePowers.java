@@ -23,6 +23,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -911,7 +912,9 @@ final class UniquePowers {
 				}
 			}
 			case "lightning" -> {
-				LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.EVENT);
+				EntityType<?> boltType = BuiltInRegistries.ENTITY_TYPE.getOptional(Ids.parse("minecraft:lightning_bolt")).orElse(null);
+				Entity boltRaw = boltType == null ? null : boltType.create(level, EntitySpawnReason.EVENT);
+				LightningBolt bolt = boltRaw instanceof LightningBolt lb ? lb : null;
 				if (bolt != null) {
 					bolt.setPos(cx.x(), cx.y(), cx.z());
 					bolt.setVisualOnly(true);
@@ -1041,7 +1044,7 @@ final class UniquePowers {
 
 	/** ENTITY_LOAD: a temporary summon that was saved with its chunk (server stopped) is queued for removal. */
 	void onEntityLoad(Entity entity) {
-		if (entity.getTags().contains(TEMP_TAG)) {
+		if (entity.entityTags().contains(TEMP_TAG)) {
 			for (Timed t : summoned) {
 				if (t.entity == entity) {
 					return;

@@ -61,7 +61,7 @@ final class Companion {
 
 	/** ENTITY_LOAD: a Hiro wolf that is not ours (left over from a previous session) is queued for removal. */
 	void onEntityLoad(Entity entity) {
-		if (entity.getTags().contains(TAG)) {
+		if (entity.entityTags().contains(TAG)) {
 			for (Active a : active.values()) {
 				if (a.wolf.equals(entity.getUUID())) {
 					return;
@@ -76,7 +76,8 @@ final class Companion {
 		if (old != null && level.getEntity(old.wolf) != null) {
 			level.getEntity(old.wolf).discard();
 		}
-		Wolf wolf = EntityType.WOLF.create(level, EntitySpawnReason.EVENT);
+		EntityType<?> wolfType = BuiltInRegistries.ENTITY_TYPE.getOptional(Ids.parse("minecraft:wolf")).orElse(null);
+		Wolf wolf = wolfType != null && wolfType.create(level, EntitySpawnReason.EVENT) instanceof Wolf w ? w : null;
 		if (wolf == null) {
 			return;
 		}
