@@ -347,3 +347,9 @@ In `uniques/activities.json`: `"pity": { "enabled": false, "perActivity": true, 
 ### Updating an existing install
 
 Your `pools/` folder is never modified. The new `uniques/` folder is created only if it does not exist; to get future default changes, delete or rename it and restart. The jar needs no new dependencies.
+
+## Visual overhaul (Loot Surge Visuals resource pack)
+
+Every Unique (103: 23 from mob pools, 80 from `uniques/*.json`) has its own animated 32x32 item texture; the 34 armor pieces and elytra also have their own worn textures. Bows have pull frames and fishing rods have a cast frame. The mod gives each Unique the item model id `lootsurge:<unique id>` (and, for armor, the equipment asset `lootsurge:<unique id>`); the jar bundles vanilla-looking fallbacks, and the **LootSurge-Visuals.zip** pack replaces them. The pack only adds files under `assets/lootsurge`, so ordinary items never change.
+
+Install: put `LootSurge-Visuals.zip` in `.minecraft/resourcepacks` (Prism: instance Folder, then `resourcepacks`) and enable it. Needs the mod on the client. For servers with vanilla clients set `visuals.customItemModels` to `false` in `uniques/activities.json`. Uniques dropped before this update get their model the first time they are held or worn. Worn-armor textures are static (Minecraft cannot animate them); inventory icons are animated.

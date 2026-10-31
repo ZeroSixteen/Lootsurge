@@ -193,6 +193,7 @@ final class Activities {
 		cooldownCfg = root.child("cooldownTicks");
 		multipliers = root.child("materialMultipliers");
 		memoryTicks = Layered.clamp(root.integer("placedBlockMemoryTicks", 6000), 0, 1_000_000);
+		Visuals.enabled = root.child("visuals").bool("customItemModels", true);
 		Layered pc = root.child("pity");
 		pityOn = pc.bool("enabled", false);
 		pityPerActivity = pc.bool("perActivity", true);

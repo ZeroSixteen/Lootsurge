@@ -1,5 +1,5 @@
 {
-  "_comment": "Activity Unique drops. chances = chance per eligible activity roll (0-1). cooldownTicks = minimum ticks between rolls per player per activity (tree-feller/vein-miner swings roll once). materialMultipliers scale one activity or material, e.g. \"woodcutting:oak\": 2.0. pity is OFF by default.",
+  "_comment": "Activity Unique drops. chances = chance per eligible activity roll (0-1). cooldownTicks = minimum ticks between rolls per player per activity (tree-feller/vein-miner swings roll once). materialMultipliers scale one activity or material, e.g. \"woodcutting:oak\": 2.0. pity is OFF by default. visuals.customItemModels gives each Unique its own item model id (art comes from the Loot Surge Visuals resource pack); set false on servers whose players use vanilla clients.",
   "enabled": true,
   "placedBlockMemoryTicks": 6000,
   "chances": {
@@ -56,5 +56,8 @@
     "startAfter": 300,
     "bonusPerRoll": 0.01,
     "maxMultiplier": 8.0
+  },
+  "visuals": {
+    "customItemModels": true
   }
 }

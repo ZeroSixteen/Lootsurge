@@ -429,6 +429,7 @@ final class UniquePowers {
 				String id = key.substring(KEY_PREFIX.length());
 				Powers p = reg.get(id);
 				if (p != null) {
+					Visuals.apply(stack, id);
 					return new Held(id, p);
 				}
 			}
