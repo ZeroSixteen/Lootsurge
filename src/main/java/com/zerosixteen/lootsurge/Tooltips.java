@@ -57,7 +57,11 @@ final class Tooltips {
 		if (FLAVOR.isEmpty()) {
 			loadFlavor(LootSurgeMod.LOGGER);
 		}
-		if (!enabled || stack == null || stack.isEmpty() || id == null || p == null || stack.get(DataComponents.LORE) != null) {
+		if (!enabled || stack == null || stack.isEmpty() || id == null || p == null) {
+			return;
+		}
+		ItemLore existing = stack.get(DataComponents.LORE);
+		if (existing != null && !existing.lines().isEmpty()) {
 			return;
 		}
 		stack.set(DataComponents.LORE, new ItemLore(build(id, p)));
