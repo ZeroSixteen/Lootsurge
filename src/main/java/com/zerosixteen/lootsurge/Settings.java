@@ -28,6 +28,8 @@ public final class Settings {
 	public boolean debugLogging = false;
 	/** Floating label on every Loot Surge drop, including tiers whose own itemLabel is off (Common). */
 	public boolean labelAllDrops = true;
+	/** Plain tooltips for 3D / spatial GUI mods. */
+	public boolean tooltipCompat = false;
 	public boolean applyBundledBalance = true;
 	public double globalChanceMultiplier = 1.0;
 	public int maxActivePillars = 8;
@@ -58,6 +60,8 @@ public final class Settings {
 		s.fallbackMonstersOnly = root.bool("fallbackMonstersOnly", true);
 		s.debugLogging = root.bool("debugLogging", false);
 		s.labelAllDrops = root.bool("labelAllDrops", true);
+		s.tooltipCompat = root.bool("tooltipCompat", false);
+		Tooltips.compat = s.tooltipCompat;
 		s.applyBundledBalance = root.bool("applyBundledBalance", true);
 		Balance.enabled = s.applyBundledBalance;
 		s.globalChanceMultiplier = Layered.clamp(root.number("globalChanceMultiplier", 1.0), 0.0, 100.0);

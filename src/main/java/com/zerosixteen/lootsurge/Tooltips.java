@@ -25,6 +25,8 @@ import net.minecraft.world.item.component.ItemLore;
  */
 final class Tooltips {
 	static volatile boolean enabled = true;
+	/** Spatial GUI / 3D-GUI compatibility: plain ASCII text, no bold or italic, no separator or blank lines. */
+	static volatile boolean compat = false;
 	private static final Map<String, String> FLAVOR = new ConcurrentHashMap<>();
 
 	private static final Map<String, String> WHEN = Map.ofEntries(Map.entry("woodcutting", "chop a tree"),
@@ -66,7 +68,7 @@ final class Tooltips {
 		}
 		Stats.apply(stack, p);
 		boolean key = UniquePowers.needsKey(stack);
-		List<Component> built = CACHE.computeIfAbsent(id + (key ? "#k" : ""), k -> build(id, p, key));
+		List<Component> built = CACHE.computeIfAbsent(id + (key ? "#k" : "") + (compat ? "#c" : ""), k -> build(id, p, key));
 		ItemLore existing = stack.get(DataComponents.LORE);
 		if (existing != null && existing.lines().equals(built)) {
 			return;
@@ -100,7 +102,7 @@ final class Tooltips {
 
 	static List<Component> build(String id, UniquePowers.Powers p, boolean key) {
 		List<Component> out = new ArrayList<>();
-		out.add(Component.literal("Powers").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD).withStyle(st -> st.withItalic(false)));
+		out.add(compat ? line("Powers", ChatFormatting.GOLD) : Component.literal("Powers").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD).withStyle(st -> st.withItalic(false)));
 		if (p.shoot() != null) {
 			out.add(useLine(key, "shoot a " + p.shoot() + " fireball (" + secs(p.cooldownTicks()) + " cooldown)"));
 		}
@@ -210,6 +212,13 @@ final class Tooltips {
 		}
 		String flavor = FLAVOR.get(id);
 		if (flavor != null && !flavor.isBlank()) {
+			if (compat) {
+				for (String w : wrap(flavor, 40)) {
+					out.add(line(w, ChatFormatting.LIGHT_PURPLE));
+				}
+				out.add(line("Unique", ChatFormatting.GOLD));
+				return out;
+			}
 			out.add(line(" ", ChatFormatting.GRAY));
 			out.add(line("\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500", ChatFormatting.DARK_GRAY));
 			List<String> wrapped = wrap(flavor, 32);
@@ -217,6 +226,10 @@ final class Tooltips {
 				String t = (i == 0 ? "\u275D " : "   ") + wrapped.get(i) + (i == wrapped.size() - 1 ? " \u275E" : "");
 				out.add(Component.literal(t).withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(st -> st.withItalic(true)));
 			}
+		}
+		if (compat) {
+			out.add(line("Unique", ChatFormatting.GOLD));
+			return out;
 		}
 		out.add(line(" ", ChatFormatting.GRAY));
 		out.add(Component.literal("\u2726 Unique \u2726").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD).withStyle(st -> st.withItalic(false)));

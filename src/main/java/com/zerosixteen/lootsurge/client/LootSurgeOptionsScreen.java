@@ -43,6 +43,8 @@ public final class LootSurgeOptionsScreen extends Screen {
 		y += step;
 		addToggle(x, y, w, "Skip baby mobs", "skipBabyMobs", s.skipBabyMobs);
 		y += step;
+		addToggle(x, y, w, "Spatial GUI tooltip mode", "tooltipCompat", s.tooltipCompat);
+		y += step;
 		addToggle(x, y, w, "Debug logging", "debugLogging", s.debugLogging);
 		y += step;
 
