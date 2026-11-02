@@ -13,6 +13,14 @@ final class LootPool {
 	final double dropChance;
 	private final EnumMap<Tier, Double> tierWeights;
 	final List<LootEntry> entries;
+	/** Activity source keys like "mining:ore", "fishing:*" or "blocks:*" (empty for plain mob pools). */
+	Set<String> sources = Set.of();
+	/** Per-player cooldown between rolls of this source pool, in ticks. */
+	int cooldownTicks = 0;
+	/** Materials/entities that never roll here (ids or plain names). */
+	Set<String> excluded = Set.of();
+	/** When true (sources/*.json with entities), this pool rolls on top of the mob's normal pool instead of only filling gaps. */
+	boolean additional = false;
 
 	LootPool(String name, Set<String> entities, boolean fallback, double dropChance, EnumMap<Tier, Double> tierWeights,
 			List<LootEntry> entries) {

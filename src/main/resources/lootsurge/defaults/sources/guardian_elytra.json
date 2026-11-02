@@ -1,0 +1,103 @@
+{
+ "_comment": "Tidecaller Wings: elder guardian reward (8%).",
+ "additional": true,
+ "entities": [
+  "minecraft:elder_guardian"
+ ],
+ "dropChance": 0.08,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "tidecaller_wings",
+   "item": "minecraft:elytra",
+   "name": "Tidecaller Wings",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:water_breathing",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:dolphins_grace",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:conduit_power",
+      "amplifier": 0
+     }
+    ],
+    "immune": [
+     "drowning",
+     "fly_into_wall"
+    ],
+    "triggers": [
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 5,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:bubble_pop",
+        "count": 6,
+        "radius": 0.4,
+        "amount": 0.3
+       }
+      ]
+     },
+     {
+      "on": [
+       "hurt"
+      ],
+      "cooldown": 300,
+      "actions": [
+       {
+        "type": "heal",
+        "amount": 4
+       },
+       {
+        "type": "ring",
+        "particle": "minecraft:bubble_pop",
+        "count": 3,
+        "radius": 1.5
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.guardian.ambient",
+        "volume": 0.7,
+        "pitch": 1.3
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

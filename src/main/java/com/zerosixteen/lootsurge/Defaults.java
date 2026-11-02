@@ -52,6 +52,39 @@ final class Defaults {
 					}
 				}
 			}
+			// Expansion: bonus-drop tables for blocks, farming, fishing, animals, bosses... Only installed when missing.
+			Path sourcesDir = configDir.resolve("sources");
+			if (!Files.exists(sourcesDir)) {
+				Files.createDirectories(sourcesDir);
+				String index = readText(ROOT + "sources/_index.txt", log);
+				if (index != null) {
+					for (String line : index.split("\\R")) {
+						String name = line.trim();
+						if (!name.isEmpty() && !name.startsWith("#")) {
+							copy("sources/" + name, sourcesDir.resolve(name), log);
+						}
+					}
+				}
+			}
+			// Files added by later versions: copied once into existing configs, never overwritten, never re-added after the user deletes them.
+			Path marker = configDir.resolve(".lootsurge_added_v2");
+			if (!Files.exists(marker)) {
+				String added = readText(ROOT + "_added_v2.txt", log);
+				if (added != null) {
+					for (String line : added.split("\\R")) {
+						String name = line.trim();
+						if (name.isEmpty() || name.startsWith("#")) {
+							continue;
+						}
+						Path target = configDir.resolve(name);
+						if (!Files.exists(target)) {
+							Files.createDirectories(target.getParent());
+							copy(name, target, log);
+						}
+					}
+				}
+				Files.writeString(marker, "Loot Surge expansion files were installed. Delete this file to re-add missing ones.", StandardCharsets.UTF_8);
+			}
 		} catch (IOException e) {
 			log.error("[LootSurge] Could not create default config files in {}: {}", configDir, e.getMessage());
 		}

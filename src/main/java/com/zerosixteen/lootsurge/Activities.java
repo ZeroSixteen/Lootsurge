@@ -40,9 +40,13 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Shearable;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.equine.AbstractHorse;
+import net.minecraft.world.entity.animal.wolf.Wolf;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -114,9 +118,14 @@ final class Activities {
 			Map.entry("farming", 0.0020), Map.entry("shear", 0.010), Map.entry("milk", 0.010), Map.entry("honey", 0.020),
 			Map.entry("breed", 0.020), Map.entry("egg", 0.002), Map.entry("tame", 0.030), Map.entry("horse", 0.040),
 			Map.entry("fishing", 0.010), Map.entry("archaeology", 0.040), Map.entry("brewing", 0.015),
-			Map.entry("water", 0.004), Map.entry("lava", 0.008));
-	private static final Map<String, Integer> DEFAULT_COOLDOWN = Map.of("egg", 1200, "brewing", 400, "fishing", 100,
-			"shear", 100, "milk", 100, "honey", 100, "breed", 100, "tame", 100, "horse", 100, "water", 200);
+			Map.entry("water", 0.004), Map.entry("lava", 0.008), Map.entry("wolf_fight", 0.05),
+			Map.entry("wolf_defend", 0.02), Map.entry("wolf_ally", 0.004), Map.entry("wolf_breed", 0.06),
+			Map.entry("dye", 0.02));
+	private static final Map<String, Integer> DEFAULT_COOLDOWN = Map.ofEntries(Map.entry("egg", 1200), Map.entry("wolf_fight", 200), Map.entry("wolf_defend", 300),
+			Map.entry("wolf_ally", 400), Map.entry("wolf_breed", 100), Map.entry("dye", 100),
+			Map.entry("brewing", 400), Map.entry("fishing", 100), Map.entry("shear", 100), Map.entry("milk", 100),
+			Map.entry("honey", 100), Map.entry("breed", 100), Map.entry("tame", 100), Map.entry("horse", 100),
+			Map.entry("water", 200));
 	private static final Set<String> STONE = Set.of("stone", "deepslate", "granite", "diorite", "andesite", "tuff", "calcite",
 			"cobblestone", "mossy_cobblestone", "cobbled_deepslate", "netherrack", "basalt", "smooth_basalt", "blackstone",
 			"end_stone", "dripstone_block", "obsidian", "crying_obsidian", "sandstone", "red_sandstone", "terracotta",
@@ -155,6 +164,7 @@ final class Activities {
 
 	private final Map<String, Long> cooldownUntil = new HashMap<>();
 	private final Map<Long, Long> seenPos = new LinkedHashMap<>();
+	private final Map<Long, Long> seenBonus = new LinkedHashMap<>();
 	private final Map<UUID, int[]> statLast = new HashMap<>();
 	private final Map<UUID, Map<String, Integer>> pity = new HashMap<>();
 	private final List<Watch> watches = new ArrayList<>();
@@ -277,6 +287,8 @@ final class Activities {
 		} else if (held.is(Items.BUCKET) && entity instanceof LivingEntity le && !le.isBaby()
 				&& (type.equals("cow") || type.equals("goat") || type.equals("mooshroom"))) {
 			roll(p, level, "milk", "animal", type, entity.getX(), entity.getY(0.5), entity.getZ(), null, null);
+		} else if (type.equals("sheep") && BuiltInRegistries.ITEM.getKey(held.getItem()).getPath().endsWith("_dye")) {
+			roll(p, level, "dye", "animal", "sheep", entity.getX(), entity.getY(0.5), entity.getZ(), null, null);
 		} else if (entity instanceof TamableAnimal ta && !ta.isTame()) {
 			watch(level, p, entity, "tame", type);
 		} else if (entity instanceof AbstractHorse horse && !horse.isTamed()) {
@@ -428,8 +440,59 @@ final class Activities {
 			}
 			if (bred > last[1]) {
 				roll(p, level, "breed", "animal", "animal", p.getX(), p.getY() + 1.0, p.getZ(), null, null);
+				for (Wolf pup : level.getEntitiesOfClass(Wolf.class, p.getBoundingBox().inflate(8.0))) {
+					if (pup.isBaby() && pup.isTame() && pup.isOwnedBy(p) && pup.tickCount < 200) {
+						roll(p, level, "wolf_breed", "wolf", "wolf", pup.getX(), pup.getY(0.5), pup.getZ(), null, null);
+						break;
+					}
+				}
 			}
 		}
+	}
+
+	/** AFTER_DEATH: wolf progression. Killing wild wolves, defending your wolves, fighting beside them. */
+	void onDeath(LivingEntity victim, DamageSource source) {
+		guard(() -> {
+			if (source == null || !(victim.level() instanceof ServerLevel level)) {
+				return;
+			}
+			Entity killer = source.getEntity();
+			ServerPlayer p = null;
+			boolean byWolf = false;
+			if (killer instanceof ServerPlayer sp) {
+				p = sp;
+			} else if (killer instanceof Wolf w && w.isTame() && w.getOwner() instanceof ServerPlayer owner) {
+				p = owner;
+				byWolf = true;
+			}
+			if (p == null || victim == p) {
+				return;
+			}
+			double x = victim.getX();
+			double y = victim.getY(0.5);
+			double z = victim.getZ();
+			String type = BuiltInRegistries.ENTITY_TYPE.getKey(victim.getType()).getPath();
+			if (victim instanceof Wolf wolf) {
+				if (!wolf.isTame() && !byWolf) {
+					roll(p, level, "wolf_fight", "wolf", "wolf", x, y, z, null, null);
+				}
+				return;
+			}
+			if (!(victim instanceof Monster)) {
+				return;
+			}
+			boolean defended = byWolf || (victim instanceof Mob m && m.getTarget() instanceof Wolf tw && tw.isTame() && tw.isOwnedBy(p));
+			if (defended) {
+				roll(p, level, "wolf_defend", "monster", type, x, y, z, null, null);
+			} else {
+				for (Wolf wolf : level.getEntitiesOfClass(Wolf.class, p.getBoundingBox().inflate(12.0))) {
+					if (wolf.isTame() && wolf.isOwnedBy(p)) {
+						roll(p, level, "wolf_ally", "monster", type, x, y, z, null, null);
+						break;
+					}
+				}
+			}
+		});
 	}
 
 	void onStop() {
@@ -451,6 +514,9 @@ final class Activities {
 		powers.fire(p, level, cat, new UniquePowers.Ctx(p, level, x, y, z, pos, state));
 
 		Settings s = engine.settings();
+		if (s != null && s.enabled) {
+			bonusRoll(p, level, cat, group, material, x, y, z, pos);
+		}
 		if (!enabled || s == null || !s.enabled) {
 			return;
 		}
@@ -501,6 +567,25 @@ final class Activities {
 				pityDirty = true;
 			}
 		}
+	}
+
+	/** Independent tiered bonus drop (sources/*.json). Placed blocks cannot be farmed: a position rolls once per memory window. */
+	private void bonusRoll(ServerPlayer p, ServerLevel level, String cat, String group, String material, double x, double y,
+			double z, BlockPos pos) {
+		if (pos != null && memoryTicks > 0) {
+			long key = pos.asLong() * 17L + level.dimension().identifier().hashCode();
+			Long until = seenBonus.get(key);
+			if (until != null && tick < until) {
+				return;
+			}
+			seenBonus.put(key, tick + memoryTicks);
+			if (seenBonus.size() > 8192) {
+				Iterator<Long> it = seenBonus.keySet().iterator();
+				it.next();
+				it.remove();
+			}
+		}
+		engine.rollSource(p, level, cat, group, material, x, y, z, pos == null ? p.getY() : pos.getY());
 	}
 
 	private boolean dropUnique(ServerPlayer p, ServerLevel level, List<Pick> candidates, double x, double y, double z,
@@ -683,7 +768,7 @@ final class Activities {
 		if (GRASS.contains(path)) {
 			return new Kind("nature", "plant", path);
 		}
-		return null;
+		return new Kind("blocks", "any", path);
 	}
 
 	/** Crops only count once fully grown (blocks with an "age" property); melons, pumpkins and similar always count. */

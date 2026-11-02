@@ -46,6 +46,7 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.hurtingprojectile.LargeFireball;
@@ -75,12 +76,12 @@ final class UniquePowers {
 	static final String TEMP_TAG = "lootsurge_temp";
 	private static final EquipmentSlot[] SLOTS = { EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
 			EquipmentSlot.FEET, EquipmentSlot.MAINHAND };
-	private static final Set<String> IMMUNITIES = Set.of("fire", "explosion", "fall", "drowning", "projectile", "lightning");
+	private static final Set<String> IMMUNITIES = Set.of("fire", "explosion", "fall", "drowning", "projectile", "lightning", "fly_into_wall");
 	private static final Set<String> FLAGS = Set.of("lava_walk", "magnet", "glow_hostiles", "hunger_saver", "sprint_burst",
-			"last_stand");
+			"last_stand", "bleed", "stun", "glide_boost", "wolf_pack", "carried", "woolbound");
 	private static final Set<String> ACTIONS = Set.of("drop", "duplicate", "xp", "effect", "effect_nearby", "sound",
 			"particles", "ring", "column", "lightning", "shockwave", "grow", "spawn", "reveal", "pull", "heal", "teleport",
-			"repair", "summon_hiro");
+			"repair", "summon_hiro", "boost", "effect_pets", "heal_pets");
 	private static final int PULSE_TICKS = 10;
 	private static final int EFFECT_TICKS = 240;
 	private static final int SHIELD_TICKS = 60;
@@ -152,6 +153,8 @@ final class UniquePowers {
 	private final List<Timed> summoned = new ArrayList<>();
 	private final List<Entity> strayTemps = new ArrayList<>();
 	private final Companion companion = new Companion();
+	private final Mechanics mechanics = new Mechanics();
+	private final Map<UUID, Long> glideReady = new HashMap<>();
 	private long tick;
 
 	void setRegistry(Map<String, Powers> map) {
@@ -177,6 +180,8 @@ final class UniquePowers {
 		}
 		summoned.clear();
 		companion.clear();
+		mechanics.clear();
+		glideReady.clear();
 	}
 
 	// ------------------------------------------------------------------ parsing
@@ -361,7 +366,7 @@ final class UniquePowers {
 			log.warn("[LootSurge] {}: drop action has no valid items, skipped.", where);
 			return null;
 		}
-		if (type.startsWith("effect") && eff == null) {
+		if ((type.equals("effect") || type.equals("effect_nearby") || type.equals("effect_pets")) && eff == null) {
 			log.warn("[LootSurge] {}: effect action needs an \"effect\", skipped.", where);
 			return null;
 		}
@@ -464,6 +469,7 @@ final class UniquePowers {
 	void tick(MinecraftServer server) {
 		tick++;
 		companion.tick(server, tick);
+		mechanics.tick(tick);
 		if (registry.isEmpty() && temps.isEmpty() && summoned.isEmpty() && strayTemps.isEmpty()) {
 			return;
 		}
@@ -502,8 +508,17 @@ final class UniquePowers {
 			if (isShielded(p)) {
 				p.clearFire();
 			}
+			if (p.isFallFlying() && p.level() instanceof ServerLevel gl) {
+				fire(p, gl, "glide", new Ctx(p, gl, p.getX(), p.getY(), p.getZ(), p.blockPosition(), null));
+			}
+			if (tick % (PULSE_TICKS * 2) == 0) {
+				carried(p);
+			}
 			for (Held h : worn(p)) {
 				Powers w = h.powers();
+				if (w.flags().contains("wolf_pack") && p.level() instanceof ServerLevel wl) {
+					wolfPack(wl, p, w);
+				}
 				for (Holder<MobEffect> eff : w.cure()) {
 					if (p.hasEffect(eff)) {
 						p.removeEffect(eff);
@@ -537,6 +552,9 @@ final class UniquePowers {
 				if (w.flags().contains("magnet") && !p.isShiftKeyDown() && tick % 2 == 0) {
 					magnet(level, p, w.param("magnetRadius", 7.0), 30);
 				}
+				if (w.flags().contains("glide_boost")) {
+					glideBoost(level, p, w);
+				}
 				if (w.flags().contains("sprint_burst")) {
 					sprintCharge(level, p, w);
 				}
@@ -549,6 +567,75 @@ final class UniquePowers {
 			} else if (tick % 2 == 0) {
 				magnet(burstLevel, p, burst[1], 0);
 			}
+		}
+	}
+
+	/** Items with the "carried" flag (Unique shulker boxes) give their effects while they are anywhere in the inventory. */
+	private void carried(ServerPlayer p) {
+		Set<String> seen = new HashSet<>();
+		int size = p.getInventory().getContainerSize();
+		for (int i = 0; i < size; i++) {
+			ItemStack st = p.getInventory().getItem(i);
+			if (st.isEmpty() || !st.has(DataComponents.CUSTOM_DATA)) {
+				continue;
+			}
+			Held h = find(st);
+			if (h != null && h.powers().flags().contains("carried") && seen.add(h.id())) {
+				for (EffectSpec spec : h.powers().effects()) {
+					p.addEffect(new MobEffectInstance(spec.effect(), EFFECT_TICKS, spec.amplifier(), true, false, true));
+				}
+			}
+		}
+	}
+
+	/** Used by Woolbound and the shulker tracker: the Unique id and powers of a stack, or null. */
+	Held inspect(ItemStack stack) {
+		return find(stack);
+	}
+
+	private void glideBoost(ServerLevel level, ServerPlayer p, Powers w) {
+		if (!p.isFallFlying() || !p.isShiftKeyDown()) {
+			return;
+		}
+		Long ready = glideReady.get(p.getUUID());
+		if (ready != null && tick < ready) {
+			return;
+		}
+		glideReady.put(p.getUUID(), tick + (long) w.param("boostCooldownTicks", 100.0));
+		boostForward(level, p, w.param("boostStrength", 1.1));
+	}
+
+	private void boostForward(ServerLevel level, ServerPlayer p, double strength) {
+		Vec3 look = p.getLookAngle();
+		double s = Math.max(0.2, Math.min(2.0, strength));
+		p.setDeltaMovement(p.getDeltaMovement().scale(0.6).add(look.scale(s)));
+		p.hurtMarked = true;
+		ParticleOptions part = Ids.particle("minecraft:firework");
+		if (part != null) {
+			level.sendParticles(part, p.getX(), p.getY(0.5), p.getZ(), 14, 0.3, 0.3, 0.3, 0.05);
+		}
+		SoundEvent snd = Ids.sound("minecraft:entity.firework_rocket.launch");
+		if (snd != null) {
+			level.playSound((Player) null, p.getX(), p.getY(), p.getZ(), snd, SoundSource.PLAYERS, 0.8f, 1.2f);
+		}
+	}
+
+	/** Pulse: the wearer's tamed wolves nearby get a short strength/regeneration/speed boost. */
+	private void wolfPack(ServerLevel level, ServerPlayer p, Powers w) {
+		double r = w.param("packRadius", 16.0);
+		for (Wolf wolf : level.getEntitiesOfClass(Wolf.class, p.getBoundingBox().inflate(r))) {
+			if (wolf.isTame() && wolf.isOwnedBy(p)) {
+				packBuff(wolf, "minecraft:strength", (int) w.param("packStrength", 1.0));
+				packBuff(wolf, "minecraft:speed", (int) w.param("packSpeed", 1.0));
+				packBuff(wolf, "minecraft:regeneration", (int) w.param("packRegen", 0.0));
+			}
+		}
+	}
+
+	private static void packBuff(LivingEntity e, String id, int amp) {
+		Holder<MobEffect> h = effect(id);
+		if (h != null && amp >= 0) {
+			e.addEffect(new MobEffectInstance(h, EFFECT_TICKS, amp, true, false, true));
 		}
 	}
 
@@ -675,6 +762,7 @@ final class UniquePowers {
 					case "drowning" -> source.is(DamageTypeTags.IS_DROWNING);
 					case "projectile" -> source.is(DamageTypeTags.IS_PROJECTILE);
 					case "lightning" -> source.is(DamageTypes.LIGHTNING_BOLT);
+					case "fly_into_wall" -> source.is(DamageTypes.FLY_INTO_WALL);
 					default -> false;
 				};
 				if (match) {
@@ -718,6 +806,9 @@ final class UniquePowers {
 			if (registry.isEmpty() || !(victim.level() instanceof ServerLevel level)) {
 				return;
 			}
+			if (mechanics.inBleedDamage()) {
+				return;
+			}
 			if (victim instanceof ServerPlayer vp && damageTaken > 0.0f) {
 				fire(vp, level, "hurt", new Ctx(vp, level, vp.getX(), vp.getY(), vp.getZ(), vp.blockPosition(), null));
 			}
@@ -730,6 +821,7 @@ final class UniquePowers {
 				return;
 			}
 			Powers w = held.powers();
+			mechanics.onHit(p, victim, w, level, tick);
 			ThreadLocalRandom rnd = ThreadLocalRandom.current();
 			if (w.lifesteal() > 0.0 && damageTaken > 0.0f) {
 				p.heal((float) (damageTaken * w.lifesteal()));
@@ -963,6 +1055,19 @@ final class UniquePowers {
 				}
 			}
 			case "summon_hiro" -> companion.summon(p, level, a.seconds(), tick);
+			case "boost" -> boostForward(level, p, a.amount() > 0.0 ? a.amount() : 1.1);
+			case "effect_pets", "heal_pets" -> {
+				double r = a.radius() > 0.0 ? a.radius() : 12.0;
+				for (Wolf wolf : level.getEntitiesOfClass(Wolf.class, p.getBoundingBox().inflate(r))) {
+					if (wolf.isTame() && wolf.isOwnedBy(p)) {
+						if (a.type().equals("heal_pets")) {
+							wolf.heal((float) Math.max(1.0, a.amount()));
+						} else {
+							wolf.addEffect(new MobEffectInstance(a.effect(), Math.max(1, a.seconds()) * 20, a.amplifier(), false, true, true));
+						}
+					}
+				}
+			}
 			default -> {
 			}
 		}
@@ -1046,6 +1151,7 @@ final class UniquePowers {
 
 	/** ENTITY_LOAD: a temporary summon that was saved with its chunk (server stopped) is queued for removal. */
 	void onEntityLoad(Entity entity) {
+		mechanics.onEntityLoad(entity);
 		if (entity.entityTags().contains(TEMP_TAG)) {
 			for (Timed t : summoned) {
 				if (t.entity == entity) {

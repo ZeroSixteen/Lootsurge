@@ -1,0 +1,129 @@
+{
+ "_comment": "Ender Dragon's Elytra: very rare reward for killing the Ender Dragon (5%). Set dropChance to 0 to disable.",
+ "additional": true,
+ "entities": [
+  "minecraft:ender_dragon"
+ ],
+ "dropChance": 0.05,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "ender_dragons_elytra",
+   "item": "minecraft:elytra",
+   "name": "Ender Dragon's Elytra",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:resistance",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:slow_falling",
+      "amplifier": 0
+     }
+    ],
+    "immune": [
+     "fall",
+     "fly_into_wall",
+     "explosion"
+    ],
+    "flags": [
+     "glide_boost"
+    ],
+    "params": {
+     "boostStrength": 1.4,
+     "boostCooldownTicks": 80
+    },
+    "triggers": [
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 6,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:dragon_breath",
+        "count": 6,
+        "radius": 0.5,
+        "amount": 0.4
+       }
+      ]
+     },
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 200,
+      "actions": [
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.ender_dragon.flap",
+        "volume": 0.8,
+        "pitch": 1.0
+       }
+      ]
+     },
+     {
+      "on": [
+       "hurt"
+      ],
+      "cooldown": 400,
+      "actions": [
+       {
+        "type": "effect",
+        "effect": "minecraft:resistance",
+        "seconds": 6,
+        "amplifier": 2
+       },
+       {
+        "type": "effect",
+        "effect": "minecraft:absorption",
+        "seconds": 10,
+        "amplifier": 1
+       },
+       {
+        "type": "ring",
+        "particle": "minecraft:dragon_breath",
+        "count": 2,
+        "radius": 1.4
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.ender_dragon.growl",
+        "volume": 0.7,
+        "pitch": 1.2
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

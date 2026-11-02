@@ -9,8 +9,15 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -36,8 +43,18 @@ public final class LootSurgeMod implements ModInitializer {
 		engine.setActivities(activities);
 		activities.register();
 
+		// Expansion features: Giant Beanstalk, Woolbound Dream, Unique shulker identity.
+		Beanstalk beanstalk = new Beanstalk(LOGGER, configDir, engine);
+		Woolbound woolbound = new Woolbound(uniques);
+		ShulkerIdentity shulkers = new ShulkerIdentity(uniques, configDir, LOGGER);
+		engine.setAfterReload(beanstalk::reload);
+
 		// Pools need the server's registries (enchantments), so everything is (re)loaded once a server exists.
-		ServerLifecycleEvents.SERVER_STARTED.register(engine::reload);
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+			engine.reload(server);
+			beanstalk.load();
+			shulkers.load();
+		});
 		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
 			if (success) {
 				engine.reload(server);
@@ -47,6 +64,9 @@ public final class LootSurgeMod implements ModInitializer {
 			effects.clear();
 			uniques.clear();
 			activities.onStop();
+			beanstalk.onStop();
+			shulkers.onStop();
+			woolbound.clear();
 		});
 		// Item entities: restore rarity labels/pillars on re-dropped items; eggs count as an activity; Hiro cleanup.
 		ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {
@@ -56,17 +76,44 @@ public final class LootSurgeMod implements ModInitializer {
 			uniques.onEntityLoad(entity);
 		});
 
+		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			engine.healInventory(handler.getPlayer());
+			woolbound.onJoin(handler.getPlayer());
+		});
+		ServerPlayerEvents.COPY_FROM.register((oldPlayer, newPlayer, alive) -> woolbound.onCopy(oldPlayer, newPlayer));
+		PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, be) -> {
+			if (level instanceof ServerLevel sl) {
+				shulkers.onBreak(sl, pos);
+				if (player instanceof ServerPlayer sp) {
+					beanstalk.onBreak(sl, sp, pos, state);
+				}
+			}
+		});
+		UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
+			InteractionResult dream = woolbound.use(player, level, hand);
+			if (dream != InteractionResult.PASS) {
+				return dream;
+			}
+			return shulkers.onUseBlock(player, level, hand, hit);
+		});
+
 		// /lootsurge commands and the creative tab with every Unique.
 		LootSurgeCommands commands = new LootSurgeCommands(engine);
 		CommandRegistrationCallback.EVENT.register((dispatcher, buildContext, environment) -> commands.register(dispatcher));
 		UniqueTab.register();
 
 		// Fires once per living entity death, after vanilla has already handled its own drops.
-		ServerLivingEntityEvents.AFTER_DEATH.register(engine::onDeath);
+		ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
+			engine.onDeath(entity, source);
+			activities.onDeath(entity, source);
+		});
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			effects.tick();
 			uniques.tick(server);
 			activities.tick(server);
+			beanstalk.tick(server);
+			woolbound.tick(server);
+			shulkers.tick(server);
 			if (ConfigFile.RELOAD_REQUESTED.getAndSet(false)) {
 				engine.reload(server);
 			}
@@ -76,7 +123,10 @@ public final class LootSurgeMod implements ModInitializer {
 		ServerLivingEntityEvents.ALLOW_DAMAGE.register(uniques::allowDamage);
 		ServerLivingEntityEvents.ALLOW_DEATH.register(uniques::allowDeath);
 		ServerLivingEntityEvents.AFTER_DAMAGE.register(uniques::afterDamage);
-		UseItemCallback.EVENT.register(uniques::onUse);
+		UseItemCallback.EVENT.register((player, level, hand) -> {
+			InteractionResult dream = woolbound.use(player, level, hand);
+			return dream != InteractionResult.PASS ? dream : uniques.onUse(player, level, hand);
+		});
 
 		LOGGER.info("Loot Surge by {} loaded. Config folder: {}", CREATOR, configDir);
 	}

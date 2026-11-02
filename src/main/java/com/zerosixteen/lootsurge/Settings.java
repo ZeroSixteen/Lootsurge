@@ -26,6 +26,8 @@ public final class Settings {
 	public boolean skipBabyMobs = true;
 	boolean fallbackMonstersOnly = true;
 	public boolean debugLogging = false;
+	/** Floating label on every Loot Surge drop, including tiers whose own itemLabel is off (Common). */
+	public boolean labelAllDrops = true;
 	public double globalChanceMultiplier = 1.0;
 	public int maxActivePillars = 8;
 	Set<String> excludedEntities = new HashSet<>();
@@ -54,6 +56,7 @@ public final class Settings {
 		s.skipBabyMobs = root.bool("skipBabyMobs", true);
 		s.fallbackMonstersOnly = root.bool("fallbackMonstersOnly", true);
 		s.debugLogging = root.bool("debugLogging", false);
+		s.labelAllDrops = root.bool("labelAllDrops", true);
 		s.globalChanceMultiplier = Layered.clamp(root.number("globalChanceMultiplier", 1.0), 0.0, 100.0);
 		s.maxActivePillars = Layered.clamp(root.integer("maxActivePillars", 8), 0, 64);
 

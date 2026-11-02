@@ -1,0 +1,164 @@
+{
+ "_comment": "Chopping logs. Rolls once per tree-feller swing.",
+ "sources": [
+  "woodcutting:*"
+ ],
+ "dropChance": 0.03,
+ "cooldownTicks": 40,
+ "entries": [
+  {
+   "item": "minecraft:apple",
+   "tiers": [
+    "common"
+   ],
+   "weight": 9,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:stick",
+   "tiers": [
+    "common"
+   ],
+   "weight": 8,
+   "count": {
+    "min": 4,
+    "max": 12
+   }
+  },
+  {
+   "item": "minecraft:bread",
+   "tiers": [
+    "common"
+   ],
+   "weight": 5,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:honeycomb",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 5,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:golden_apple",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:experience_bottle",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 5,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:name_tag",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:lead",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:emerald",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:golden_carrot",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:golden_apple",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:diamond",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:enchanted_golden_apple",
+   "tiers": [
+    "legendary"
+   ],
+   "weight": 2,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:totem_of_undying",
+   "tiers": [
+    "mythic"
+   ],
+   "weight": 1,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  }
+ ]
+}

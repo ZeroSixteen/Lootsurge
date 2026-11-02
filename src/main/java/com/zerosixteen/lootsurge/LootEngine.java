@@ -60,6 +60,64 @@ final class LootEngine {
 		this.uniques = uniques;
 	}
 
+	private volatile Map<String, List<LootPool>> sourcePools = Map.of();
+	private volatile Map<String, List<LootPool>> extraByEntity = Map.of();
+	private volatile Runnable afterReload;
+
+	void setAfterReload(Runnable r) {
+		this.afterReload = r;
+	}
+	private final java.util.Set<UUID> handledExtra = new LinkedHashSet<>();
+	private final Map<String, Long> sourceCooldown = new HashMap<>();
+
+	/**
+	 * Independent bonus roll for an activity or block interaction. Vanilla drops are never touched: this only adds a
+	 * tiered extra drop from the most specific matching sources/*.json pool. Called from Activities on the server thread.
+	 */
+	void rollSource(ServerPlayer p, ServerLevel level, String cat, String group, String material, double x, double y, double z,
+			double feetY) {
+		Settings s = this.settings;
+		if (s == null || !s.enabled || p.isCreative() || p.isSpectator()) {
+			return;
+		}
+		Map<String, List<LootPool>> map = this.sourcePools;
+		if (map.isEmpty()) {
+			return;
+		}
+		List<LootPool> found = null;
+		for (String key : new String[] { cat + ":" + material, cat + ":" + group, cat + ":*" }) {
+			found = map.get(key);
+			if (found != null && !found.isEmpty()) {
+				break;
+			}
+		}
+		if (found == null || found.isEmpty()) {
+			return;
+		}
+		ThreadLocalRandom rnd = ThreadLocalRandom.current();
+		for (LootPool pool : found) {
+			if (pool.excluded.contains(material) || pool.excluded.contains(group)) {
+				continue;
+			}
+			if (pool.cooldownTicks > 0) {
+				String ck = p.getUUID() + ":" + pool.name;
+				long now = level.getGameTime();
+				Long until = sourceCooldown.get(ck);
+				if (until != null && now < until) {
+					continue;
+				}
+				sourceCooldown.put(ck, now + pool.cooldownTicks);
+				if (sourceCooldown.size() > 4096) {
+					sourceCooldown.values().removeIf(v -> v < now);
+				}
+			}
+			if (rnd.nextDouble() >= Math.min(1.0, pool.dropChance * s.globalChanceMultiplier)) {
+				continue;
+			}
+			dropAt(level, x, y, z, feetY, pool, rollTier(s, pool, rnd), p, s, rnd, cat + ":" + material);
+		}
+	}
+
 	void setActivities(Activities activities) {
 		this.activities = activities;
 	}
@@ -88,6 +146,24 @@ final class LootEngine {
 					}
 				}
 			}
+			// Expansion: sources/*.json hold bonus tables for activities (sources) and extra mobs (entities).
+			Map<String, List<LootPool>> bySource = new HashMap<>();
+			Map<String, List<LootPool>> extras = new HashMap<>();
+			for (LootPool sp : PoolLoader.loadAll(configDir.resolve("sources"), server.registryAccess(), log)) {
+				pools.add(sp);
+				for (String key : sp.sources) {
+					bySource.computeIfAbsent(key, k -> new ArrayList<>()).add(sp);
+				}
+				for (String entity : sp.entities) {
+					if (sp.additional) {
+						extras.computeIfAbsent(entity, k -> new ArrayList<>()).add(sp);
+					} else {
+						map.putIfAbsent(entity, sp);
+					}
+				}
+			}
+			this.sourcePools = Map.copyOf(bySource);
+			this.extraByEntity = Map.copyOf(extras);
 			// Uniques come from the mob pools and from uniques/*.json (activity drops, tools, armor).
 			List<LootEntry> allUniques = new ArrayList<>();
 			for (LootPool pool : pools) {
@@ -118,11 +194,62 @@ final class LootEngine {
 			this.byEntity = Map.copyOf(map);
 			this.fallbackPool = fallback;
 			effects.clear();
+			Runnable hook = this.afterReload;
+			if (hook != null) {
+				hook.run();
+			}
 			log.info("[LootSurge] Loaded {} pools {} (fallback: {}). Feature enabled: {}.", pools.size(),
 					PoolLoader.summarize(pools), fallback == null ? "none" : fallback.name, s.enabled);
 		} catch (RuntimeException e) {
 			log.error("[LootSurge] Reload failed; keeping previous settings.", e);
 		}
+	}
+
+	/** Independent extra pools (sources/*.json with "additional": true), e.g. Unique elytras from specific mobs. */
+	private void rollExtras(ServerLevel level, LivingEntity entity, String key, ServerPlayer killer, Settings s) {
+		List<LootPool> extra = extraByEntity.get(key);
+		if (extra == null || extra.isEmpty() || !handledExtra.add(entity.getUUID())) {
+			return;
+		}
+		if (handledExtra.size() > DEDUPE_LIMIT) {
+			Iterator<UUID> it = handledExtra.iterator();
+			it.next();
+			it.remove();
+		}
+		ThreadLocalRandom rnd = ThreadLocalRandom.current();
+		for (LootPool pool : extra) {
+			if (rnd.nextDouble() < Math.min(1.0, pool.dropChance * s.globalChanceMultiplier)) {
+				dropAt(level, entity.getX(), entity.getY(0.5), entity.getZ(), entity.getY(), pool, rollTier(s, pool, rnd), killer, s,
+						rnd, key + " (extra " + pool.name + ")");
+			}
+		}
+	}
+
+	/**
+	 * Rolls stacks from the source tables of a key (for example "beanstalk:treasure") without spawning anything, for
+	 * containers such as the Giant Beanstalk chest. Tier weights of the pool apply; tiers are boosted by boostSteps.
+	 */
+	List<ItemStack> rollStacks(String sourceKey, int rolls) {
+		Settings s = this.settings;
+		List<ItemStack> out = new ArrayList<>();
+		List<LootPool> pools = sourcePools.get(sourceKey);
+		if (s == null || pools == null || pools.isEmpty()) {
+			return out;
+		}
+		ThreadLocalRandom rnd = ThreadLocalRandom.current();
+		for (int i = 0; i < rolls; i++) {
+			LootPool pool = pools.get(rnd.nextInt(pools.size()));
+			Tier tier = rollTier(s, pool, rnd);
+			List<LootEntry> entries = pool.entriesFor(tier);
+			if (entries.isEmpty()) {
+				continue;
+			}
+			ItemStack stack = pickWeighted(entries, rnd).create(rnd);
+			if (!stack.isEmpty()) {
+				out.add(stack);
+			}
+		}
+		return out;
 	}
 
 	/** Fabric AFTER_DEATH callback. Runs once per death on the server thread. */
@@ -166,6 +293,8 @@ final class LootEngine {
 		if (s.requirePlayerKill && killer == null) {
 			return;
 		}
+
+		rollExtras(level, entity, key, killer, s);
 
 		LootPool pool = byEntity.get(key);
 		if (pool == null) {
@@ -241,12 +370,12 @@ final class LootEngine {
 			return false;
 		}
 		TierSettings ts = s.tier(tier);
-		boolean visual = ts.itemLabel || ts.pillar.enabled();
+		boolean visual = ts.itemLabel || ts.pillar.enabled() || s.labelAllDrops;
 
 		List<ItemEntity> spawned = new ArrayList<>();
 		spawning = true;
 		try {
-			addAll(level, x, y, z, tier, stacks, visual, ts, rnd, spawned);
+			addAll(level, x, y, z, tier, stacks, visual, ts, s.labelAllDrops, rnd, spawned);
 		} finally {
 			spawning = false;
 		}
@@ -260,24 +389,27 @@ final class LootEngine {
 	}
 
 	private void addAll(ServerLevel level, double x, double y, double z, Tier tier, List<ItemStack> stacks, boolean visual,
-			TierSettings ts, ThreadLocalRandom rnd, List<ItemEntity> spawned) {
+			TierSettings ts, boolean labelAll, ThreadLocalRandom rnd, List<ItemEntity> spawned) {
 		for (ItemStack stack : stacks) {
-			if (visual) {
+			// Ordinary items keep a vanilla-identical stack (so they merge with natural drops); their tier lives on the entity.
+			boolean plain = Rarity.isPlain(stack);
+			if (visual && !plain) {
 				Rarity.tag(stack, tier);
 			}
 			ItemEntity drop = new ItemEntity(level, x, y, z, stack);
+			Rarity.tagEntity(drop, tier);
 			drop.setDefaultPickUpDelay();
 			drop.setDeltaMovement(new Vec3((rnd.nextDouble() - 0.5) * 0.25, 0.2 + rnd.nextDouble() * 0.1,
 					(rnd.nextDouble() - 0.5) * 0.25));
-			applyLabel(drop, ts);
+			applyLabel(drop, ts, labelAll);
 			if (level.addFreshEntity(drop)) {
 				spawned.add(drop);
 			}
 		}
 	}
 
-	private static void applyLabel(ItemEntity drop, TierSettings ts) {
-		if (ts.itemLabel) {
+	private static void applyLabel(ItemEntity drop, TierSettings ts, boolean labelAll) {
+		if (ts.itemLabel || labelAll) {
 			MutableComponent itemLabel = Component.literal("[" + ts.displayName + "] ").withStyle(ts.color);
 			itemLabel.append(drop.getItem().getHoverName().copy().withStyle(ts.color));
 			drop.setCustomName(itemLabel);
@@ -295,12 +427,19 @@ final class LootEngine {
 			if (spawning || s == null || !s.enabled || !(entity instanceof ItemEntity drop)) {
 				return;
 			}
-			Tier tier = Rarity.read(drop.getItem());
+			Tier tier = Rarity.stripIfPlain(drop.getItem());
+			if (tier == null) {
+				tier = Rarity.read(drop.getItem());
+			}
+			if (tier == null) {
+				tier = Rarity.readEntity(drop);
+			}
 			if (tier == null) {
 				return;
 			}
+			Rarity.tagEntity(drop, tier);
 			TierSettings ts = s.tier(tier);
-			applyLabel(drop, ts);
+			applyLabel(drop, ts, s.labelAllDrops);
 			effects.addPillar(level, drop, ts.pillar, drop.getX(), drop.getY(), drop.getZ(), s.maxActivePillars);
 		} catch (RuntimeException e) {
 			log.error("[LootSurge] Could not restore rarity visuals (item is unaffected).", e);
@@ -309,6 +448,21 @@ final class LootEngine {
 
 	Settings settings() {
 		return settings;
+	}
+
+	/** On join: old versions wrote the rarity key into ordinary stacks; strip it so they stack with vanilla items again. */
+	void healInventory(ServerPlayer player) {
+		try {
+			var inv = player.getInventory();
+			for (int i = 0; i < inv.getContainerSize(); i++) {
+				ItemStack st = inv.getItem(i);
+				if (!st.isEmpty()) {
+					Rarity.stripIfPlain(st);
+				}
+			}
+		} catch (RuntimeException ex) {
+			log.error("[LootSurge] Could not heal inventory stacks (items are unaffected).", ex);
+		}
 	}
 
 	// ------------------------------------------------------------------ used by commands, the creative tab and the options screen

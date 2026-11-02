@@ -1,0 +1,16 @@
+{
+ "_comment": "The Giant Beanstalk: a tiny chance when breaking grass. chance is per grass break (0.0003 = 1 in ~3300). lifetimeMinutes: the stalk withers after this long (0 = permanent). It only replaces air and replaceable plants. Set enabled to false to turn it off.",
+ "enabled": true,
+ "chance": 0.0003,
+ "minHeight": 40,
+ "maxHeight": 80,
+ "ticksPerLayer": 2,
+ "cooldownSeconds": 900,
+ "lifetimeMinutes": 30,
+ "treasureRolls": 6,
+ "maxActive": 3,
+ "minDistance": 48,
+ "maxY": 300,
+ "dimensions": ["minecraft:overworld"],
+ "announce": true
+}

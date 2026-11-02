@@ -95,8 +95,28 @@ final class PoolLoader {
 				}
 			}
 		}
-		if (!fallback && entities.isEmpty()) {
-			log.error("[LootSurge] {}: needs a non-empty \"entities\" list or \"fallback\": true. File skipped.", file);
+		Set<String> sources = new HashSet<>();
+		JsonArray sourceArray = c.array("sources");
+		if (sourceArray != null) {
+			for (JsonElement e : sourceArray) {
+				if (e.isJsonPrimitive()) {
+					sources.add(e.getAsString().trim().toLowerCase(Locale.ROOT));
+				}
+			}
+		}
+		Set<String> excluded = new HashSet<>();
+		JsonArray excludedArray = c.array("excluded");
+		if (excludedArray != null) {
+			for (JsonElement e : excludedArray) {
+				if (e.isJsonPrimitive()) {
+					String id = e.getAsString().trim().toLowerCase(Locale.ROOT);
+					excluded.add(id);
+					excluded.add(id.startsWith("minecraft:") ? id.substring(10) : id);
+				}
+			}
+		}
+		if (!fallback && entities.isEmpty() && sources.isEmpty()) {
+			log.error("[LootSurge] {}: needs a non-empty \"entities\" list, a \"sources\" list or \"fallback\": true. File skipped.", file);
 			return null;
 		}
 
@@ -124,7 +144,12 @@ final class PoolLoader {
 			log.warn("[LootSurge] {}: no usable entries, file skipped.", file);
 			return null;
 		}
-		return new LootPool(file.substring(0, file.length() - 5), entities, fallback, dropChance, tierWeights, entries);
+		LootPool made = new LootPool(file.substring(0, file.length() - 5), entities, fallback, dropChance, tierWeights, entries);
+		made.sources = Set.copyOf(sources);
+		made.excluded = Set.copyOf(excluded);
+		made.cooldownTicks = Layered.clamp(c.integer("cooldownTicks", 0), 0, 1_000_000);
+		made.additional = c.bool("additional", false);
+		return made;
 	}
 
 	static LootEntry parseEntry(String file, int index, JsonObject o,

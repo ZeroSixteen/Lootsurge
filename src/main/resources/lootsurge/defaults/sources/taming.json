@@ -1,0 +1,132 @@
+{
+ "_comment": "Taming wolves, cats, parrots and horses.",
+ "sources": [
+  "tame:*",
+  "horse:*"
+ ],
+ "dropChance": 0.1,
+ "cooldownTicks": 60,
+ "entries": [
+  {
+   "item": "minecraft:bone",
+   "tiers": [
+    "common"
+   ],
+   "weight": 9,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:cooked_beef",
+   "tiers": [
+    "common"
+   ],
+   "weight": 6,
+   "count": {
+    "min": 2,
+    "max": 4
+   }
+  },
+  {
+   "item": "minecraft:lead",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 5,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:name_tag",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:experience_bottle",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 5,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:saddle",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:golden_carrot",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:diamond",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:wolf_armor",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:enchanted_golden_apple",
+   "tiers": [
+    "legendary"
+   ],
+   "weight": 2,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:totem_of_undying",
+   "tiers": [
+    "mythic"
+   ],
+   "weight": 1,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  }
+ ]
+}

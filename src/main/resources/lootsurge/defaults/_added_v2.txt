@@ -1,0 +1,9 @@
+# Files added by the expansion; copied once into existing configs, never overwritten.
+uniques/expansion.json
+sources/dragon_elytra.json
+sources/ghast_elytra.json
+sources/breeze_elytra.json
+sources/guardian_elytra.json
+sources/shulker_uniques.json
+sources/beanstalk.json
+beanstalk.json

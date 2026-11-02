@@ -1,0 +1,252 @@
+{
+ "_comment": "Treasure at the top of The Giant Beanstalk. Rolled via the beanstalk:treasure source; edit freely.",
+ "sources": [
+  "beanstalk:treasure"
+ ],
+ "dropChance": 1.0,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 1,
+  "rare": 6,
+  "epic": 5,
+  "legendary": 2,
+  "mythic": 0.4,
+  "unique": 0.05
+ },
+ "entries": [
+  {
+   "item": "minecraft:gold_ingot",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 8,
+   "count": {
+    "min": 4,
+    "max": 12
+   }
+  },
+  {
+   "item": "minecraft:emerald",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 8,
+   "count": {
+    "min": 3,
+    "max": 8
+   }
+  },
+  {
+   "item": "minecraft:golden_apple",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 6,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:diamond",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 6,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:experience_bottle",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 6,
+   "count": {
+    "min": 8,
+    "max": 24
+   }
+  },
+  {
+   "item": "minecraft:enchanted_golden_apple",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:diamond_block",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:netherite_scrap",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 3
+   }
+  },
+  {
+   "item": "minecraft:totem_of_undying",
+   "tiers": [
+    "legendary"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:netherite_ingot",
+   "tiers": [
+    "legendary"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:nether_star",
+   "tiers": [
+    "mythic"
+   ],
+   "weight": 2,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:enchanted_golden_apple",
+   "tiers": [
+    "mythic"
+   ],
+   "weight": 2,
+   "count": {
+    "min": 2,
+    "max": 3
+   }
+  },
+  {
+   "unique": "featherlight_shulker",
+   "item": "minecraft:white_shulker_box",
+   "name": "Featherlight Shulker",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:slow_falling",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:jump_boost",
+      "amplifier": 0
+     }
+    ],
+    "flags": [
+     "carried"
+    ]
+   }
+  },
+  {
+   "unique": "galewing",
+   "item": "minecraft:elytra",
+   "name": "Galewing",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:speed",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:jump_boost",
+      "amplifier": 1
+     }
+    ],
+    "immune": [
+     "fall",
+     "fly_into_wall"
+    ],
+    "flags": [
+     "glide_boost"
+    ],
+    "params": {
+     "boostStrength": 1.6,
+     "boostCooldownTicks": 60
+    },
+    "triggers": [
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 5,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:cloud",
+        "count": 5,
+        "radius": 0.35,
+        "amount": 0.2
+       }
+      ]
+     },
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 160,
+      "actions": [
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.breeze.wind_burst",
+        "volume": 0.5,
+        "pitch": 1.3
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

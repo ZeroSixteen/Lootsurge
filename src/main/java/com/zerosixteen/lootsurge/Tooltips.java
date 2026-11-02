@@ -36,7 +36,9 @@ final class Tooltips {
 			Map.entry("archaeology", "brush suspicious sand or gravel"), Map.entry("brewing", "brew a potion"),
 			Map.entry("water", "scoop water with a bucket"), Map.entry("lava", "scoop lava with a bucket"),
 			Map.entry("hurt", "take damage"), Map.entry("hit", "hit a mob"),
-			Map.entry("sprint_burst", "release a full sprint charge"), Map.entry("last_stand", "would die"));
+			Map.entry("sprint_burst", "release a full sprint charge"), Map.entry("last_stand", "would die"), Map.entry("glide", "glide with the wings"),
+			Map.entry("wolf_fight", "fight beside your wolves"), Map.entry("wolf_defend", "defend a wolf"),
+			Map.entry("woolbound", "wake in the Woolbound Dream"));
 
 	private Tooltips() {
 	}
@@ -73,11 +75,7 @@ final class Tooltips {
 
 	static List<Component> build(String id, UniquePowers.Powers p) {
 		List<Component> out = new ArrayList<>();
-		String flavor = FLAVOR.get(id);
-		if (flavor != null && !flavor.isBlank()) {
-			out.add(line("\"" + flavor + "\"", ChatFormatting.GRAY));
-			out.add(line(" ", ChatFormatting.GRAY));
-		}
+		out.add(Component.literal("Powers").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD).withStyle(st -> st.withItalic(false)));
 		if (p.shoot() != null) {
 			out.add(line("Right-click: shoot a " + p.shoot() + " fireball (" + secs(p.cooldownTicks()) + " cooldown)", ChatFormatting.GOLD));
 		}
@@ -163,9 +161,58 @@ final class Tooltips {
 		if (f.contains("last_stand")) {
 			out.add(line("Survives one lethal hit, then recharges for " + (int) (p.param("lastStandCooldownTicks", 6000.0) / 20) + "s", ChatFormatting.GOLD));
 		}
+		if (f.contains("bleed")) {
+			out.add(line(Math.round(p.param("bleedChance", 0.25) * 100) + "% on hit: Bleeding for " + (int) p.param("bleedSeconds", 5.0)
+					+ "s (" + p.param("bleedDamage", 1.0) + " dmg/s, refreshes, never stacks)", ChatFormatting.RED));
+		}
+		if (f.contains("stun")) {
+			out.add(line(Math.round(p.param("stunChance", 0.08) * 100) + "% on hit: Stun for " + String.format("%.1f", p.param("stunTicks", 30.0) / 20)
+					+ "s (cooldown " + (int) (p.param("stunCooldownTicks", 200.0) / 20) + "s)", ChatFormatting.YELLOW));
+		}
+		if (f.contains("carried")) {
+			out.add(line("Works while it is anywhere in your inventory. Contents are never touched.", ChatFormatting.AQUA));
+		}
+		if (f.contains("woolbound")) {
+			out.add(line("Right-click to dream: full hunger and saturation, Resistance " + (int) (p.param("resistanceAmp", 1.0) + 1)
+					+ ", Speed " + (int) (p.param("speedAmp", 1.0) + 1) + " and no hunger loss for one Minecraft day", ChatFormatting.GOLD));
+			out.add(line("Cannot be placed. Does not stack with itself.", ChatFormatting.GRAY));
+		}
+		if (f.contains("glide_boost")) {
+			out.add(line("Sneak while gliding for a burst of speed (" + (int) (p.param("boostCooldownTicks", 100.0) / 20) + "s cooldown)", ChatFormatting.AQUA));
+		}
+		if (f.contains("wolf_pack")) {
+			out.add(line("Your tamed wolves nearby grow stronger and faster", ChatFormatting.AQUA));
+		}
+		String flavor = FLAVOR.get(id);
+		if (flavor != null && !flavor.isBlank()) {
+			out.add(line(" ", ChatFormatting.GRAY));
+			out.add(line("\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500", ChatFormatting.DARK_GRAY));
+			List<String> wrapped = wrap(flavor, 32);
+			for (int i = 0; i < wrapped.size(); i++) {
+				String t = (i == 0 ? "\u275D " : "   ") + wrapped.get(i) + (i == wrapped.size() - 1 ? " \u275E" : "");
+				out.add(Component.literal(t).withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(st -> st.withItalic(true)));
+			}
+		}
 		out.add(line(" ", ChatFormatting.GRAY));
-		out.add(line("Unique", ChatFormatting.GOLD));
+		out.add(Component.literal("\u2726 Unique \u2726").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD).withStyle(st -> st.withItalic(false)));
 		return out;
+	}
+
+	/** Lore lines never wrap on their own, so long flavor text is split on word boundaries. */
+	static List<String> wrap(String text, int width) {
+		List<String> lines = new ArrayList<>();
+		StringBuilder cur = new StringBuilder();
+		for (String w : text.trim().split("\\s+")) {
+			if (cur.length() > 0 && cur.length() + 1 + w.length() > width) {
+				lines.add(cur.toString());
+				cur.setLength(0);
+			}
+			cur.append(cur.length() > 0 ? " " : "").append(w);
+		}
+		if (cur.length() > 0) {
+			lines.add(cur.toString());
+		}
+		return lines;
 	}
 
 	private static String describe(UniquePowers.Action a) {

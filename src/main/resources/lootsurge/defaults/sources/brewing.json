@@ -1,0 +1,131 @@
+{
+ "_comment": "Brewing potions.",
+ "sources": [
+  "brewing:*"
+ ],
+ "dropChance": 0.04,
+ "cooldownTicks": 200,
+ "entries": [
+  {
+   "item": "minecraft:glass_bottle",
+   "tiers": [
+    "common"
+   ],
+   "weight": 7,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:nether_wart",
+   "tiers": [
+    "common"
+   ],
+   "weight": 7,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:glowstone_dust",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 6,
+   "count": {
+    "min": 2,
+    "max": 6
+   }
+  },
+  {
+   "item": "minecraft:redstone",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 6,
+   "count": {
+    "min": 3,
+    "max": 8
+   }
+  },
+  {
+   "item": "minecraft:blaze_powder",
+   "tiers": [
+    "uncommon"
+   ],
+   "weight": 5,
+   "count": {
+    "min": 2,
+    "max": 5
+   }
+  },
+  {
+   "item": "minecraft:ghast_tear",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:experience_bottle",
+   "tiers": [
+    "rare"
+   ],
+   "weight": 4,
+   "count": {
+    "min": 2,
+    "max": 4
+   }
+  },
+  {
+   "item": "minecraft:diamond",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 1,
+    "max": 2
+   }
+  },
+  {
+   "item": "minecraft:blaze_rod",
+   "tiers": [
+    "epic"
+   ],
+   "weight": 3,
+   "count": {
+    "min": 2,
+    "max": 4
+   }
+  },
+  {
+   "item": "minecraft:netherite_scrap",
+   "tiers": [
+    "legendary"
+   ],
+   "weight": 2,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "item": "minecraft:totem_of_undying",
+   "tiers": [
+    "mythic"
+   ],
+   "weight": 1,
+   "count": {
+    "min": 1,
+    "max": 1
+   }
+  }
+ ]
+}

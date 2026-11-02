@@ -357,3 +357,6 @@ Install: put `LootSurge-Visuals.zip` in `.minecraft/resourcepacks` (Prism: insta
 ### Item tooltips
 
 Every Unique now shows a flavor line, how to trigger it (right-click, or the activity that fires it, with chance and cooldown), what it does and its passive effects. The text is built from the item's real powers, so it matches the JSON, including your edits. Flavor lines live in `lootsurge/defaults/flavor.json` inside the jar. Turn off with `visuals.tooltips: false` in `uniques/activities.json`. Uniques dropped earlier get their tooltip the first time they are held or worn.
+
+## Expansion
+Giant Beanstalk, new Unique elytras, Unique shulker boxes, Sage's Puppyfang (Bleeding and Stun), wolf progression, The Woolbound Dream and all-source bonus drops. See UPGRADE_NOTES.md and UPGRADE_PROGRESS.md.

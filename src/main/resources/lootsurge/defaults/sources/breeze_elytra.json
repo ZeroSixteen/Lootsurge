@@ -1,0 +1,96 @@
+{
+ "_comment": "Galewing: rare Breeze drop (1%).",
+ "additional": true,
+ "entities": [
+  "minecraft:breeze"
+ ],
+ "dropChance": 0.01,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "galewing",
+   "item": "minecraft:elytra",
+   "name": "Galewing",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:speed",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:jump_boost",
+      "amplifier": 1
+     }
+    ],
+    "immune": [
+     "fall",
+     "fly_into_wall"
+    ],
+    "flags": [
+     "glide_boost"
+    ],
+    "params": {
+     "boostStrength": 1.6,
+     "boostCooldownTicks": 60
+    },
+    "triggers": [
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 5,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:cloud",
+        "count": 5,
+        "radius": 0.35,
+        "amount": 0.2
+       }
+      ]
+     },
+     {
+      "on": [
+       "glide"
+      ],
+      "cooldown": 160,
+      "actions": [
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.breeze.wind_burst",
+        "volume": 0.5,
+        "pitch": 1.3
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

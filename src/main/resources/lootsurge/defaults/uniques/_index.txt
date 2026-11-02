@@ -7,3 +7,4 @@ nature.json
 livestock.json
 fishing_other.json
 armor.json
+expansion.json
