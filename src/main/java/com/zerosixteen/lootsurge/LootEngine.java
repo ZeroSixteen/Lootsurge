@@ -53,6 +53,10 @@ final class LootEngine {
 	/** Remembers recently handled mobs so one death can never roll twice. Only touched on the server thread. */
 	private final Set<UUID> handled = new LinkedHashSet<>();
 
+	boolean usePower(ServerPlayer player) {
+		return uniques.usePower(player);
+	}
+
 	LootEngine(Logger log, Path configDir, Effects effects, UniquePowers uniques) {
 		this.log = log;
 		this.configDir = configDir;

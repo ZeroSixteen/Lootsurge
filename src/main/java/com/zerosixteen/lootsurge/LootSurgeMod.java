@@ -9,7 +9,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
@@ -75,6 +77,11 @@ public final class LootSurgeMod implements ModInitializer {
 			uniques.companion().onEntityLoad(entity);
 			uniques.onEntityLoad(entity);
 		});
+
+		// Power key: the client sends an empty packet, the server runs the Unique power of whatever the player holds or wears.
+		PayloadTypeRegistry.serverboundPlay().register(PowerKeyPayload.TYPE, PowerKeyPayload.CODEC);
+		ServerPlayNetworking.registerGlobalReceiver(PowerKeyPayload.TYPE,
+				(payload, context) -> uniques.usePower(context.player()));
 
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			engine.healInventory(handler.getPlayer());

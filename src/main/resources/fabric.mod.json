@@ -11,6 +11,9 @@
 	"icon": "assets/lootsurge/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"client": [
+			"com.zerosixteen.lootsurge.client.LootSurgeClient"
+		],
 		"main": [
 			"com.zerosixteen.lootsurge.LootSurgeMod"
 		],

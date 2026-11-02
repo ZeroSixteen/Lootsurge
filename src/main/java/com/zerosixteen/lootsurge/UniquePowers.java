@@ -52,6 +52,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.hurtingprojectile.LargeFireball;
 import net.minecraft.world.entity.projectile.hurtingprojectile.SmallFireball;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
@@ -159,6 +160,7 @@ final class UniquePowers {
 
 	void setRegistry(Map<String, Powers> map) {
 		this.registry = Map.copyOf(map);
+		Tooltips.resetCache();
 	}
 
 	Companion companion() {
@@ -853,53 +855,92 @@ final class UniquePowers {
 		}
 	}
 
-	/** UseItemCallback: right-click to fire a fireball or run the item's onUse actions. */
+	/** True for items whose normal right-click already does something (draw a bow, equip armor, zoom...): their power uses the power key. */
+	static boolean needsKey(ItemStack stack) {
+		if (stack == null || stack.isEmpty()) {
+			return false;
+		}
+		return stack.has(DataComponents.EQUIPPABLE) || stack.has(DataComponents.CONSUMABLE) || stack.is(Items.BOW)
+				|| stack.is(Items.CROSSBOW) || stack.is(Items.TRIDENT) || stack.is(Items.SHIELD) || stack.is(Items.FISHING_ROD)
+				|| stack.is(Items.SPYGLASS) || stack.is(Items.BRUSH);
+	}
+
+	/** UseItemCallback: right-click runs the held Unique's power, unless that item's right-click is something else. */
 	InteractionResult onUse(Player player, Level level, InteractionHand hand) {
 		try {
-			if (!(player instanceof ServerPlayer sp) || !(level instanceof ServerLevel sl) || registry.isEmpty()) {
+			if (!(player instanceof ServerPlayer sp) || !(level instanceof ServerLevel) || registry.isEmpty()) {
 				return InteractionResult.PASS;
 			}
-			Held held = find(player.getItemInHand(hand));
-			if (held == null) {
+			ItemStack stack = player.getItemInHand(hand);
+			if (needsKey(stack)) {
 				return InteractionResult.PASS;
 			}
-			Powers w = held.powers();
-			if (w.shoot() == null && w.useActions().isEmpty()) {
-				return InteractionResult.PASS;
-			}
-			Long due = nextShot.get(sp.getUUID());
-			if (due != null && tick < due) {
-				return InteractionResult.PASS;
-			}
-			nextShot.put(sp.getUUID(), tick + w.cooldownTicks());
-
-			if (!w.useActions().isEmpty()) {
-				Ctx cx = new Ctx(sp, sl, sp.getX(), sp.getY(), sp.getZ(), sp.blockPosition(), null);
-				ThreadLocalRandom rnd = ThreadLocalRandom.current();
-				for (Action a : w.useActions()) {
-					run(a, cx, rnd);
-				}
-			}
-			if (w.shoot() == null) {
-				return InteractionResult.SUCCESS;
-			}
-			shield(sp);
-
-			Vec3 look = sp.getLookAngle();
-			Entity fireball = w.shoot().equals("small") ? new SmallFireball(sl, sp, look)
-					: new LargeFireball(sl, sp, look, w.shootPower());
-			fireball.setPos(sp.getX() + look.x() * 1.5, sp.getEyeY() + look.y() * 1.5 - 0.1, sp.getZ() + look.z() * 1.5);
-			sl.addFreshEntity(fireball);
-
-			SoundEvent sound = Ids.sound("minecraft:entity.ghast.shoot");
-			if (sound != null) {
-				sl.playSound((Player) null, sp.getX(), sp.getY(), sp.getZ(), sound, SoundSource.PLAYERS, 1.0f, 1.0f);
-			}
-			return InteractionResult.SUCCESS;
+			return runPower(sp, stack) ? InteractionResult.SUCCESS : InteractionResult.PASS;
 		} catch (RuntimeException e) {
 			LootSurgeMod.LOGGER.error("[LootSurge] Error in a Unique on-use power.", e);
 			return InteractionResult.PASS;
 		}
+	}
+
+	/** The power key (or /lootsurge power): main hand, off hand, then worn Uniques. Returns whether a power ran. */
+	boolean usePower(ServerPlayer sp) {
+		try {
+			if (registry.isEmpty() || !(sp.level() instanceof ServerLevel) || sp.isSpectator()) {
+				return false;
+			}
+			if (runPower(sp, sp.getMainHandItem()) || runPower(sp, sp.getOffhandItem())) {
+				return true;
+			}
+			for (EquipmentSlot slot : SLOTS) {
+				if (slot != EquipmentSlot.MAINHAND && runPower(sp, sp.getItemBySlot(slot))) {
+					return true;
+				}
+			}
+		} catch (RuntimeException e) {
+			LootSurgeMod.LOGGER.error("[LootSurge] Error in a Unique power key.", e);
+		}
+		return false;
+	}
+
+	private boolean runPower(ServerPlayer sp, ItemStack stack) {
+		ServerLevel sl = (ServerLevel) sp.level();
+		Held held = find(stack);
+		if (held == null) {
+			return false;
+		}
+		Powers w = held.powers();
+		if (w.shoot() == null && w.useActions().isEmpty()) {
+			return false;
+		}
+		Long due = nextShot.get(sp.getUUID());
+		if (due != null && tick < due) {
+			return false;
+		}
+		nextShot.put(sp.getUUID(), tick + w.cooldownTicks());
+
+		if (!w.useActions().isEmpty()) {
+			Ctx cx = new Ctx(sp, sl, sp.getX(), sp.getY(), sp.getZ(), sp.blockPosition(), null);
+			ThreadLocalRandom rnd = ThreadLocalRandom.current();
+			for (Action a : w.useActions()) {
+				run(a, cx, rnd);
+			}
+		}
+		if (w.shoot() == null) {
+			return true;
+		}
+		shield(sp);
+
+		Vec3 look = sp.getLookAngle();
+		Entity fireball = w.shoot().equals("small") ? new SmallFireball(sl, sp, look)
+				: new LargeFireball(sl, sp, look, w.shootPower());
+		fireball.setPos(sp.getX() + look.x() * 1.5, sp.getEyeY() + look.y() * 1.5 - 0.1, sp.getZ() + look.z() * 1.5);
+		sl.addFreshEntity(fireball);
+
+		SoundEvent sound = Ids.sound("minecraft:entity.ghast.shoot");
+		if (sound != null) {
+			sl.playSound((Player) null, sp.getX(), sp.getY(), sp.getZ(), sound, SoundSource.PLAYERS, 1.0f, 1.0f);
+		}
+		return true;
 	}
 
 	// ------------------------------------------------------------------ triggers and actions

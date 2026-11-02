@@ -55,6 +55,8 @@ final class Tooltips {
 		}
 	}
 
+	private static final java.util.Map<String, List<Component>> CACHE = new java.util.concurrent.ConcurrentHashMap<>();
+
 	static void apply(ItemStack stack, String id, UniquePowers.Powers p) {
 		if (FLAVOR.isEmpty()) {
 			loadFlavor(LootSurgeMod.LOGGER);
@@ -62,11 +64,30 @@ final class Tooltips {
 		if (!enabled || stack == null || stack.isEmpty() || id == null || p == null) {
 			return;
 		}
+		Stats.apply(stack, p);
+		boolean key = UniquePowers.needsKey(stack);
+		List<Component> built = CACHE.computeIfAbsent(id + (key ? "#k" : ""), k -> build(id, p, key));
 		ItemLore existing = stack.get(DataComponents.LORE);
-		if (existing != null && !existing.lines().isEmpty()) {
+		if (existing != null && existing.lines().equals(built)) {
 			return;
 		}
-		stack.set(DataComponents.LORE, new ItemLore(build(id, p)));
+		// Rewrites older lore too, so existing items pick up improved flavor text.
+		stack.set(DataComponents.LORE, new ItemLore(built));
+	}
+
+	/** Forgets cached lore (called when the Unique registry reloads). */
+	static void resetCache() {
+		CACHE.clear();
+	}
+
+	/** "Right-click: ..." for plain items, "[R]: ..." (the player's bound power key) for items whose right-click already does something. */
+	private static Component useLine(boolean key, String text) {
+		if (!key) {
+			return line("Right-click " + text, ChatFormatting.GOLD);
+		}
+		return Component.literal("Power key [").withStyle(ChatFormatting.GOLD).withStyle(s -> s.withItalic(false))
+				.append(Component.keybind("key.lootsurge.power").withStyle(ChatFormatting.YELLOW))
+				.append(Component.literal("] " + text).withStyle(ChatFormatting.GOLD));
 	}
 
 	private static Component line(String text, ChatFormatting color) {
@@ -74,13 +95,17 @@ final class Tooltips {
 	}
 
 	static List<Component> build(String id, UniquePowers.Powers p) {
+		return build(id, p, false);
+	}
+
+	static List<Component> build(String id, UniquePowers.Powers p, boolean key) {
 		List<Component> out = new ArrayList<>();
 		out.add(Component.literal("Powers").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD).withStyle(st -> st.withItalic(false)));
 		if (p.shoot() != null) {
-			out.add(line("Right-click: shoot a " + p.shoot() + " fireball (" + secs(p.cooldownTicks()) + " cooldown)", ChatFormatting.GOLD));
+			out.add(useLine(key, "shoot a " + p.shoot() + " fireball (" + secs(p.cooldownTicks()) + " cooldown)"));
 		}
 		if (!p.useActions().isEmpty()) {
-			out.add(line("Right-click (" + secs(p.cooldownTicks()) + " cooldown):", ChatFormatting.GOLD));
+			out.add(useLine(key, "(" + secs(p.cooldownTicks()) + " cooldown):"));
 			for (UniquePowers.Action a : p.useActions()) {
 				String d = describe(a);
 				if (d != null) {

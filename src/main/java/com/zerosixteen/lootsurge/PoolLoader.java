@@ -235,7 +235,7 @@ final class PoolLoader {
 			log.warn("[LootSurge] {}: unique id '{}' may only use a-z, 0-9 and _ (max 40). Entry skipped.", where, uniqueId);
 			return null;
 		} else {
-			powers = UniquePowers.parse(c.child("powers"), log, where);
+			powers = Balance.apply(uniqueId, UniquePowers.parse(c.child("powers"), log, where), log);
 		}
 
 		Component name = null;
