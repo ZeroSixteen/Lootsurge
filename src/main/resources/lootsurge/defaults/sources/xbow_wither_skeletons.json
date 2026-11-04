@@ -1,0 +1,99 @@
+{
+ "_comment": "Witherfang Crossbow: rare crossbow drop from this mob family (1.2% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:wither_skeleton"
+ ],
+ "dropChance": 0.012,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "witherfang_crossbow",
+   "item": "minecraft:crossbow",
+   "name": "Witherfang Crossbow",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 4,
+     "maxLevel": 6,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:fire_resistance",
+      "amplifier": 0
+     }
+    ],
+    "immune": [
+     "fire"
+    ],
+    "onHit": {
+     "lifesteal": 0.15,
+     "effects": [
+      {
+       "id": "minecraft:wither",
+       "amplifier": 2,
+       "seconds": 6
+      }
+     ]
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.35,
+      "cooldown": 30,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:soul_fire_flame",
+        "count": 10,
+        "radius": 0.4,
+        "amount": 0.8
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.wither_skeleton.ambient",
+        "volume": 0.5,
+        "pitch": 1.0
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

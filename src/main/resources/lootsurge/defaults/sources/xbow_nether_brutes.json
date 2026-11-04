@@ -1,0 +1,102 @@
+{
+ "_comment": "Piglin's Gilded Crossbow: rare crossbow drop from this mob family (0.7% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:piglin",
+  "minecraft:piglin_brute",
+  "minecraft:zombified_piglin",
+  "minecraft:hoglin",
+  "minecraft:zoglin"
+ ],
+ "dropChance": 0.007,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "piglins_gilded_crossbow",
+   "item": "minecraft:crossbow",
+   "name": "Piglin's Gilded Crossbow",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 4,
+     "maxLevel": 5,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:strength",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:resistance",
+      "amplifier": 0
+     }
+    ],
+    "onHit": {
+     "lifesteal": 0.1
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.15,
+      "cooldown": 60,
+      "actions": [
+       {
+        "type": "drop",
+        "chance": 1.0,
+        "give": true,
+        "items": [
+         {
+          "item": "minecraft:gold_nugget",
+          "min": 2,
+          "max": 6
+         }
+        ]
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.piglin.admiring_item",
+        "volume": 0.6,
+        "pitch": 1.0
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

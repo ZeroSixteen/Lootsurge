@@ -1,0 +1,87 @@
+{
+ "_comment": "Blastbolt Arbalest: rare crossbow drop from this mob family (0.6% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:creeper"
+ ],
+ "dropChance": 0.006,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "blastbolt_arbalest",
+   "item": "minecraft:crossbow",
+   "name": "Blastbolt Arbalest",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "immune": [
+     "explosion"
+    ],
+    "onHit": {
+     "explosionChance": 0.25,
+     "explosionPower": 1.5
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.25,
+      "cooldown": 40,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:explosion",
+        "count": 2,
+        "radius": 0.3,
+        "amount": 0.8
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.creeper.primed",
+        "volume": 0.6,
+        "pitch": 1.2
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

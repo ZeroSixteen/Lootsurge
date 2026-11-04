@@ -1,0 +1,74 @@
+{
+ "_comment": "Hellfire Repeater: rare crossbow drop from this mob family (1% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:blaze",
+  "minecraft:ghast"
+ ],
+ "dropChance": 0.01,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "hellfire_repeater",
+   "item": "minecraft:crossbow",
+   "name": "Hellfire Repeater",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 4,
+     "maxLevel": 5,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:fire_resistance",
+      "amplifier": 0
+     }
+    ],
+    "immune": [
+     "fire"
+    ],
+    "onHit": {
+     "igniteSeconds": 10
+    },
+    "onUse": {
+     "shoot": "large",
+     "power": 3,
+     "cooldownTicks": 40
+    }
+   }
+  }
+ ]
+}

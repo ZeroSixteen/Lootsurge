@@ -1,0 +1,19 @@
+# Mob crossbow Uniques (added in the crossbow update); copied once into existing configs, never overwritten.
+sources/xbow_zombies.json
+sources/xbow_drowned.json
+sources/xbow_skeletons.json
+sources/xbow_wither_skeletons.json
+sources/xbow_creepers.json
+sources/xbow_spiders.json
+sources/xbow_witches.json
+sources/xbow_endermen.json
+sources/xbow_blaze_ghast.json
+sources/xbow_nether_brutes.json
+sources/xbow_illagers.json
+sources/xbow_guardians.json
+sources/xbow_warden.json
+sources/xbow_wither.json
+sources/xbow_slimes.json
+sources/xbow_phantoms.json
+sources/xbow_trial_and_pale.json
+sources/xbow_end_dwellers.json

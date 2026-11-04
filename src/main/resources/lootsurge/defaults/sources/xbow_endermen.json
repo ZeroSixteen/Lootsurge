@@ -1,0 +1,100 @@
+{
+ "_comment": "Riftbolt Crossbow: rare crossbow drop from this mob family (1% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:enderman"
+ ],
+ "dropChance": 0.01,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "riftbolt_crossbow",
+   "item": "minecraft:crossbow",
+   "name": "Riftbolt Crossbow",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 3,
+     "maxLevel": 5,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:slow_falling",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:speed",
+      "amplifier": 0
+     }
+    ],
+    "immune": [
+     "fall"
+    ],
+    "onHit": {
+     "effects": [
+      {
+       "id": "minecraft:levitation",
+       "amplifier": 0,
+       "seconds": 2
+      }
+     ]
+    },
+    "triggers": [
+     {
+      "on": [
+       "hurt"
+      ],
+      "chance": 0.3,
+      "cooldown": 100,
+      "actions": [
+       {
+        "type": "teleport",
+        "radius": 6
+       },
+       {
+        "type": "particles",
+        "particle": "minecraft:portal",
+        "count": 20,
+        "radius": 0.5,
+        "amount": 0.8
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

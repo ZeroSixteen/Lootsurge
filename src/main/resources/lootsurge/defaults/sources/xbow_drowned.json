@@ -1,0 +1,104 @@
+{
+ "_comment": "Tideshot Arbalest: rare crossbow drop from this mob family (0.6% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:drowned",
+  "minecraft:zombie_nautilus"
+ ],
+ "dropChance": 0.006,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "tideshot_arbalest",
+   "item": "minecraft:crossbow",
+   "name": "Tideshot Arbalest",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 3,
+     "maxLevel": 4,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 4,
+     "maxLevel": 5,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:water_breathing",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:dolphins_grace",
+      "amplifier": 0
+     }
+    ],
+    "immune": [
+     "drowning"
+    ],
+    "onHit": {
+     "lightningChance": 0.06,
+     "effects": [
+      {
+       "id": "minecraft:slowness",
+       "amplifier": 1,
+       "seconds": 4
+      }
+     ]
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.4,
+      "cooldown": 30,
+      "actions": [
+       {
+        "type": "particles",
+        "particle": "minecraft:bubble",
+        "count": 10,
+        "radius": 0.4,
+        "amount": 0.8
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.drowned.shoot",
+        "volume": 0.6,
+        "pitch": 1.1
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "_comment": "Witherstar Arbalest: rare crossbow drop from this mob family (30% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:wither"
+ ],
+ "dropChance": 0.3,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "witherstar_arbalest",
+   "item": "minecraft:crossbow",
+   "name": "Witherstar Arbalest",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 5,
+     "maxLevel": 6,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 6,
+     "maxLevel": 8,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:multishot",
+     "minLevel": 1,
+     "maxLevel": 1
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:resistance",
+      "amplifier": 1
+     },
+     {
+      "id": "minecraft:fire_resistance",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:strength",
+      "amplifier": 1
+     }
+    ],
+    "immune": [
+     "fire",
+     "explosion"
+    ],
+    "onHit": {
+     "lifesteal": 0.2,
+     "explosionChance": 0.15,
+     "explosionPower": 2.0,
+     "effects": [
+      {
+       "id": "minecraft:wither",
+       "amplifier": 2,
+       "seconds": 8
+      }
+     ]
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.3,
+      "cooldown": 60,
+      "actions": [
+       {
+        "type": "ring",
+        "particle": "minecraft:soul_fire_flame",
+        "count": 2,
+        "radius": 2.5
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.wither.shoot",
+        "volume": 0.5,
+        "pitch": 1.1
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

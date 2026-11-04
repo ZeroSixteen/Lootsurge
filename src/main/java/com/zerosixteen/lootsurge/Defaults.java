@@ -67,9 +67,12 @@ final class Defaults {
 				}
 			}
 			// Files added by later versions: copied once into existing configs, never overwritten, never re-added after the user deletes them.
-			Path marker = configDir.resolve(".lootsurge_added_v2");
-			if (!Files.exists(marker)) {
-				String added = readText(ROOT + "_added_v2.txt", log);
+			for (String version : new String[] { "2", "3" }) {
+				Path marker = configDir.resolve(".lootsurge_added_v" + version);
+				if (Files.exists(marker)) {
+					continue;
+				}
+				String added = readText(ROOT + "_added_v" + version + ".txt", log);
 				if (added != null) {
 					for (String line : added.split("\\R")) {
 						String name = line.trim();

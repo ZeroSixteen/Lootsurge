@@ -1,0 +1,107 @@
+{
+ "_comment": "Rattlebolt Repeater: rare crossbow drop from this mob family (0.7% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:skeleton",
+  "minecraft:stray",
+  "minecraft:bogged",
+  "minecraft:parched"
+ ],
+ "dropChance": 0.007,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "rattlebolt_repeater",
+   "item": "minecraft:crossbow",
+   "name": "Rattlebolt Repeater",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 4,
+     "maxLevel": 5,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:multishot",
+     "minLevel": 1,
+     "maxLevel": 1
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 2,
+     "maxLevel": 3,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:speed",
+      "amplifier": 0
+     }
+    ],
+    "onHit": {
+     "effects": [
+      {
+       "id": "minecraft:slowness",
+       "amplifier": 0,
+       "seconds": 3
+      }
+     ]
+    },
+    "flags": [
+     "bleed",
+     "stun"
+    ],
+    "params": {
+     "bleedChance": 0.3,
+     "bleedSeconds": 5,
+     "bleedDamage": 1.0,
+     "stunChance": 0.06,
+     "stunTicks": 25
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.4,
+      "cooldown": 20,
+      "actions": [
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.skeleton.ambient",
+        "volume": 0.6,
+        "pitch": 1.4
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

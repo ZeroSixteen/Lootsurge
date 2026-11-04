@@ -1,0 +1,121 @@
+{
+ "_comment": "Wardenbane Arbalest: rare crossbow drop from this mob family (25% per kill).",
+ "additional": true,
+ "entities": [
+  "minecraft:warden"
+ ],
+ "dropChance": 0.25,
+ "tierWeights": {
+  "common": 0,
+  "uncommon": 0,
+  "rare": 0,
+  "epic": 0,
+  "legendary": 0,
+  "mythic": 0,
+  "unique": 1
+ },
+ "entries": [
+  {
+   "unique": "echo_arbalest",
+   "item": "minecraft:crossbow",
+   "name": "Wardenbane Arbalest",
+   "nameColor": "orange",
+   "tiers": [
+    "unique"
+   ],
+   "weight": 1,
+   "enchantments": [
+    {
+     "id": "minecraft:quick_charge",
+     "minLevel": 4,
+     "maxLevel": 5,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:piercing",
+     "minLevel": 5,
+     "maxLevel": 7,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:multishot",
+     "minLevel": 1,
+     "maxLevel": 1
+    },
+    {
+     "id": "minecraft:unbreaking",
+     "minLevel": 8,
+     "maxLevel": 10,
+     "overcap": true
+    },
+    {
+     "id": "minecraft:mending",
+     "minLevel": 1,
+     "maxLevel": 1
+    }
+   ],
+   "powers": {
+    "effects": [
+     {
+      "id": "minecraft:night_vision",
+      "amplifier": 0
+     },
+     {
+      "id": "minecraft:resistance",
+      "amplifier": 1
+     }
+    ],
+    "onHit": {
+     "lifesteal": 0.12,
+     "effects": [
+      {
+       "id": "minecraft:blindness",
+       "amplifier": 0,
+       "seconds": 3
+      },
+      {
+       "id": "minecraft:slowness",
+       "amplifier": 1,
+       "seconds": 5
+      }
+     ]
+    },
+    "flags": [
+     "stun"
+    ],
+    "params": {
+     "stunChance": 0.1,
+     "stunTicks": 30
+    },
+    "triggers": [
+     {
+      "on": [
+       "hit"
+      ],
+      "chance": 0.2,
+      "cooldown": 80,
+      "actions": [
+       {
+        "type": "shockwave",
+        "radius": 5,
+        "amount": 1.6
+       },
+       {
+        "type": "ring",
+        "particle": "minecraft:sculk_soul",
+        "count": 2,
+        "radius": 2.5
+       },
+       {
+        "type": "sound",
+        "sound": "minecraft:entity.warden.sonic_boom",
+        "volume": 0.4,
+        "pitch": 1.4
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}
