@@ -1,7 +1,9 @@
 package com.zerosixteen.lootsurge;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -19,9 +21,10 @@ public final class UniqueCatalog {
 
 	public static List<ItemStack> bundledShowcase(HolderLookup.Provider registries) {
 		List<ItemStack> out = new ArrayList<>();
+		Set<String> seen = new HashSet<>();
 		try {
 			HolderLookup.RegistryLookup<Enchantment> enchants = registries.lookupOrThrow(Registries.ENCHANTMENT);
-			for (String dir : new String[] { "pools", "uniques" }) {
+			for (String dir : new String[] { "pools", "uniques", "sources" }) {
 			String index = Defaults.readBundledText(dir + "/_index.txt");
 			if (index == null) {
 				continue;
@@ -41,7 +44,7 @@ public final class UniqueCatalog {
 					if (e.isJsonObject() && e.getAsJsonObject().has("unique")) {
 						LootEntry entry = PoolLoader.parseEntry(file, i, e.getAsJsonObject(), enchants,
 								LootSurgeMod.LOGGER);
-						if (entry != null && entry.uniqueId != null) {
+						if (entry != null && entry.uniqueId != null && seen.add(entry.uniqueId)) {
 							out.add(entry.createShowcase());
 						}
 					}

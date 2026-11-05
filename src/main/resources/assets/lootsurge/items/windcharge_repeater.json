@@ -10,20 +10,20 @@
      "when": "arrow",
      "model": {
       "type": "minecraft:model",
-      "model": "minecraft:item/crossbow_arrow"
+      "model": "minecraft:item/crossbow_pulling_0"
      }
     },
     {
      "when": "rocket",
      "model": {
       "type": "minecraft:model",
-      "model": "minecraft:item/crossbow_firework"
+      "model": "minecraft:item/crossbow_pulling_0"
      }
     }
    ],
    "fallback": {
     "type": "minecraft:model",
-    "model": "minecraft:item/crossbow_standby"
+    "model": "minecraft:item/crossbow_pulling_0"
    }
   },
   "on_true": {
