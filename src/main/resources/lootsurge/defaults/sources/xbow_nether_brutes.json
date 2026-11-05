@@ -1,5 +1,5 @@
 {
- "_comment": "Piglin's Gilded Crossbow: rare crossbow drop from this mob family (0.7% per kill).",
+ "_comment": "Piglin's Gilded Crossbow: very rare crossbow drop from this mob family (0.05% per kill, about 1 in 2,000). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:piglin",
@@ -8,7 +8,7 @@
   "minecraft:hoglin",
   "minecraft:zoglin"
  ],
- "dropChance": 0.007,
+ "dropChance": 0.0005,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

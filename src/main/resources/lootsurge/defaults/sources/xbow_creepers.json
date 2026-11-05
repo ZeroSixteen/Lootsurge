@@ -1,10 +1,10 @@
 {
- "_comment": "Blastbolt Arbalest: rare crossbow drop from this mob family (0.6% per kill).",
+ "_comment": "Blastbolt Arbalest: very rare crossbow drop from this mob family (0.03% per kill, about 1 in 3,333). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:creeper"
  ],
- "dropChance": 0.006,
+ "dropChance": 0.0003,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

@@ -1,11 +1,11 @@
 {
- "_comment": "Slimeslinger: rare crossbow drop from this mob family (0.5% per kill).",
+ "_comment": "Slimeslinger: very rare crossbow drop from this mob family (0.03% per kill, about 1 in 3,333). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:slime",
   "minecraft:magma_cube"
  ],
- "dropChance": 0.005,
+ "dropChance": 0.0003,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

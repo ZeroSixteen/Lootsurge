@@ -1,5 +1,5 @@
 {
- "_comment": "Rotbolt Repeater: rare crossbow drop from this mob family (0.5% per kill).",
+ "_comment": "Rotbolt Repeater: very rare crossbow drop from this mob family (0.03% per kill, about 1 in 3,333). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:zombie",
@@ -7,7 +7,7 @@
   "minecraft:zombie_villager",
   "minecraft:camel_husk"
  ],
- "dropChance": 0.005,
+ "dropChance": 0.0003,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

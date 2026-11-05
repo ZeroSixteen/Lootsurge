@@ -1,11 +1,11 @@
 {
- "_comment": "Windcharge Repeater: rare crossbow drop from this mob family (1.2% per kill).",
+ "_comment": "Windcharge Repeater: very rare crossbow drop from this mob family (0.08% per kill, about 1 in 1,250). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:breeze",
   "minecraft:creaking"
  ],
- "dropChance": 0.012,
+ "dropChance": 0.0008,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

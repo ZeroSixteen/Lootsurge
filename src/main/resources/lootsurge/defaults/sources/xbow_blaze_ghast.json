@@ -1,11 +1,11 @@
 {
- "_comment": "Hellfire Repeater: rare crossbow drop from this mob family (1% per kill).",
+ "_comment": "Hellfire Repeater: very rare crossbow drop from this mob family (0.05% per kill, about 1 in 2,000). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:blaze",
   "minecraft:ghast"
  ],
- "dropChance": 0.01,
+ "dropChance": 0.0005,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

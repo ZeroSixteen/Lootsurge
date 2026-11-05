@@ -1,10 +1,10 @@
 {
- "_comment": "Phantom's Talon: rare crossbow drop from this mob family (1.2% per kill).",
+ "_comment": "Phantom's Talon: very rare crossbow drop from this mob family (0.05% per kill, about 1 in 2,000). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:phantom"
  ],
- "dropChance": 0.012,
+ "dropChance": 0.0005,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

@@ -1,5 +1,5 @@
 {
- "_comment": "Rattlebolt Repeater: rare crossbow drop from this mob family (0.7% per kill).",
+ "_comment": "Rattlebolt Repeater: very rare crossbow drop from this mob family (0.03% per kill, about 1 in 3,333). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:skeleton",
@@ -7,7 +7,7 @@
   "minecraft:bogged",
   "minecraft:parched"
  ],
- "dropChance": 0.007,
+ "dropChance": 0.0003,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

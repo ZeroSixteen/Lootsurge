@@ -1,10 +1,10 @@
 {
- "_comment": "Witherstar Arbalest: rare crossbow drop from this mob family (30% per kill).",
+ "_comment": "Witherstar Arbalest: very rare crossbow drop from this mob family (3% per kill, about 1 in 33). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:wither"
  ],
- "dropChance": 0.3,
+ "dropChance": 0.03,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,

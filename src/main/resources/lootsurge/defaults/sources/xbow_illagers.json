@@ -1,5 +1,5 @@
 {
- "_comment": "Pillager's Doom: rare crossbow drop from this mob family (1.8% per kill).",
+ "_comment": "Pillager's Doom: very rare crossbow drop from this mob family (0.08% per kill, about 1 in 1,250). Edit dropChance to change it.",
  "additional": true,
  "entities": [
   "minecraft:pillager",
@@ -8,7 +8,7 @@
   "minecraft:illusioner",
   "minecraft:ravager"
  ],
- "dropChance": 0.018,
+ "dropChance": 0.0008,
  "tierWeights": {
   "common": 0,
   "uncommon": 0,
